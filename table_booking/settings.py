@@ -88,10 +88,11 @@ WSGI_APPLICATION = 'table_booking.wsgi.application'
 
 DATABASES = {
     'default':dj_database_url.parse(os.environ.get
-    ("DATABASE_URL","postgres://u2xzgnmh6kh:OjzZIPIrzk37@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/scoot_yeast_click_149773"))
+    ("DATABASE_URL"))
 }
 
 # Password validation
+
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
