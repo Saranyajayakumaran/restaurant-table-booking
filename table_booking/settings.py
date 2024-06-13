@@ -91,6 +91,11 @@ DATABASES = {
     ("DATABASE_URL"))
 }
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://http://127.0.0.1:8000/",
+    "https://table-booking-841c98d19b8c.herokuapp.com"
+]
+
 # Password validation
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
