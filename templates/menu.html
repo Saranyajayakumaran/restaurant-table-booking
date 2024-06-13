@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="my-4">Menu</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{{ menu_items.name }}</th>
+                <th>{{ menu_items.description }}</th>
+                <th>{{ menu_items.price }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in menu_items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.description }}</td>
+                <td>${{ item.price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
