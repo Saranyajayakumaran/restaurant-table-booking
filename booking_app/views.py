@@ -6,8 +6,8 @@ from .models import MenuPageContent
 
 # Create your views here.
 def homepage(request):
-    content=HomePageContent.objects.all()
-    contact_details=ContactInformation.objects.all()
+    content=HomePageContent.objects.first()
+    contact_details=ContactInformation.objects.first()
     return render(request,'home.html',{'content':content,'contact_details':contact_details})
 
 def menupage(request):
