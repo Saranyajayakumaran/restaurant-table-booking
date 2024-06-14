@@ -12,6 +12,7 @@ def homepage(request):
 
 def menupage(request):
     menu_items=MenuPageContent.objects.all()
-    contact_details=ContactInformation.objects.first()
-    content = HomePageContent.objects.first()
-    return render(request,'menu.html',{'menu_items':menu_items,'contact_details':contact_details,'title':content.title if content else 'Restaurant'})
+    context = {
+        'menu_items': menu_items,
+    }
+    return render(request,'menu.html',context)

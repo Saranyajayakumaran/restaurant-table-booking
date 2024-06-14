@@ -6,11 +6,15 @@
     <title>Taste of South India</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
 </head>
 <body>
-    <header>
+    <header class="bg-light py-4">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="{% url 'home' %}"><h1>{{ content.title }}</h1></a>
+        <a class="navbar-brand" href="{% url 'home' %}"><h1>Taste of South India</h1></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,25 +29,46 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Book a Table</a>
                 </li>
-
             </ul>
         </div>
     </nav>
     </header>
-    {% block content %}{% endblock %}
-    <footer>
-        <div class="row mt-4">
-            <div class="col-md-12 text-center">
-                <h3>Contact Us</h3>
-                <h6>Address</h6>
-                <p>{{ contact_details.address}}</p>
-                <h6>phone</h6>
-                <p>{{ contact_details.phone_number}}</p>
-                <h6>Email</h6>
-                <p>{{ contact_details.email}}</p>
-                <h6>Opening hours</h6>
-                <p>{{ contact_details.opening_hours}}</p>
-            </div>
+    {% block content %}
+    
+    {% endblock %}
+       
+           
+    <footer class="bg-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <ul id="social-media" class="list-inline">
+                        <li class="list-inline-item">
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                                aria-label="visit our Facebook page (opens in a new tab)">
+                                <i class="fab fa-facebook-square fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://twitter.com/" target="_blank" rel="noopener"
+                                aria-label="visit our Twitter page (opens in a new tab)">
+                                <i class="fab fa-twitter-square fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://youtube.com/" target="_blank" rel="noopener"
+                                aria-label="visit our YouTube page (opens in a new tab)">
+                                <i class="fab fa-youtube-square fa-2x"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                                aria-label="visit our Instagram page (opens in a new tab)">
+                                <i class="fab fa-instagram-square fa-2x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </footer>
