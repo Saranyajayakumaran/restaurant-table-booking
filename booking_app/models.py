@@ -39,5 +39,5 @@ class BookingTable(models.Model):
     special_requests=models.TextField(blank=True,null=True)
 
     def __str__(self):
-        return f"Booking for {self.user.user} on {self.date} at {self.time} is confirmed"
+        return f"Your Booking on {self.date} at {self.time} is confirmed"
 

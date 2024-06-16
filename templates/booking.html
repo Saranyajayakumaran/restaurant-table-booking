@@ -4,4 +4,11 @@
 
 <h1>Book A Table</h1>
 
+<form action="" method="post">
+    {% csrf_token %}
+    {{bookingtableform}}
+    <button type="submit">Book</button>
+</form>
+
+
 {% endblock %}
