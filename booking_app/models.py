@@ -28,7 +28,7 @@ class MenuPageContent(models.Model):
     def __str__(self):
         return self.name
  
-class BookingForm(models.Model):
+class BookingTable(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE)
     name=models.CharField(max_length=30)
     date=models.DateField()

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import HomePageContent
 from .models import ContactInformation
 from .models import MenuPageContent
-from .models import BookingForm
+from .models import BookingTable
 
 # Create your views here.
 def homepage(request):
@@ -18,6 +18,6 @@ def menupage(request):
     }
     return render(request,'menu.html',context)
 
-#def booking_table(request):
-    table_booking=BookingForm.objects.all()
-    return render(request,'book')
+def booking_table(request):
+    table_booking=BookingTable.objects.all()
+    return render(request,'booking.html',{'table_booking':table_booking})
