@@ -50,4 +50,6 @@ def register(request):
     else:
         form=RegistrationForm()
     return render(request,'registration.html',{'form':form})
-    
+
+def tablebooking(request):
+    return render(request,'table_booking.html',{'tablebooking':tablebooking})
