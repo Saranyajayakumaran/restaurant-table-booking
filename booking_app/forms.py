@@ -1,7 +1,8 @@
 from django import forms
 from django.forms import ModelForm
 from .models import BookingTable
-from .models import Registration
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 class BookingTableForm(forms.ModelForm):
 
@@ -9,12 +10,11 @@ class BookingTableForm(forms.ModelForm):
         model=BookingTable
         exclude=['user'] # excluding the user field, django automatically generate user id
 
-class UserRegistrationForm(forms.ModelForm):
+class UserRegistrationForm(UserCreationForm):
     
     class Meta:
-        model=Registration
-        fields='__all__'
-        widgets = {
-            'password': forms.PasswordInput(),  # Render password field as a password input
-        }
-
+        model=User
+        fields={ 'first_name',
+                'last_name',
+                'email',
+                'username'}
