@@ -5,6 +5,7 @@ from .models import ContactInformation
 from .models import MenuPageContent
 from .models import BookingTable
 from .forms import BookingTableForm
+from .forms import RegistrationForm
 
 # Create your views here.
 def homepage(request):
@@ -37,3 +38,16 @@ def booking(request):
         'bookingtableform':BookingTableForm()
     }
     return render(request,'booking.html',context)
+
+def register(request):
+
+    if request.method=='POST':
+        form=RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    
+    else:
+        form=RegistrationForm()
+    return render(request,'registration.html',{'form':form})
+    
