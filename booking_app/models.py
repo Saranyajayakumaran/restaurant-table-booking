@@ -27,6 +27,17 @@ class MenuPageContent(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class SignupModel(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    username=models.CharField(max_length=20)
+    name=models.CharField(max_length=20)
+    email=models.EmailField()
+    phone_number=models.CharField(max_length=20,blank=True)
+
+    USERNAME_FIELD = 'username'  # Specify the username field
+    REQUIRED_FIELDS = ['email']
  
 class BookingTable(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE)
