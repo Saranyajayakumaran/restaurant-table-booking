@@ -47,6 +47,7 @@ def signup(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()  # Save the form data to the database
+            return redirect('home')
     else:
         form = UserRegistrationForm()
     return render(request, 'signup.html', {'form': form})
