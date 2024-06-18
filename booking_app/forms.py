@@ -15,8 +15,12 @@ class BookingTableForm(forms.ModelForm):
 
 
 class CustomerSignUpForm(UserCreationForm):
-    email=forms.EmailField(max_length=254,help_text='required')
+    email=forms.EmailField(max_length=200)
     phone_number=forms.CharField(max_length=20,required=True)
     class Meta:
         model = SignupModel
         fields = ('username','name','email', 'phone_number')  
+
+class CustomerLoginForm(AuthenticationForm):
+    username=forms.CharField(max_length=200)
+    password=forms.CharField(widget=forms.PasswordInput)
