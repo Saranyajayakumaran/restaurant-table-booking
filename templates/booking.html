@@ -1,1 +1,5 @@
 <h1> BOOking page</h1>
+
+<h2> Welcome {{request.user.username}}</h2>
+
+<a href="{% url 'logout' %}" class="btn btn-lg btn-sucess">Log-out</a>

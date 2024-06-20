@@ -6,7 +6,8 @@ from django.contrib import messages
 from django.db import IntegrityError
 #from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 from .models import HomePageContent
 from .models import ContactInformation
@@ -66,3 +67,11 @@ def login_view(request):
     else:
         form=CustomerLoginForm()
     return render(request,'login.html',{"form":form})
+
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return render(request,'home.html')
+
+
