@@ -3,6 +3,7 @@ from django.urls import path
 from django.contrib.auth.views import LoginView
 from booking_app.views import homepage
 from booking_app.views import menupage
+#from booking_app.views import CustomLoginView
 from booking_app.views import login_view
 from booking_app.views import signup_view
 

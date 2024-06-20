@@ -25,7 +25,6 @@ def menupage(request):
     menu_items=MenuPageContent.objects.all()
     return render(request,'menu.html',{'menu_items':menu_items})
 
-##SignUp
 def signup_view(request):
     if request.method == 'POST':
         form = CustomerSignUpForm(request.POST)
@@ -38,25 +37,30 @@ def signup_view(request):
     return render(request, 'signup.html', {'form': form})
 
 
-## LogIn
+#class CustomLoginView(LoginView):
+    #template_name = 'login.html'
+    #authentication_form = AuthenticationForm
+
+#def loginpage(request):
+    #return render(request, 'login.html')
+
+## login
 
 def login_view(request):
     if request.method=="POST":
         form=CustomerLoginForm(request.POST)
-
         if form.is_valid():
             cd=form.cleaned_data
             user=authenticate(request,username=cd["username"], password=cd["password"])
             if user is not None:
                 if user.is_active:
                     login(request,user)
-                    return HttpResponse("<h1>Login successfull<h2>")
+                    return HttpResponse("<h1> login successfull </h1>")
                 else:
-                    return HttpResponse("<h1> Disable Account <h1>")
+                    return HttpResponse("<h1> Disable account </h1>")
             else:
-                return HttpResponse("<h1>Invalid login</h1>")
+                return HttpResponse("<h1> Invalid Login </h1>")
     else:
         form=CustomerLoginForm()
-    return render(request,'login',{"form:form"})
-            
 
+    return render(request,'login.html',{"form":form})
