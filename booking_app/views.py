@@ -7,6 +7,7 @@ from django.db import IntegrityError
 #from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth import authenticate,login
+from django.core.exceptions import ValidationError
 from .models import HomePageContent
 from .models import ContactInformation
 from .models import MenuPageContent
@@ -55,12 +56,13 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     login(request,user)
-                    return HttpResponse("<h1> login successfull </h1>")
+                    return render(request,'booking.html',{"form":form})
                 else:
-                    return HttpResponse("<h1> Disable account </h1>")
+                    error_message = "Account is disabled"
             else:
-                return HttpResponse("<h1> Invalid Login </h1>")
+                error_message = "Invalid username or password"
+
+            return render(request, 'login.html', {'form': form, 'error_message': error_message})
     else:
         form=CustomerLoginForm()
-
     return render(request,'login.html',{"form":form})
