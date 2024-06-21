@@ -11,9 +11,6 @@ class HomePageContent(models.Model):
     description=models.TextField()
     offers=models.TextField()
 
-    def __str__(self):
-        return self.title
-
 class ContactInformation(models.Model):
     address=models.CharField(max_length=200)
     phone_number=models.CharField(max_length=15)
@@ -21,7 +18,8 @@ class ContactInformation(models.Model):
     opening_hours=models.TextField()
 
     def __str__(self):
-        return self.address
+        return self.name
+
 
 class MenuPageContent(models.Model):
     """
@@ -30,9 +28,6 @@ class MenuPageContent(models.Model):
     name=models.CharField(max_length=300)
     description=models.TextField()
     price=models.DecimalField(max_digits=10,decimal_places=2)
-
-    def __str__(self):
-        return {self.name}
 
 
 class TableInfo(models.Model):
@@ -53,6 +48,7 @@ class BookingTable(models.Model):
     Each booking is associated with user informations and table informations 
     """
     user=models.ForeignKey(User, on_delete=models.CASCADE)
+    table = models.ForeignKey(TableInfo, on_delete=models.CASCADE)
     date=models.DateField()
     time=models.TimeField()
     number_of_guests=models.PositiveIntegerField()

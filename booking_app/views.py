@@ -12,8 +12,9 @@ from django.core.exceptions import ValidationError
 from .models import HomePageContent
 from .models import ContactInformation
 from .models import MenuPageContent
+from .models import BookingTable
 from .forms import CustomerSignUpForm
-from .forms import CustomerLoginForm
+from .forms import CustomerLoginForm,BookingTableForm
 #from .models import SignupModel
 
 
@@ -24,10 +25,16 @@ def homepage(request):
     return render(request,'home.html',{'content':content,'contact_details':contact_details})
 
 def menupage(request):
+    """
+    view to store and diaplay all the menu items in webpage
+    """
     menu_items=MenuPageContent.objects.all()
     return render(request,'menu.html',{'menu_items':menu_items})
 
 def signup_view(request):
+    """
+    sign up view checks weather all fields in form filled and save the data in database
+    """
     if request.method == 'POST':
         form = CustomerSignUpForm(request.POST)
         if form.is_valid():
@@ -79,4 +86,20 @@ def logout_view(request):
     logout(request)
     return render(request,'home.html')
 
+
+def booking_table_view(request):
+    if request.method == 'POST':
+        #print(request.POST) 
+        booking_form = BookingTableForm(request.POST)
+        if booking_form.is_valid():
+            #print("Form is valid") 
+            # Process form data here if needed
+            # For example: save to database
+            booking_form.save()
+            return HttpResponse("Booking successfull")  # Redirect to a success page or another view
+    else:
+        booking_form = BookingTableForm()
+
+    #print("Rendering form")  #
+    return render(request, 'booking.html', {'booking_form': booking_form})
 
