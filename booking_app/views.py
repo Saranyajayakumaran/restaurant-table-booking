@@ -49,6 +49,11 @@ def signup_view(request):
 ## login
 
 def login_view(request):
+    """
+    view for login functionality
+    authenticate before login, check for correct username and password 
+    do action based on authentication
+    """
     if request.method=="POST":
         form=CustomerLoginForm(request.POST)
         if form.is_valid():
