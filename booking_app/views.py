@@ -69,7 +69,7 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     login(request,user)
-                    return render(request,'booking.html',{"form":form})
+                    return redirect('booking')
                 else:
                     error_message = "Account is disabled"
             else:
@@ -83,11 +83,18 @@ def login_view(request):
 
 @login_required
 def logout_view(request):
+    """
+    Logout view allow user to logout and render home page
+    """
     logout(request)
     return render(request,'home.html')
 
 
 def booking_table_view(request):
+    """
+    booking table allow user to book a table in restaurant 
+    if form is valid it save all the data in database
+    """
     if request.method == 'POST':
         #print(request.POST) 
         booking_form = BookingTableForm(request.POST)
