@@ -99,10 +99,9 @@ def booking_table_view(request):
         #print(request.POST) 
         booking_form = BookingTableForm(request.POST)
         if booking_form.is_valid():
-            #print("Form is valid") 
-            # Process form data here if needed
-            # For example: save to database
-            booking_form.save()
+            booking=booking_form.save(commit=False)
+            booking.user=request.user
+            booking.save()
             return HttpResponse("Booking successfull")  # Redirect to a success page or another view
     else:
         booking_form = BookingTableForm()

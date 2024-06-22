@@ -13,8 +13,7 @@
         <form method="post">
             {% csrf_token %}
             {{ booking_form.as_p }}
-            <button type="submit" class="btn btn-primary">Book Now</button>
-            
+            <button type="submit" class="btn btn-primary">Book Now</button>          
             <button type="button" class="btn btn-primary ml-2" onclick="window.location.href='{% url 'home' %}'">LogOut</button>
         </form>
     </div>    

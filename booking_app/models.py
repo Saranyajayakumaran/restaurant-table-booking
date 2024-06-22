@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+from django.utils import timezone
+import datetime
 
 # Create your models here.
 
@@ -17,9 +20,6 @@ class ContactInformation(models.Model):
     email=models.EmailField()
     opening_hours=models.TextField()
 
-    def __str__(self):
-        return self.name
-
 
 class MenuPageContent(models.Model):
     """
@@ -32,7 +32,7 @@ class MenuPageContent(models.Model):
 
 class TableInfo(models.Model):
     """
-    The Table model is to store the informations about tables in the restaurant
+    The Table model is to store the informations about tables in the restaurant by admin
     capacity and availability
     """
     table_number=models.PositiveIntegerField(unique=True)
