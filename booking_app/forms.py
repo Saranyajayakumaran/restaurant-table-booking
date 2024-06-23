@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 from django.contrib.auth.models import User
-from .models import BookingTable
+from .models import BookingTable,SignUpModel
 import datetime
 
 
@@ -11,12 +11,13 @@ class CustomerSignUpForm(UserCreationForm):
     """
     Form to register new user
     """
+    phone_number = forms.CharField(max_length=15, help_text='Enter your phone number')
     class Meta:
         """
         Get all the required fileds from usercreationForm
         """
         model = User
-        fields = ('username','email','first_name','last_name','password1','password2')  
+        fields = ('username','email','first_name','last_name','phone_number','password1','password2') 
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -29,7 +30,7 @@ class CustomerSignUpForm(UserCreationForm):
             raise ValidationError("Password is too short, it must be at least 8 characters long")
         
         return password2
-
+    
 class CustomerLoginForm(forms.Form):
     """
     Form for user authentication , allow user to login
@@ -43,7 +44,7 @@ class BookingTableForm(forms.ModelForm):
     """
     class Meta:
         model=BookingTable
-        fields=('date','time','number_of_guests','special_requests','table')
+        fields=('date','time','number_of_guests','special_requests','table','phone_number')
         widgets={
             'date':forms.DateInput(attrs={'type':'date'}),
             'time':forms.TimeInput(attrs={'type':'time'})

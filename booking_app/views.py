@@ -38,8 +38,8 @@ def signup_view(request):
     if request.method == 'POST':
         form = CustomerSignUpForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Registration successful! You can now log in.')
+            form.save
+            #messages.success(request, 'Registration successful! You can now log in.')
             return redirect('login')
     else:
         form = CustomerSignUpForm()

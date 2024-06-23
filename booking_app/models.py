@@ -2,9 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils import timezone
-import datetime
+
 
 # Create your models here.
+class SignUpModel(models.Model):
+    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    phone_number=models.CharField(max_length=15)
 
 class HomePageContent(models.Model):
     """
@@ -51,8 +54,9 @@ class BookingTable(models.Model):
     table = models.ForeignKey(TableInfo, on_delete=models.CASCADE)
     date=models.DateField()
     time=models.TimeField()
+    phone_number=models.CharField(max_length=15,blank=True,null=True,help_text='optional')
     number_of_guests=models.PositiveIntegerField()
     special_requests=models.TextField(blank=True,null=True)
 
     def __str__(self):
-        return f"Your Booking on {self.date} at {self.time} is confirmed"
+        return f"{self.user} has booked {self.table} on {self.date} at {self.time} "
