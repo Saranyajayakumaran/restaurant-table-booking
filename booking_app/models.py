@@ -42,7 +42,7 @@ class TableInfo(models.Model):
     seats=models.IntegerField()
 
     def __str__(self):
-        return f"Table {self.table_number} (Capacity:{self.seats})"
+        return f"Table {self.table_number} (Seats:{self.seats})"
  
 class TableBooking(models.Model):
     """

@@ -42,6 +42,9 @@ class CustomerLoginForm(forms.Form):
     password=forms.CharField(widget=forms.PasswordInput)
 
 class TableBookingForm(forms.ModelForm):
+    """
+    Get all the fields from tablebooking model
+    """
     class Meta:
         model = TableBooking
         fields = ['table', 'booking_date', 'booking_time', 'phone_number', 'number_of_guests', 'special_requests']
@@ -51,6 +54,9 @@ class TableBookingForm(forms.ModelForm):
         }
 
     def clean_booking_date(self):
+        """
+        Validate Past date cannot be booked
+        """
         booking_date=self.cleaned_data.get('booking_date')
         if booking_date<date.today():
             raise ValidationError("Please select another date in future, you cannot book a table in past date")
@@ -58,12 +64,26 @@ class TableBookingForm(forms.ModelForm):
     
     
     def clean_booking_time(self):
+        """
+        Validate past time cannot be booked
+        """
         booking_date = self.cleaned_data.get('booking_date')
         booking_time = self.cleaned_data.get('booking_time')
         
         if booking_date and booking_time:
             booking_datetime = datetime.combine(booking_date, booking_time)
             if booking_datetime < datetime.now():
-                raise ValidationError("Please select a future time, you cannot book a table in the past.")
-        
+                raise ValidationError("Please select a future time, you cannot book a table in the past.")    
         return booking_time
+    
+    def clean(self):
+        """
+        Validate table seats and number of guests
+        """
+        cleaned_data=super().clean()
+        table=cleaned_data.get('table')
+        number_of_guests=cleaned_data.get('number_of_guests')
+        if table and number_of_guests:
+            if number_of_guests > table.seats:
+                raise ValidationError(f"The selected table can only accomodate {table.seats}, Please select another table")
+        print(cleaned_data)
