@@ -1,22 +1,14 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth.models import User
-from django.contrib import messages
-from django.db import IntegrityError
 #from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
-from django.core.exceptions import ValidationError
 from .models import HomePageContent
 from .models import MenuPageContent
-from .models import TableInfo
-
-#from .models import BookingTable
-#from .forms import BookingTableForm
 from .forms import CustomerSignUpForm
 from .forms import CustomerLoginForm
+from .forms import TableBookingForm
 import datetime
 from datetime import timedelta
 
@@ -25,6 +17,9 @@ from datetime import timedelta
 
 # Create your views here.
 def homepage(request):
+    """
+    Home page contect
+    """
     content=HomePageContent.objects.first()
     #contact_details=ContactInformation.objects.first()
     return render(request,'home.html',{'content':content})
@@ -65,8 +60,8 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     login(request,user)
-                    print("entering login page")
-                    return HttpResponse("booking page")
+                    #print("entering login page")
+                    return redirect('booking')
                 else:
                     error_message = "Account is disabled"
             else:
@@ -86,6 +81,22 @@ def logout_view(request):
     logout(request)
     return render(request,'home.html')
 
-def table_info_list(request):
-    tables = TableInfo.objects.all()
-    return render(request, 'table_info_list.html', {'tables': tables})
+def table_booking_view(request):
+    """
+    booking table allow user to book a table in restaurant 
+    if form is valid it save all the data in database
+    """
+    #print("i am in booking page")
+    if request.method == 'POST':
+        booking_form = TableBookingForm(request.POST)
+        if booking_form.is_valid():
+
+            booking=booking_form.save(commit=False)
+            booking.user=request.user
+            booking.save()
+            return HttpResponse("Booking successfull")  # Redirect to a success page
+    else:
+        booking_form = TableBookingForm()
+
+    #print("Rendering form")  #
+    return render(request, 'booking.html', {'booking_form': booking_form})

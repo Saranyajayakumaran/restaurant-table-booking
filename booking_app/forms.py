@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from .models import SignUpModel
+from .models import TableBooking
 
 
 
@@ -39,3 +40,11 @@ class CustomerLoginForm(forms.Form):
     username=forms.CharField(max_length=200)
     password=forms.CharField(widget=forms.PasswordInput)
 
+class TableBookingForm(forms.ModelForm):
+    class Meta:
+        model = TableBooking
+        fields = ['user', 'table', 'booking_date', 'booking_time', 'phone_number', 'number_of_guests', 'special_requests']
+        widgets = {
+            'booking_date': forms.DateInput(attrs={'type': 'date'}),
+            'booking_time': forms.TimeInput(attrs={'type': 'time'}),
+        }

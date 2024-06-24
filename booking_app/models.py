@@ -39,7 +39,7 @@ class TableInfo(models.Model):
     capacity and availability
     """
     table_number=models.PositiveIntegerField(unique=True)
-    seats=models.PositiveIntegerField()
+    seats=models.IntegerField()
     availability=models.BooleanField(default=True)
 
     def __str__(self):
