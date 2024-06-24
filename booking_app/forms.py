@@ -1,12 +1,10 @@
 import datetime
+from datetime import date,datetime
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
-from django.forms import ModelForm
 from django.contrib.auth.models import User
-from .models import SignUpModel
 from .models import TableBooking
-from datetime import date,datetime,time
 
 
 
@@ -55,55 +53,57 @@ class TableBookingForm(forms.ModelForm):
 
     def clean_booking_date(self):
         """
-        Validate Past date cannot be booked
+        Validate Past date cannot be booked and limit the booking depends on opening days
         """
-        booking_date=self.cleaned_data.get('booking_date')
-        if booking_date<date.today():
+        user_selected_booking_date=self.cleaned_data.get('booking_date')
+        if user_selected_booking_date<date.today():
             raise ValidationError("Please select another date in future, you cannot book a table in past date")
-        return booking_date
+        
+        if user_selected_booking_date.weekday()==1:
+            raise ValidationError("Restaurant is closed on Tuesdays,please select another date")
+        return user_selected_booking_date
     
     
     def clean_booking_time(self):
         """
         Validate past time cannot be booked
         """
-        booking_date = self.cleaned_data.get('booking_date')
-        booking_time = self.cleaned_data.get('booking_time')
+        user_selected_booking_date = self.cleaned_data.get('booking_date')
+        user_selected_booking_time = self.cleaned_data.get('booking_time')
         
-        if booking_date and booking_time:
-            booking_datetime = datetime.combine(booking_date, booking_time)
+        if user_selected_booking_date and user_selected_booking_time:
+            booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
             if booking_datetime < datetime.now():
-                raise ValidationError("Please select a future time, you cannot book a table in the past.")    
-        return booking_time
+                raise ValidationError("Please select a future time, you cannot book a table in the past.")
+        return user_selected_booking_time
     
     def clean(self):
         """
         Validate table seats and number of guests
         """
         cleaned_data=super().clean()
-        table=cleaned_data.get('table')
+        table_data=cleaned_data.get('table')
         number_of_guests=cleaned_data.get('number_of_guests')
-        booking_date = cleaned_data.get('booking_date')
-        booking_time = cleaned_data.get('booking_time')
-        if table and number_of_guests:
-            if number_of_guests > table.seats:
-                raise ValidationError(f"The selected table can only accomodate {table.seats} persons, Please select another table")
+        user_selected_booking_date = cleaned_data.get('booking_date')
+        user_selected_booking_time = cleaned_data.get('booking_time')
+        if table_data and number_of_guests:
+            if number_of_guests > table_data.seats:
+                raise ValidationError(f"The selected table can only accomodate {table_data.seats} persons, Please select another table")
         print(cleaned_data)
 
-        if table and booking_date and booking_time:
-            # Combine date and time to check for existing bookings
-            booking_datetime = datetime.combine(booking_date, booking_time)
+        if table_data and user_selected_booking_date and user_selected_booking_time:
+            # Combine date and time
+            booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
 
             # Check for existing bookings at the same date and time
             conflicting_bookings = TableBooking.objects.filter(
-                table=table,
-                booking_date=booking_date,
-                booking_time=booking_time
+                table=table_data,
+                booking_date=user_selected_booking_date,
+                booking_time=user_selected_booking_time
             ).exists()
 
-        if conflicting_bookings:
-            raise ValidationError(f"The table {table} is already booked at {booking_datetime}. Please select another time.")
-
+            if conflicting_bookings:
+                raise ValidationError(f"The table {table_data} is already booked at {booking_datetime}. Please select another time.")
         return cleaned_data
 
    
