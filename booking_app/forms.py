@@ -83,7 +83,27 @@ class TableBookingForm(forms.ModelForm):
         cleaned_data=super().clean()
         table=cleaned_data.get('table')
         number_of_guests=cleaned_data.get('number_of_guests')
+        booking_date = cleaned_data.get('booking_date')
+        booking_time = cleaned_data.get('booking_time')
         if table and number_of_guests:
             if number_of_guests > table.seats:
-                raise ValidationError(f"The selected table can only accomodate {table.seats}, Please select another table")
+                raise ValidationError(f"The selected table can only accomodate {table.seats} persons, Please select another table")
         print(cleaned_data)
+
+        if table and booking_date and booking_time:
+            # Combine date and time to check for existing bookings
+            booking_datetime = datetime.combine(booking_date, booking_time)
+
+            # Check for existing bookings at the same date and time
+            conflicting_bookings = TableBooking.objects.filter(
+                table=table,
+                booking_date=booking_date,
+                booking_time=booking_time
+            ).exists()
+
+        if conflicting_bookings:
+            raise ValidationError(f"The table {table} is already booked at {booking_datetime}. Please select another time.")
+
+        return cleaned_data
+
+   
