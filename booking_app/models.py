@@ -40,7 +40,6 @@ class TableInfo(models.Model):
     """
     table_number=models.PositiveIntegerField(unique=True)
     seats=models.IntegerField()
-    availability=models.BooleanField(default=True)
 
     def __str__(self):
         return f"Table {self.table_number} (Capacity:{self.seats})"
