@@ -47,6 +47,10 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
 ]
 
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'table_booking.urls'
@@ -91,7 +96,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DATABASES = {
     'default':dj_database_url.parse(os.environ.get
-    ("DATABASE_URL"))
+    ("DATABASE_URL")),
 }
 
 CSRF_TRUSTED_ORIGINS = [
@@ -118,6 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+ACCOUNT_EMAIL_VERIFICATION='none'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

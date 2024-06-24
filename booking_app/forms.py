@@ -1,10 +1,11 @@
+import datetime
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 from django.contrib.auth.models import User
-from .models import BookingTable,SignUpModel
-import datetime
+from .models import SignUpModel
+
 
 
 class CustomerSignUpForm(UserCreationForm):
@@ -37,39 +38,4 @@ class CustomerLoginForm(forms.Form):
     """
     username=forms.CharField(max_length=200)
     password=forms.CharField(widget=forms.PasswordInput)
-
-class BookingTableForm(forms.ModelForm):
-    """
-    Form to book a table in the restaurant
-    """
-    class Meta:
-        model=BookingTable
-        fields=('date','time','number_of_guests','special_requests','table','phone_number')
-        widgets={
-            'date':forms.DateInput(attrs={'type':'date'}),
-            'time':forms.TimeInput(attrs={'type':'time'})
-        }
-
-    def time_of_booking(self):
-        """
-        Limit the time of booking only in opening hours
-        """
-        time=self.cleaned_data.get('time')
-        morning_open_time_start=datetime.time(11,0)
-        morning_open_time_end=datetime.time(14,0)
-        evening_open_time_start=datetime.time(17,0)
-        evening_open_time_end=datetime.time(23,0)
-
-        if not(morning_open_time_start<= time <= morning_open_time_end or evening_open_time_start <=time <=evening_open_time_end):
-            raise ValidationError("Please select booking time between 11am to 14.00pm and 17pm to 23pm")
-        return time
-
-    def date_of_booking(self):
-        """
-        Limit the date of booking depends on openeing days
-        """
-        date=self.cleaned_data.get('date')
-        if date.weekday()==1:
-            raise ValidationError("Restaurant is closed on tuesdays, Please select the another date")
-        return date
 

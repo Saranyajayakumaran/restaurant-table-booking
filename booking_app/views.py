@@ -10,19 +10,24 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ValidationError
 from .models import HomePageContent
-from .models import ContactInformation
 from .models import MenuPageContent
-from .models import BookingTable
+from .models import TableInfo
+
+#from .models import BookingTable
+#from .forms import BookingTableForm
 from .forms import CustomerSignUpForm
-from .forms import CustomerLoginForm,BookingTableForm
+from .forms import CustomerLoginForm
+import datetime
+from datetime import timedelta
+
 #from .models import SignupModel
 
 
 # Create your views here.
 def homepage(request):
     content=HomePageContent.objects.first()
-    contact_details=ContactInformation.objects.first()
-    return render(request,'home.html',{'content':content,'contact_details':contact_details})
+    #contact_details=ContactInformation.objects.first()
+    return render(request,'home.html',{'content':content})
 
 def menupage(request):
     """
@@ -38,22 +43,13 @@ def signup_view(request):
     if request.method == 'POST':
         form = CustomerSignUpForm(request.POST)
         if form.is_valid():
-            form.save
+            form.save()
             #messages.success(request, 'Registration successful! You can now log in.')
             return redirect('login')
     else:
         form = CustomerSignUpForm()
     return render(request, 'signup.html', {'form': form})
 
-
-#class CustomLoginView(LoginView):
-    #template_name = 'login.html'
-    #authentication_form = AuthenticationForm
-
-#def loginpage(request):
-    #return render(request, 'login.html')
-
-## login
 
 def login_view(request):
     """
@@ -69,7 +65,8 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     login(request,user)
-                    return redirect('booking')
+                    print("entering login page")
+                    return HttpResponse("booking page")
                 else:
                     error_message = "Account is disabled"
             else:
@@ -89,23 +86,6 @@ def logout_view(request):
     logout(request)
     return render(request,'home.html')
 
-
-def booking_table_view(request):
-    """
-    booking table allow user to book a table in restaurant 
-    if form is valid it save all the data in database
-    """
-    if request.method == 'POST':
-        #print(request.POST) 
-        booking_form = BookingTableForm(request.POST)
-        if booking_form.is_valid():
-            booking=booking_form.save(commit=False)
-            booking.user=request.user
-            booking.save()
-            return HttpResponse("Booking successfull")  # Redirect to a success page or another view
-    else:
-        booking_form = BookingTableForm()
-
-    #print("Rendering form")  #
-    return render(request, 'booking.html', {'booking_form': booking_form})
-
+def table_info_list(request):
+    tables = TableInfo.objects.all()
+    return render(request, 'table_info_list.html', {'tables': tables})
