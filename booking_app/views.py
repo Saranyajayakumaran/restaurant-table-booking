@@ -1,15 +1,17 @@
+from datetime import date
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 #from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
+from django.contrib.auth import authenticate,logout
 from django.contrib.auth.decorators import login_required
 from .models import HomePageContent
 from .models import MenuPageContent,TableBooking
 from .forms import CustomerSignUpForm
 from .forms import CustomerLoginForm
 from .forms import TableBookingForm
-from datetime import date
+
 
 #from .models import SignupModel
 
@@ -95,7 +97,7 @@ def table_booking_view(request):
             booking=booking_form.save(commit=False)
             booking.user=request.user
             booking.save()
-            return HttpResponse("Booking successfull")  # Redirect to a success page
+            messages.success(request, "Booking successful!")  # Redirect to a success page
     else:
         booking_form = TableBookingForm()
 
@@ -103,15 +105,14 @@ def table_booking_view(request):
     return render(request, 'booking.html', {'booking_form': booking_form})
 
 def delete_user_old_bookings(request):
-
     """
-    delete old bookings
+    Delete old bookings for logged in user
     """
-    bookings = TableBooking.objects.filter(user=request.user)
+    all_bookings = TableBooking.objects.filter(user=request.user)
     deleted_bookings=[]
-    for booking in bookings:
-        if booking.booking_date< date.today():
-            bookings.delete()
+    for booking in all_bookings:
+        if booking.booking_date < date.today():
+            booking.delete()
             deleted_bookings.append(booking)
     return deleted_bookings
 
