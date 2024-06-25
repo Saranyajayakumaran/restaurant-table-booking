@@ -1,5 +1,8 @@
+"""
+Imports
+"""
 import datetime
-from datetime import date,datetime
+from datetime import date,datetime,time
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
@@ -75,6 +78,13 @@ class TableBookingForm(forms.ModelForm):
             booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
             if booking_datetime < datetime.now():
                 raise ValidationError("Please select a future time, you cannot book a table in the past.")
+            
+        restaurant_opening_time=time(11,0)
+        restaurant_closing_time=time(21,0)
+
+        if not (restaurant_opening_time<=user_selected_booking_time<=restaurant_closing_time):
+            # Table can be booked only 2hours before closing time
+            raise ValidationError("Please select time within (11.00 AM to 21.00 PM)")
         return user_selected_booking_time
     
     def clean(self):
