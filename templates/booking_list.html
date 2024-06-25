@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Bookings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <h2>My Bookings</h2>
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th scope="col">Booking Date</th>
                 <th scope="col">Booking Time</th>
-                <th scope="col">Table</th>
+                <th scope="col">Booked Table Number</th>
+                <th scope="col">Special request</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -22,6 +24,7 @@
                 <td>{{ booking.booking_date }}</td>
                 <td>{{ booking.booking_time }}</td>
                 <td>{{ booking.table }}</td>
+                <td>{{ booking.special_requests}}</td>
                 <td>
                     <a href="{}" class="btn btn-sm btn-primary">Edit</a>
                     <a href="{}" class="btn btn-sm btn-danger">Delete</a>
