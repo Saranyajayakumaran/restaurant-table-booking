@@ -5,12 +5,11 @@ from django.contrib.auth import login
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .models import HomePageContent
-from .models import MenuPageContent
+from .models import MenuPageContent,TableBooking
 from .forms import CustomerSignUpForm
 from .forms import CustomerLoginForm
 from .forms import TableBookingForm
-import datetime
-from datetime import timedelta
+from datetime import date
 
 #from .models import SignupModel
 
@@ -86,6 +85,8 @@ def table_booking_view(request):
     booking table allow user to book a table in restaurant 
     if form is valid it save all the data in database
     """
+    delete_user_old_bookings(request)
+
     #print("i am in booking page")
     if request.method == 'POST':
         booking_form = TableBookingForm(request.POST)
@@ -100,3 +101,34 @@ def table_booking_view(request):
 
     #print("Rendering form")  #
     return render(request, 'booking.html', {'booking_form': booking_form})
+
+def delete_user_old_bookings(request):
+
+    """
+    delete old bookings
+    """
+    bookings = TableBooking.objects.filter(user=request.user)
+    deleted_bookings=[]
+    for booking in bookings:
+        if booking.booking_date< date.today():
+            bookings.delete()
+            deleted_bookings.append(booking)
+    return deleted_bookings
+
+def user_booking_list(request):
+    """
+    List all bookings made by the logged-in user.
+    """
+    bookings = TableBooking.objects.filter(user=request.user)
+    return render(request, 'booking_list.html', {'bookings': bookings})
+
+#CRUD
+
+#def user_booking_list(request):
+    #return
+
+#def user_booking_update(request):
+    #return
+
+#def user_booking_delete(request):
+    return
