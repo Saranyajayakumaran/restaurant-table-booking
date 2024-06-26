@@ -49,3 +49,12 @@ h2.text-center, h3.text-center {
 .btn:hover {
     opacity: 0.9;
 }
+
+/*Update page styling*/
+
+th{
+    text-align:center;
+}
+.center{
+    text-align: center;
+}

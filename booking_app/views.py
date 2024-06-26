@@ -1,5 +1,5 @@
 from datetime import date
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout,login
@@ -115,16 +115,17 @@ def user_booking_list(request):
     """
     List all bookings made by the logged-in user.
     """
-    bookings = TableBooking.objects.filter(user=request.user)
-    return render(request, 'booking_list.html', {'bookings': bookings})
+    all_bookings = TableBooking.objects.filter(user=request.user)
+    return render(request, 'booking_list.html', {'bookings': all_bookings})
 
-#CRUD
 
-#def user_booking_list(request):
-    #return
-
-#def user_booking_update(request):
-    #return
+def user_booking_update(request,id):
+    """
+    Update an existing booking.
+    """
+    all_bookings = TableBooking.objects.get(id=id)
+    return render(request,"booking_update.html",{'bookings':all_bookings})
+   
 
 #def user_booking_delete(request):
     return
