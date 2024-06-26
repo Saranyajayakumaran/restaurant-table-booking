@@ -115,17 +115,55 @@ def user_booking_list(request):
     """
     List all bookings made by the logged-in user.
     """
-    all_bookings = TableBooking.objects.filter(user=request.user)
+    all_bookings = TableBooking.object.filter(user=request.user)
     return render(request, 'booking_list.html', {'bookings': all_bookings})
 
-
-def user_booking_update(request,id):
+@login_required
+def user_booking_update(request, id):
     """
     Update an existing booking.
     """
+    booking = get_object_or_404(TableBooking, id=id, user=request.user)
+    
+    if request.method == 'POST':
+        form = TableBookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Updated Successfully")
+            return redirect("user_booking_list")  # Ensure this matches your URL name for the booking list view
+    else:
+        form = TableBookingForm(instance=booking)
+    
+    return render(request, "booking_update.html", {'form': form})
+
+"""
+def user_booking_update(request,id):
+    
+   # Update an existing booking.
+
     all_bookings = TableBooking.objects.get(id=id)
-    return render(request,"booking_update.html",{'bookings':all_bookings})
-   
+    if request.method=="POST":
+        new_date=request.POST['booking_date']
+        new_time=request.POST['booking_time']
+        new_table=request.POST['table']
+        new_guests=request.POST['number_of_guests']
+        new_phone=request.POST['phone_number']
+        new_special_request=request.POST['special_requests']
+
+        all_bookings.booking_date=new_date
+        all_bookings.booking_time=new_time
+        all_bookings.table=new_table
+        all_bookings.number_of_guests=new_guests
+        all_bookings.phone_number=new_phone
+        all_bookings.special_requests=new_special_request
+
+        all_bookings.save()
+        messages.success(request,"Updated Successfully")
+        return redirect("booking")
+
+    return render(request,"booking_update.html",{'form':all_bookings})
+
 
 #def user_booking_delete(request):
-    return
+
+"""
