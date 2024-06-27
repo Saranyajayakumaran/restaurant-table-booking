@@ -115,7 +115,7 @@ def user_booking_list(request):
     """
     List all bookings made by the logged-in user.
     """
-    all_bookings = TableBooking.object.filter(user=request.user)
+    all_bookings = TableBooking.objects.filter(user=request.user)
     return render(request, 'booking_list.html', {'bookings': all_bookings})
 
 @login_required
