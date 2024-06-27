@@ -33,7 +33,7 @@
                 <td>{{ booking.special_requests}}</td>
                 <td class="center">
                     <a href="{% url 'user_booking_update' booking.id %}" class="btn btn-sm btn-primary">Update booking</a>
-                    <a href="{}" class="btn btn-sm btn-danger">Delete booking</a>
+                    <a href="{% url 'user_booking_delete' booking.id %}" class="btn btn-sm btn-danger">Delete booking</a>
                 </td>
             </tr>
             {% empty %}

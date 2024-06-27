@@ -120,8 +120,8 @@ def user_booking_list(request):
     all_bookings = TableBooking.objects.filter(user=request.user)
     return render(request, 'booking_list.html', {'bookings': all_bookings})
 
-@login_required
-def user_booking_update(request, id):
+
+def user_booking_update(request,id):
     """
     Update an existing booking.
     """
@@ -133,28 +133,26 @@ def user_booking_update(request, id):
             if form.has_changed():
                 form.save()
                 messages.success(request, "Updated Successfully")
-                return redirect("user_booking_list")  # Ensure this matches your URL name for the booking list view
+                return redirect("user_booking_update", id=id)  # Ensure this matches your URL name for the booking list view
     else:
         form = TableBookingForm(instance=booking)
     
     return render(request, "booking_update.html", {'form': form})
 
 
-def user_booking_delete(request):
+def user_booking_delete(request,id):
     """
-    List all bookings made by the logged-in user.
+    Delete the selected existing  booking.
     """
     booking = get_object_or_404(TableBooking, id=id, user=request.user)
+
     if request.method=='POST':
         booking.delete()
-        message.success(request,"Booking has been deleted successfully")
-        return redirect('booking_list') 
-
-    return render(request, 'booking_list.html', {'bookings': booking})
-
-
-
-
+        messages.success(request,"Deleted successfully")
+        return redirect('booking_list')
+    
+    return render(request, "delete.html",)
+    
 
 
 

@@ -8,6 +8,13 @@
 </head>
 <body>
     <h2>Update Booking</h2>
+    {% if messages %}
+    <div class="alert alert-success" role="alert">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

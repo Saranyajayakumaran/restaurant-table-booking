@@ -4,7 +4,8 @@ from booking_app.views import homepage
 from booking_app.views import menupage
 from booking_app.views import login_view
 from booking_app.views import signup_view,logout_view
-from booking_app.views import table_booking_view,user_booking_list,user_booking_update
+from booking_app.views import table_booking_view,user_booking_list
+from booking_app.views import user_booking_update,user_booking_delete
 
 
 urlpatterns = [
@@ -16,5 +17,6 @@ urlpatterns = [
     path('logout/',logout_view,name='logout'),
     path('booking/',table_booking_view,name='booking'),
     path('my-bookings/', user_booking_list, name='user_booking_list'),
-    path('update_bookings/<int:id>',user_booking_update,name='user_booking_update')
+    path('update_bookings/<int:id>',user_booking_update,name='user_booking_update'),
+    path('delete_bookings/<int:id>',user_booking_delete,name='user_booking_delete'),
 ]
