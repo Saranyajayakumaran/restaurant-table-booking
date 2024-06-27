@@ -77,6 +77,7 @@ def logout_view(request):
     logout(request)
     return render(request,'home.html')
 
+@login_required
 def table_booking_view(request):
     """
     booking table allow user to book a table in restaurant 
@@ -111,6 +112,7 @@ def delete_user_old_bookings(request):
             deleted_bookings.append(booking)
     return deleted_bookings
 
+@login_required
 def user_booking_list(request):
     """
     List all bookings made by the logged-in user.
@@ -128,16 +130,40 @@ def user_booking_update(request, id):
     if request.method == 'POST':
         form = TableBookingForm(request.POST, instance=booking)
         if form.is_valid():
-            form.save()
-            messages.success(request, "Updated Successfully")
-            return redirect("user_booking_list")  # Ensure this matches your URL name for the booking list view
+            if form.has_changed():
+                form.save()
+                messages.success(request, "Updated Successfully")
+                return redirect("user_booking_list")  # Ensure this matches your URL name for the booking list view
     else:
         form = TableBookingForm(instance=booking)
     
     return render(request, "booking_update.html", {'form': form})
 
-"""
-def user_booking_update(request,id):
+
+def user_booking_delete(request):
+    """
+    List all bookings made by the logged-in user.
+    """
+    booking = get_object_or_404(TableBooking, id=id, user=request.user)
+    if request.method=='POST':
+        booking.delete()
+        message.success(request,"Booking has been deleted successfully")
+        return redirect('booking_list') 
+
+    return render(request, 'booking_list.html', {'bookings': booking})
+
+
+
+
+
+
+
+
+
+
+
+
+"""def user_booking_update(request,id):
     
    # Update an existing booking.
 
@@ -161,9 +187,7 @@ def user_booking_update(request,id):
         messages.success(request,"Updated Successfully")
         return redirect("booking")
 
-    return render(request,"booking_update.html",{'form':all_bookings})
+    return render(request,"booking_update.html",{'form':all_bookings})"""
 
 
-#def user_booking_delete(request):
 
-"""
