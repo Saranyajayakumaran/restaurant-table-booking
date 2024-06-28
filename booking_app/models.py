@@ -15,13 +15,6 @@ class HomePageContent(models.Model):
     """
     offers=models.TextField()
 
-#class ContactInformation(models.Model):
-    #address=models.CharField(max_length=200)
-    #phone_number=models.CharField(max_length=15)
-    #email=models.EmailField()
-    #opening_hours=models.TextField()
-
-
 class MenuPageContent(models.Model):
     """
     Model to store the menu information of the restaurant eith price
