@@ -35,8 +35,8 @@ def signup_view(request):
         form = CustomerSignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            #messages.success(request, 'Registration successful! You can now log in.')
-            return redirect('login')
+            messages.success(request, 'Registration successful! You can now log in.')
+            #return redirect('login')
     else:
         form = CustomerSignUpForm()
     return render(request, 'signup.html', {'form': form})
@@ -133,10 +133,9 @@ def user_booking_update(request,id):
             if form.has_changed():
                 form.save()
                 messages.success(request, "Updated Successfully")
-                return redirect("user_booking_update", id=id)  # Ensure this matches your URL name for the booking list view
+                #return redirect("user_booking_update") #redirect to same page
     else:
         form = TableBookingForm(instance=booking)
-    
     return render(request, "booking_update.html", {'form': form})
 
 
@@ -145,47 +144,16 @@ def user_booking_delete(request,id):
     Delete the selected existing  booking.
     """
     booking = get_object_or_404(TableBooking, id=id, user=request.user)
-
-    if request.method=='POST':
-        booking.delete()
-        messages.success(request,"Deleted successfully")
-        return redirect('booking_list')
+    booking.delete()
+    #messages.error(request,"Deleted successfully")
+    return redirect('user_booking_list')
     
-    return render(request, "delete.html",)
+    #return render(request, "delete.html",)
     
 
 
 
 
-
-
-
-
-"""def user_booking_update(request,id):
-    
-   # Update an existing booking.
-
-    all_bookings = TableBooking.objects.get(id=id)
-    if request.method=="POST":
-        new_date=request.POST['booking_date']
-        new_time=request.POST['booking_time']
-        new_table=request.POST['table']
-        new_guests=request.POST['number_of_guests']
-        new_phone=request.POST['phone_number']
-        new_special_request=request.POST['special_requests']
-
-        all_bookings.booking_date=new_date
-        all_bookings.booking_time=new_time
-        all_bookings.table=new_table
-        all_bookings.number_of_guests=new_guests
-        all_bookings.phone_number=new_phone
-        all_bookings.special_requests=new_special_request
-
-        all_bookings.save()
-        messages.success(request,"Updated Successfully")
-        return redirect("booking")
-
-    return render(request,"booking_update.html",{'form':all_bookings})"""
 
 
 

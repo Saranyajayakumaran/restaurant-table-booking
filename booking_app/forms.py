@@ -4,6 +4,7 @@ Imports
 import datetime
 from datetime import date,datetime,time
 from django import forms
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
@@ -111,7 +112,7 @@ class TableBookingForm(forms.ModelForm):
         if table_data and number_of_guests:
             if number_of_guests > table_data.seats:
                 raise ValidationError(f"The selected table can only accommodate {table_data.seats} persons. Please select another table.")
-
+                
         # Skip conflict booking validation during update
         # Check if user_selected_booking_date and user_selected_booking_time are provided
         if user_selected_booking_date and user_selected_booking_time:

@@ -5,20 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Booking</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'jquery\jquery.min.js' %}">-->
 </head>
 <body>
-    <h2>Update Booking</h2>
-    {% if messages %}
-    <div class="alert alert-success" role="alert">
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
+    <script>
+        $(document).ready(function(){
+            $(".alert").hide(4000)
+        });
+    </script>
+    <div class="container mt-5">
+        <h2 class="mb-4">Update Booking</h2>
+        {% if from.errors %}
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    {% for field,errors in form.errors.items %}
+                        <li>{{field}} : {{errors|join:","}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {% if messages %}
+        <div class="alert alert-success" role="alert">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+            <a href="{% url 'booking'%}" class="btn btn-sm btn-primary">Go back booking page</a>
+        </form>
     </div>
-    {% endif %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Update</button>
-    </form>
+        
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
