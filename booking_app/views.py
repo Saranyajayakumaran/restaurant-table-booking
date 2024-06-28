@@ -62,6 +62,8 @@ def login_view(request):
                     error_message = "Account is disabled"
             else:
                 error_message = "Invalid username or password"
+            
+            form.fields['password'].widget.attrs['value'] = ''
 
             return render(request, 'login.html', {'form': form, 'error_message': error_message})
     else:
@@ -145,7 +147,7 @@ def user_booking_delete(request,id):
     """
     booking = get_object_or_404(TableBooking, id=id, user=request.user)
     booking.delete()
-    #messages.error(request,"Deleted successfully")
+    messages.error(request,"Deleted successfully")
     return redirect('user_booking_list')
     
     #return render(request, "delete.html",)

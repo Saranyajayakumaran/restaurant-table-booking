@@ -13,8 +13,6 @@ class HomePageContent(models.Model):
     """
     Model to store the description and special offers of rhe restaurant
     """
-    title=models.CharField(max_length=200)
-    description=models.TextField()
     offers=models.TextField()
 
 #class ContactInformation(models.Model):

@@ -12,7 +12,7 @@
                 {{ error_message }}
             </div>
             {% endif %}
-            <form method="POST" class="mt-4">
+            <form method="POST" autocomplete="off" class="mt-4" >
                 {% csrf_token %}
                 {{ form.as_p }}
                 
