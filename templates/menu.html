@@ -2,26 +2,28 @@
 
 {% block content %}
 
-<div class="container py-4">
-    <h2 class="row mt-4">Menu</h2>
-    <table class=" table table-striped">
-        <thead class="text-center">
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>price</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in menu_items %}
-            <tr>
-                <td>{{ item.name }}</td>
-                <td>{{ item.description }}</td>
-                <td>€{{ item.price }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="container py-4 content-box">
+    <h2 class="row mt-4 text-center">Menu</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in menu_items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>€{{ item.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 
 

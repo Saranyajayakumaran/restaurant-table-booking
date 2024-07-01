@@ -28,6 +28,7 @@ body{
     color:#ffffff;
     align-items: left;
     position: relative;
+    align-content: space-around;
 }
 .content-box {
     background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
