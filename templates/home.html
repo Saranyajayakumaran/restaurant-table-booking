@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-    <div class="container py-4">
+<div class="content-box">
+    <div class="container py-4 ">
         <div class="col mt-4">
             <div class=" text-center ">
                 <h2 class="title">Welcome to Mystic Masala </h2>
                 <p>Enjoy your Delicious Meal</p>
             </div>
-            <div class="col-md-4 text-center ">
+            <div class="col-md-12 text-center ">
                 <h3>About Us</h3>
                 <p>At Mystic Masala , we pride ourselves on offering a menu that showcases the diverse culinary traditions of South India. 
                     From the coastal delights of Kerala to the spicy richness of Andhra Pradesh, each dish is a testament to centuries-old 
@@ -16,7 +16,7 @@
                     ensuring every bite bursts with flavors that transport you to the bustling streets and serene landscapes of South India.</p>
             </div>
         </div>
-        <div class="container mt-4"> 
+        <div class="container mt-4 "> 
             <div class="row justify-content-center mt-4">       
                 <a href="{% url 'login' %}" class="btn btn-primary text-center">Book A Table With Us</a>
             </div> 
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-8">
+    <div class="row mt-12 align-items-center">
         <div class="col-md-3">
             <div>
                 <h3>Contact Us</h3>
@@ -43,13 +43,13 @@
                 <p>0124567891</p>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-13">
             <div>
                 <h6>Email</h6>
                 <p>mysticmasala@gmail.com</p>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 ">
             <div>
                 <h6>Opening hours</h6>
                 <p>Monday:11am-23pm</p>
@@ -62,6 +62,6 @@
             </div>
         </div>
     </div>
-
+</div>
 {% endblock %}
     
