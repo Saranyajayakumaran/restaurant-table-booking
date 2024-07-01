@@ -30,12 +30,16 @@ body{
     position: relative;
 }
 .content-box {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
     padding: 20px;
     margin: 50px auto;
+    margin-top:20px;
+    padding-bottom: 60px;
     border-radius: 10px;
-    max-width: 90%; /* Adjust width as necessary */
+    max-width: 100%; 
+    min-height:200px;
     color: #ffffff;
+    min-height:110%;
     /*display: flex;*/
     justify-content: space-between;
 }
@@ -114,9 +118,9 @@ th{
 /*Navbar styling*/
 
 .navbar-brand h1{
-    color:#ffffff;
-    font-size: 1.5rem;
-    font-weight:bold
+    color:#FF4500;
+    font-size: 2.5rem;
+    font-weight:bold;
 }
 .navbar-toggler{
     border-color:#ffffff;
@@ -150,7 +154,7 @@ th{
 
 /* Footer styling */
 footer{
-    margin-top: auto;
+    margin-top: 50px;
     margin-right: 0px;
     position:fixed;
     bottom:0;
@@ -161,4 +165,14 @@ footer{
 
 .title{
     text-align: center;
+    color: #FF4500;
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    font-weight: 600;
+}
+.sub-title{
+    text-align: center;
+    color: #ff954f;
+    font-family: 'Dancing Script', cursive;
+    font-size: 30px;
 }
