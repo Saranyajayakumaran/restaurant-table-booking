@@ -1,8 +1,14 @@
-body {
-    background-color: #f8f9fa;
-    font-family: 'Arial', sans-serif;
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
 }
 
+body{
+    height:500px;
+    padding-top:56px;
+}
 .card {
     margin-top: 50px;
     border: none;
@@ -51,7 +57,6 @@ h2.text-center, h3.text-center {
 }
 
 /*Update page styling*/
-
 th{
     text-align:center;
 }
@@ -62,3 +67,29 @@ th{
     color: red;
     font-weight: bold;
 }
+
+/*Navbar styling*/
+
+.navbar-brand h1{
+    color:#ffffff;
+    font-size: 1.5rem;
+    font-weight:bold
+}
+.navbar-toggler{
+    border-color:#ffffff;
+}
+.nav-link {
+    color: #fff !important; 
+    font-size: 1rem;
+    margin-right: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+.navbar-nav .nav-item:last-child .nav-link {
+    margin-right: 0;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #ffcc00 !important; /*hover effect to gold*/
+}
+

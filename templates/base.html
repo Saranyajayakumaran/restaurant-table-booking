@@ -8,29 +8,33 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header class="bg-light py-4">
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="{% url 'home' %}"><h1>Mystic Masala South Indian Bites</h1></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'menu' %}">Menu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Book a Table</a>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}"><h1>Mystic Masala South Indian Bites</h1></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'home' %}">Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'menu' %}">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Book a Table</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
     </header>
@@ -39,40 +43,44 @@
     {% endblock %}
        
            
-    <footer class="bg-light py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col text-center">
+    <footer class="page-footer bg-dark ">
+        <div class="container text-light ">
+            <div class="row py-4 d-flex align-items-center ">
+                <div class="col-md-12  text-center ">
                     <ul id="social-media" class="list-inline">
                         <li class="list-inline-item">
                             <a href="https://www.facebook.com/" target="_blank" rel="noopener"
-                                aria-label="visit our Facebook page (opens in a new tab)">
-                                <i class="fa-brands fa-facebook"></i>
+                                aria-label="visit our Facebook page">
+                                <i class="fa-brands fa-facebook text-white mr-4"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="https://twitter.com/" target="_blank" rel="noopener"
-                                aria-label="visit our Twitter page (opens in a new tab)">
-                                <i class="fa-brands fa-x-twitter"></i></i>
+                                aria-label="visit our Twitter page">
+                                <i class="fa-brands fa-x-twitter text-white mr-4"></i></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="https://youtube.com/" target="_blank" rel="noopener"
-                                aria-label="visit our YouTube page (opens in a new tab)">
-                                <i class="fa-brands fa-youtube"></i>
+                                aria-label="visit our YouTube page">
+                                <i class="fa-brands fa-youtube text-white mr-4"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
                             <a href="https://www.instagram.com/" target="_blank" rel="noopener"
-                                aria-label="visit our Instagram page (opens in a new tab)">
-                                <i class="fa-brands fa-square-instagram"></i>
+                                aria-label="visit our Instagram page">
+                                <i class="fa-brands fa-square-instagram text-white mr-4"></i>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+        <div class="copyrigth text-center py-3">
+            <p> @the website is for education purpose only</p>
+        </div>
     </footer>
+    
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
