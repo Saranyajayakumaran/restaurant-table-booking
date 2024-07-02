@@ -2,18 +2,18 @@
 
 {% block content %}
 
-<div class="container py-4 content-box">
-    <h2 class="row mt-4 text-center">Menu</h2>
+<div class="container py-5 menu-content-box menu-body">
+    <h2 class="col mt-4 text-center title">Menu</h2>
     <div class="table-responsive">
         <table class="table table-striped">
-            <thead class="thead-light">
-                <tr>
+            <thead class="thead-title">
+                <tr class="menu-content-box sub-title">
                     <th scope="col">Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Price</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="bold-text">
                 {% for item in menu_items %}
                 <tr>
                     <td>{{ item.name }}</td>
