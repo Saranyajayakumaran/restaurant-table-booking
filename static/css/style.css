@@ -5,7 +5,7 @@
     box-sizing:border-box;
 }
 body,html{
-    height:150%;
+    height:100vh;
     min-height: 100%;
     margin: 0;
     padding: 0;
@@ -209,4 +209,56 @@ footer{
 .table tbody td {
     text-align: center;
     color:#ffffff;
+}
+
+/* Login form styling*/
+
+.login-form{
+    width:27%;
+    margin-top: 150px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%; 
+    height:82%;
+    color:#000000 ;
+    background: rgba(2, 2, 2, 0.8); 
+    padding: 100px;
+    margin: 70px;
+    margin-top:140px;
+    border-radius: 10px;
+
+}
+.login-container{
+    background-color:rgba(2, 2, 2, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    margin-top: 100px;
+    margin:auto;
+    height:auto;
+}
+.login-container h2 {
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.login-container .btn {
+    width: 60%;
+    margin-bottom: 10px;
+}
+
+.login-container .alert {
+    border-radius: 0;
+}
+
+.login-container .text-center {
+    margin-top: 20px;
+}
+
+.login-container a {
+    text-decoration: none;
 }
