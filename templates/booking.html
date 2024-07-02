@@ -17,7 +17,7 @@
                     <div class="card-header">
                         <h2 class="text-center">Book a Table</h2>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body ">
                         <h3 class="text-center">Welcome, {{ request.user.username }}</h3>
                         {% if messages %}
                             <div class="alert alert-success" role="alert">
@@ -27,7 +27,7 @@
                             </div>
                         {% endif %}
     
-                        <form method="post">
+                        <form method="post" class="booking-text-color">
                             {% csrf_token %}
                             {{ booking_form.as_p }}
                             <div class="form-group text-center">
