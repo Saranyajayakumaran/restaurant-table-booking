@@ -27,12 +27,6 @@ body{
     position: relative;
     align-content: space-around;
 }
-
-.menu-body{
-    height:120vh;
-
-}
-
 .content-box {
     /*background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
     background: rgba(0, 0, 0, 0.7); 
@@ -185,7 +179,7 @@ footer{
 /* Menu page styling*/
 .menu-content-box{
     max-width: 90%; 
-    height:82%;
+    /*height:100%;*/
     color:#000000 ;
     background: rgba(2, 2, 2, 0.8); 
     padding: 100px;
@@ -231,9 +225,9 @@ footer{
 }
 
 .login-container .btn {
-    width: 60%;
-    margin: 50px;
-   
+    width: 60%; 
+    margin-top: 30px;  
+    margin-left:70px;
 }
 
 .login-container .alert {
