@@ -23,83 +23,51 @@ body{
     background-repeat: no-repeat; 
     width:100%;
     /*color:#ffffff;*/
-    align-items: left;
+    align-items: center;
     position: relative;
     align-content: space-around;
+    
 }
-.content-box {
+
+/*.content-box {
     /*background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    /*background: rgba(0, 0, 0, 0.7); 
+    padding: 20px;
+    margin: 80px ;*/
+    /*margin-top:100px;
+    margin-bottom: -150px;*/
+    /*padding-bottom:60px;*/
+    /*border-radius: 10px;
+    max-width: 100%; 
+    color: #ffffff;
+    max-height:fit-content;
+    justify-content: space-between;
+    flex-grow:1;
+}*/
+
+.home-content-box{
     background: rgba(0, 0, 0, 0.7); 
     padding: 20px;
     margin: 80px ;
-    margin-top:140px;
+    margin-top:100px;
     margin-bottom: -150px;
-    /*padding-bottom:60px;*/
-    border-radius: 10px;
-    max-width: 100%; 
+    max-height:fit-content;
     color: #ffffff;
-   /* max-height:150%;
-    /*display: flex;*/
-    justify-content: space-between;
+    border-radius: 10px;
+    justify-content: space-between
+
 }
 
 .content {
     flex: 1; /* Takes up remaining space to push the footer down */
-    display: flex;
+    /*display: flex;*/
     align-items: center;
     justify-content: center;
 }
 
 .header, .footer, .content {
-    position: relative; /* Ensure text content is above the background */
+    position:relative ; /* Ensure text content is above the background */
     z-index: 1;
-}
-
-/*.card {
-    margin-top: 50px;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
-    background-color: #000000;
-    color: rgb(8, 8, 8);
-    font-size: 1.5rem;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 15px 20px;
-}
-
-/*.card-body {
-    padding: 30px;
-}
-
-h2.text-center, h3.text-center {
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.btn-primary {
-    background-color: #000000;
-    border-color: #e1e3e4;
-}
-
-.btn-secondary {
-    background-color: #d4d8db;
-    border-color: #d2d5d8;
-}
-
-.btn-info {
-    background-color: #000000;
-    border-color: #ffffff;
-}
-
-.btn:hover {
-    opacity: 0.9;
 }
 
 /*Update page styling*/
@@ -153,13 +121,13 @@ th{
 
 /* Footer styling */
 footer{
-    margin-top: 50px;
-    margin-right: 0px;
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: #ffffff; 
 }
+
 /*home page styling */
 
 .title{
@@ -179,12 +147,13 @@ footer{
 /* Menu page styling*/
 .menu-content-box{
     max-width: 90%; 
-    /*height:100%;*/
     color:#000000 ;
     background: rgba(2, 2, 2, 0.8); 
     padding: 100px;
+    padding-bottom: -100px;
     margin: 70px;
     margin-top:140px;
+    margin-bottom: -200px;
     border-radius: 10px;
   
 }
@@ -244,6 +213,8 @@ footer{
 .login-text-color{
     color:#ffffff;
 }
+
+
 /*booking table form*/
 
 
@@ -270,4 +241,18 @@ footer{
 
 .booking-text-color{
     color:#000000;
+}
+
+.booking-content-box{
+    background: rgba(0, 0, 0, 0.7); 
+    padding: 20px;
+    margin: 200px ;
+    margin-top:70px;
+    /*padding-bottom:60px;*/
+    border-radius: 10px;
+    max-width: 70%; 
+    color: #ffffff;
+   /* max-height:150%;
+    /*display: flex;*/
+    justify-content: space-between;
 }

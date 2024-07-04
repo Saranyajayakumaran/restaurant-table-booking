@@ -16,7 +16,6 @@ class CustomerSignUpForm(UserCreationForm):
     """
     Form to register new user
     """
-    phone_number = forms.CharField(max_length=15, help_text='Enter your phone number')
     class Meta:
         """
         Get all the required fileds from usercreationForm

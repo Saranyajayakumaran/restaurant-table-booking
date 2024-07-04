@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="container py-4 ">
+    <div class="container py-4 booking-content-box ">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -18,7 +18,7 @@
                         <h2 class="text-center">Book a Table</h2>
                     </div>
                     <div class="card-body ">
-                        <h3 class="text-center">Welcome, {{ request.user.username }}</h3>
+                        <h3 class="text-center booking-text-color">Welcome, {{ request.user.username }}</h3>
                         {% if messages %}
                             <div class="alert alert-success" role="alert">
                                 {% for message in messages %}
@@ -27,9 +27,37 @@
                             </div>
                         {% endif %}
     
-                        <form method="post" class="booking-text-color">
+                        <form method="post" class="booking-text-color form-group">
                             {% csrf_token %}
-                            {{ booking_form.as_p }}
+    
+                            <!--{{ booking_form.as_p }}-->
+
+                            <div class="form-group">
+                                <label for="{{ booking_form.table.id_for_label }}">Table</label>
+                                {{ booking_form.table }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ booking_form.booking_date.id_for_label }}">Booking Date</label>
+                                {{ booking_form.booking_date }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ booking_form.booking_time.id_for_label }}">Booking Time</label>
+                                {{ booking_form.booking_time }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ booking_form.phone_number.id_for_label }}">Phone Number</label>
+                                {{ booking_form.phone_number }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ booking_form.number_of_guests.id_for_label }}">Number of Guests</label>
+                                {{ booking_form.number_of_guests }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ booking_form.special_requests.id_for_label }}">Special Requests</label>
+                                {{ booking_form.special_requests }}
+                            </div>
+                           
+                            
                             <div class="form-group text-center">
                                 <button type="submit" class="btn btn-primary">Book Now</button>
                                 <button type="button" class="btn btn-primary ml-2" onclick="window.location.href='{% url 'home' %}'">Log Out</button>
