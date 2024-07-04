@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="container py-4 booking-content-box ">
+    <div class="container py-4 ">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="text-center">Book a Table</h2>
+                <div class=>
+                    <div class="card-header heading">
+                        <h2 class="text-center ">Book a Table</h2>
                     </div>
-                    <div class="card-body ">
+                    <div class="card-body form-body-color ">
                         <h3 class="text-center booking-text-color">Welcome, {{ request.user.username }}</h3>
                         {% if messages %}
                             <div class="alert alert-success" role="alert">
@@ -27,7 +27,7 @@
                             </div>
                         {% endif %}
     
-                        <form method="post" class="booking-text-color form-group">
+                        <form method="post" class=" form-group ">
                             {% csrf_token %}
     
                             <!--{{ booking_form.as_p }}-->

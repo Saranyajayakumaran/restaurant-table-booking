@@ -256,3 +256,32 @@ footer{
     /*display: flex;*/
     justify-content: space-between;
 }
+
+/*booing table form styling*/
+
+.form-group label {
+    font-weight: bold;
+}
+.form-control {
+    width: 100%; /* Full width input fields */
+    padding: 10px; /* Padding for input fields */
+    font-size: 16px; /* Example font size */
+}
+.btn-primary {
+    /* Example button styling */
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.heading{
+    /*background-color: #000000;*/
+    background: rgba(0, 0, 0, 0.7); 
+    color:#FF4500;
+    border-radius:10px;
+}
+.form-body-color{
+   
+    /*background-color: #000000;*/
+    background: rgba(0, 0, 0, 0.7); 
+    color:#ffffff;
+}
