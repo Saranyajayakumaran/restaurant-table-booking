@@ -87,6 +87,33 @@ class TableBookingForm(forms.ModelForm):
             raise ValidationError("Please select time within (11.00 AM to 21.00 PM)")
         return user_selected_booking_time
     
+    def clean_phone_number(self):
+        """
+        Validate phone number field to ensure the phone numbers are digits
+        """
+        phone_number = self.cleaned_data.get('phone_number')
+        if phone_number and not phone_number.isdigit():
+            raise ValidationError("Phone number can only be numbers, please enter a valid number")
+        return phone_number
+    
+    def clean_number_of_guests(self):
+        """
+        Validate number of guests, cannot be 0
+        """
+        number_of_guests = self.cleaned_data.get('number_of_guests')
+        if number_of_guests <= 0:
+            raise ValidationError("Number of guests must be greater than zero.")
+        return number_of_guests
+    
+    def clean_special_requests(self):
+        """
+        Validate special request field cannot be more than 200 characters
+        """
+        special_requests = self.cleaned_data.get('special_requests')
+        if special_requests and len(special_requests) > 200:
+            raise ValidationError("Special requests must be less than 200 characters.")
+        return special_requests
+    
 
     def __init__(self, *args, **kwargs):
         self.is_update = kwargs.pop('is_update', False)  # Custom flag to indicate update

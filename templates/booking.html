@@ -18,12 +18,12 @@
                         <h2 class="text-center ">Book a Table</h2>
                     </div>
                     <div class="card-body form-body-color ">
-                        <h3 class="text-center booking-text-color">Welcome, {{ request.user.username }}</h3>
+                        <h3 class="text-center text-color">Welcome, {{ request.user.username }}</h3>
                         {% if messages %}
-                            <div class="alert alert-success" role="alert">
-                                {% for message in messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-success alert-custom" role="alert">           
                                     <p>{{ message }}</p>
-                                {% endfor %}
+                            {% endfor %}
                             </div>
                         {% endif %}
     
@@ -33,28 +33,43 @@
                             <!--{{ booking_form.as_p }}-->
 
                             <div class="form-group">
-                                <label for="{{ booking_form.table.id_for_label }}">Table</label>
+                                <label for="{{ booking_form.table.id_for_label }}">Select a Table:</label>
                                 {{ booking_form.table }}
                             </div>
                             <div class="form-group">
-                                <label for="{{ booking_form.booking_date.id_for_label }}">Booking Date</label>
+                                <label for="{{ booking_form.booking_date.id_for_label }}">Booking Date:</label>
                                 {{ booking_form.booking_date }}
+                                {% if booking_form.booking_date.errors %}
+                                    <div class="text-danger">{{ booking_form.booking_date.errors }}</div>
+                                {% endif %}
                             </div>
                             <div class="form-group">
-                                <label for="{{ booking_form.booking_time.id_for_label }}">Booking Time</label>
+                                <label for="{{ booking_form.booking_time.id_for_label }}">Booking Time:</label>
                                 {{ booking_form.booking_time }}
+                                {% if booking_form.booking_time.errors %}
+                                    <div class="text-danger">{{ booking_form.booking_time.errors }}</div>
+                                {% endif %}
                             </div>
                             <div class="form-group">
-                                <label for="{{ booking_form.phone_number.id_for_label }}">Phone Number</label>
+                                <label for="{{ booking_form.phone_number.id_for_label }}">Phone Number:</label>
                                 {{ booking_form.phone_number }}
+                                {% if booking_form.phone_number.errors %}
+                                    <div class="text-danger">{{ booking_form.phone_number.errors }}</div>
+                                {% endif %}
                             </div>
                             <div class="form-group">
-                                <label for="{{ booking_form.number_of_guests.id_for_label }}">Number of Guests</label>
+                                <label for="{{ booking_form.number_of_guests.id_for_label }}">Number of Guests:</label>
                                 {{ booking_form.number_of_guests }}
+                                {% if booking_form.number_of_guests.errors %}
+                                    <div class="text-danger">{{ booking_form.number_of_guests.errors }}</div>
+                                {% endif %}
                             </div>
                             <div class="form-group">
-                                <label for="{{ booking_form.special_requests.id_for_label }}">Special Requests</label>
+                                <label  for="{{ booking_form.special_requests.id_for_label }}">Special Requests:</label>
                                 {{ booking_form.special_requests }}
+                                {% if booking_form.special_requests.errors %}
+                                    <div class="text-danger">{{ booking_form.special_requests.errors }}</div>
+                                {% endif %}
                             </div>
                            
                             

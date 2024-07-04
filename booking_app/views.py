@@ -95,7 +95,9 @@ def table_booking_view(request):
             booking=booking_form.save(commit=False)
             booking.user=request.user
             booking.save()
-            messages.success(request, "Booking successful!") 
+            messages.success(request, "Thank you for booking with us!")
+        else:
+            messages.error(request, "Please correct the Field below.")
     else:
         booking_form = TableBookingForm()
 
