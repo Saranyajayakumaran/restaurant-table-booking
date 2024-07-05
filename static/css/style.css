@@ -94,6 +94,10 @@ footer{
     background-color: #ffffff; 
 }
 
+.btn{
+    background: ;
+}
+
 
 /*Update page styling*/page
 th{
@@ -180,11 +184,13 @@ th{
     color:#ffffff;
 }
 
+
+
 /* Login form styling */
 
-.login-container .btn {
+/*.login-container .btn {
     /*width: 60%;*/
-    margin-top:30px;
+    /*margin-top:30px;
 } 
     /*margin-left:50px;
 }*/
@@ -195,8 +201,37 @@ th{
 
 /*.login-container .text-center {
     margin-top: 20px;
+}*/
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* space between buttons as needed */
 }
 
+.new-user-text {
+    display: inline-block;
+    margin: 0;
+    padding-left: 10px; /* Space between "new user?" text and the button */
+}
+
+.new-user-text a {
+    color: #fc7e51;; /* Bootstrap primary color for the link */
+    text-decoration: none;
+    padding-left: 5px; /* Space between "new user?" text and the link */
+}
+
+.new-user-text a:hover {
+    text-decoration: underline;
+}
+.btn-color{
+    background-color: #fc7e51;;
+    color:#000000;
+}
+.btn-color:hover{
+    background-color:#ffffff;
+}
 /*booking table form*/
 
 
@@ -207,8 +242,8 @@ th{
 }
 
 .card-header {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     padding: 1rem;
     border-bottom: 1px solid #dee2e6;
 }

@@ -10,9 +10,9 @@
                 {{ error_message }}
             </div>
             {% endif %}
-            <div class="container">
-                <form class="form-group mt-4 login-text-color " method="POST" autocomplete="off">
-                    <div class="mb-3">
+            <div class="container-fluid align-items-center">
+                <form class="form-group mt-4" method="POST" autocomplete="off">
+                    <div class="">
                         {% csrf_token %}
                         <!--{{ form.as_p }}-->
                         <div class="mb-3">
@@ -22,14 +22,14 @@
                         <div class="mb-3">
                             <label for="id_password" class="form-label">Password</label>
                             <input type="password" name="password" class="form-control" required id="id_password">
-                            <div class="row">
-                                <div class="row">
-                                    <button type="submit" class="btn btn-primary btn-sm">Login</button>
-                                </div>
-                                <div class="row">
-                                    <a href="{% url 'signup' %}" class="btn btn-sm btn-primary">Sign Up</a>
+                            <div class="row button-container">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-color">Login</button>
+                                    <p class="new-user-text ">new user? <a href="{% url 'signup' %}">Register</a></p>
+                                    
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </form>
             </div>
