@@ -1,93 +1,95 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="content-box home-content-box content">
-    <div class="container py-4 ">
-        <div class="col mt-4">
-            <div class=" text-center ">
-                <h2 class="title font-style">Welcome to Mystic Masala </h2>
-                <h4 >Enjoy your Delicious Meal</h4>
+<main>
+    <div class="content-box home-content-box content main">
+        <div class="container py-4 ">
+            <div class="col mt-4">
+                <div class=" text-center ">
+                    <h2 class="title">Welcome to Mystic Masala </h2>
+                    <h4 >Enjoy your Delicious Meal</h4>
+                </div>
+                <div class="col-md-12 text-center ">
+                    <br>
+                    <h3 class="sub-title">About Us</h3>
+                    <p class="bold-text">At Mystic Masala , we pride ourselves on offering a menu that showcases the diverse culinary traditions of South India. 
+                        From the coastal delights of Kerala to the spicy richness of Andhra Pradesh, each dish is a testament to centuries-old 
+                        recipes perfected over generations. Our chefs meticulously source the finest ingredients, 
+                        ensuring every bite bursts with flavors that transport you to the bustling streets and serene landscapes of South India.</p>
+                </div>
             </div>
-            <div class="col-md-12 text-center ">
+            <div class="container mt-4 "> 
                 <br>
-                <h3 class="sub-title">About Us</h3>
-                <p class="bold-text">At Mystic Masala , we pride ourselves on offering a menu that showcases the diverse culinary traditions of South India. 
-                    From the coastal delights of Kerala to the spicy richness of Andhra Pradesh, each dish is a testament to centuries-old 
-                    recipes perfected over generations. Our chefs meticulously source the finest ingredients, 
-                    ensuring every bite bursts with flavors that transport you to the bustling streets and serene landscapes of South India.</p>
+                <div class="row justify-content-center mt-4">       
+                    <a href="{% url 'login' %}" class="btn btn-primary text-center">Book A Table With Us</a>
+                </div> 
             </div>
-        </div>
-        <div class="container mt-4 "> 
-            <br>
-            <div class="row justify-content-center mt-4">       
-                <a href="{% url 'login' %}" class="btn btn-primary text-center">Book A Table With Us</a>
-            </div> 
+            <div class="row mt-4">
+                <div class="col-md-12 text-center">
+                    <br>
+                    <h3 class="sub-title">Special Offer</h3>
+                    <p class="bold-text">{{ content.offers }}</p>
+                </div>
+            </div>
         </div>
         <div class="row mt-4">
             <div class="col-md-12 text-center">
-                <br>
-                <h3 class="sub-title">Special Offer</h3>
-                <p class="bold-text">{{ content.offers }}</p>
+                <h3 class="sub-title">Contact Us</h3>
             </div>
         </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-md-12 text-center">
-            <h3 class="sub-title">Contact Us</h3>
-        </div>
-    </div>
-    <div class="row mt-12 align-items-center">
-        <div class="col-md-4 text-center ">
-            <div>
-               
-                <br>
-                <h4>Address</h4>
-                <p class="bold-text">Berliner strasse 15</p>
-                <p class="bold-text">Berlin 76227,Germany</p>
-            </div>
-        </div>
-        <div class="col-md-4 text-center ">
-            <div>
-                <h4>Phone</h4>
-                <p class="bold-text">0124567891</p>
-            </div>
-        </div>
-        <div class="col-md-4 text-center ">
-            <div>
-                <h4>Email</h4>
-                <p class="bold-text">mysticmasala@gmail.com</p>
-            </div>
-        </div>
-    <div class="container py-4">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="box-container text-center">
-                    <h3 class="sub-title">Opening hours</h3>
+        <div class="row mt-12 align-items-center">
+            <div class="col-md-4 text-center ">
+                <div>
+                
                     <br>
-                    <div class="row">
-                        <div class="col-md-6 text-right">
-                            <p class="bold-text">Monday </p>
-                            <p class="bold-text">Tuesday </p>
-                            <p class="bold-text">Wednesday </p>
-                            <p class="bold-text">Thursday </p>
-                            <p class="bold-text">Friday </p>
-                            <p class="bold-text">Saturday </p>
-                            <p class="bold-text">Sunday </p>
-                        </div>
-                        <div class="col-md-6 text-left">
-                            <p class="bold-text">11am-23pm</p>
-                            <p class="bold-text">Closed</p>
-                            <p class="bold-text">11am-23pm</p>
-                            <p class="bold-text">11am-23pm</p>
-                            <p class="bold-text">11am-23pm</p>
-                            <p class="bold-text">11am-23pm</p>
-                            <p class="bold-text">11am-23pm</p>
+                    <h4>Address</h4>
+                    <p class="bold-text">Berliner strasse 15</p>
+                    <p class="bold-text">Berlin 76227,Germany</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center ">
+                <div>
+                    <h4>Phone</h4>
+                    <p class="bold-text">0124567891</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center ">
+                <div>
+                    <h4>Email</h4>
+                    <p class="bold-text">mysticmasala@gmail.com</p>
+                </div>
+            </div>
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="box-container text-center">
+                        <h3 class="sub-title">Opening hours</h3>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6 text-right">
+                                <p class="bold-text">Monday </p>
+                                <p class="bold-text">Tuesday </p>
+                                <p class="bold-text">Wednesday </p>
+                                <p class="bold-text">Thursday </p>
+                                <p class="bold-text">Friday </p>
+                                <p class="bold-text">Saturday </p>
+                                <p class="bold-text">Sunday </p>
+                            </div>
+                            <div class="col-md-6 text-left">
+                                <p class="bold-text">11am-23pm</p>
+                                <p class="bold-text">Closed</p>
+                                <p class="bold-text">11am-23pm</p>
+                                <p class="bold-text">11am-23pm</p>
+                                <p class="bold-text">11am-23pm</p>
+                                <p class="bold-text">11am-23pm</p>
+                                <p class="bold-text">11am-23pm</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</main>
 {% endblock %}
     
