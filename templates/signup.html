@@ -15,13 +15,20 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body form-body-color">  
-                        <h2 class="card-title text-center title">Sign Up</h2>
+                        <h2 class="text-center title">Sign Up</h2>
+                        {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-success alert-custom" role="alert">           
+                                    <p>{{ message }}</p>
+                            {% endfor %}
+                            </div>
+                        {% endif %}
                         <form method="post" class="" novalidate>
                             {% csrf_token %}
                             {{ form.as_p }}
                             <div class="row justify-content-center mt-4">
-                                <button type="submit" class="btn btn-primary">Sign Up</button>
-                                <button type="button" class="btn btn-secondary ml-2" onclick="window.location.href='{% url 'home' %}'">Cancel</button>
+                                <button type="submit" class="btn btn-color">Sign Up</button>
+                                <button type="button" class="btn btn-color ml-2" onclick="window.location.href='{% url 'home' %}'">Cancel</button>
                             </div>
                         </form>
                     </div>
