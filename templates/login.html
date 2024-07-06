@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<main>
+<main class="form-center d-flex justify-content-center align-items-center">
     <div class=" login-container">
-        <!--<div class="col-md-6">-->
+        <div class="col-md-12">
             <h2 class="text-center title">Login</h2>
             {% if error_message %}
             <div class="alert alert-danger" role="alert">
                 {{ error_message }}
             </div>
             {% endif %}
-            <div class="container-fluid align-items-center">
+            <div class="container-fluid">
                 <form class="form-group mt-4" method="POST" autocomplete="off">
                     <div class="">
                         {% csrf_token %}
@@ -25,7 +25,7 @@
                         </div>
                             <div class="row button-container">
                                 <div class="col">
-                                    <button type="submit" class=" center-content btn btn-color">Login</button>
+                                    <button type="submit" class="btn btn-color">Login</button>
                                     <p class="new-user-text ">new user? <a href="{% url 'signup' %}">Register</a></p>    
                                 </div>
                             </div>
