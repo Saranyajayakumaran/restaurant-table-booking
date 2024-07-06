@@ -32,14 +32,14 @@ def signup_view(request):
     sign up view checks weather all fields in form filled and save the data in database
     """
     if request.method == 'POST':
-        form = CustomerSignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
+        signup_form = CustomerSignUpForm(request.POST)
+        if signup_form.is_valid():
+            signup_form.save()
             messages.success(request, 'Registration successful! You can now log in.')
             #return redirect('login')
     else:
-        form = CustomerSignUpForm()
-    return render(request, 'signup.html', {'form': form})
+        signup_form = CustomerSignUpForm()
+    return render(request, 'signup.html', {'signup_form': signup_form})
 
 
 def login_view(request):
