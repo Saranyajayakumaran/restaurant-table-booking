@@ -115,7 +115,7 @@ th{
 
 .navbar-brand h1{
     color:#FF4500;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight:bold;
 }
 .navbar-toggler{
@@ -133,7 +133,7 @@ th{
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: #ffcc00 !important; /*hover effect to gold*/
+    color: #FF4500 !important; /*hover effect to gold*/
 }
 
 .navbar-custom{
@@ -151,7 +151,7 @@ th{
 
 /*home page styling */
 
-.title{
+.title,.heading{
     text-align: center;
     color:#FF4500;
     font-family: 'Dancing Script', cursive;
@@ -213,13 +213,18 @@ th{
 .new-user-text {
     display: inline-block;
     margin: 0;
+    margin-top:20px;
     padding-left: 10px; /* Space between "new user?" text and the button */
 }
 
 .new-user-text a {
-    color: #fc7e51;; /* Bootstrap primary color for the link */
+    color: #fc7e51;; 
     text-decoration: none;
-    padding-left: 5px; /* Space between "new user?" text and the link */
+    padding-left: 5px; 
+}
+.center-content {
+    text-align: center;
+    margin-top: -20px; /* Adjust the margin as needed */
 }
 
 .new-user-text a:hover {
