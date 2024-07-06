@@ -50,7 +50,7 @@ main{
 }*/
 
 .home-content-box,.menu-content-box,
-.login-container{
+.login-container,.signup-container{
     background: rgba(0, 0, 0, 0.7); 
     padding: 20px;
     margin: 120px ;
