@@ -148,9 +148,10 @@ def user_booking_delete(request,id):
     Delete the selected existing  booking.
     """
     booking = get_object_or_404(TableBooking, id=id, user=request.user)
-    booking.delete()
-    messages.error(request,"Deleted successfully")
-    return redirect('user_booking_list')
+    if request.method == 'POST':
+        booking.delete()
+        messages.success(request, "Booking deleted successfully.")
+        return redirect('user_booking_list') 
     
     #return render(request, "delete.html",)
     
