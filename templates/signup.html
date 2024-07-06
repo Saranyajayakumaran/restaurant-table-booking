@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="container">
-        <div class="row justify-content-center ">
+    <div class="container dflex ">
+        <div class=" row justify-content-center ">
             <div class="col-md-6">
                 <div>
-                    <div class="card-header form-body-color signupform">  
+                    <div class="card-header form-body-color">  
                         <h2 class="text-center title">Sign Up</h2>
                     </div>
                         {% if messages %}
@@ -24,11 +24,11 @@
                             {% endfor %}
                             </div>
                         {% endif %}
-                        <form method="post" class="form-group form-body-color form-postion" aria-hidden="true" autocomplete="off">
+                        <form method="post" class="form-group form-body-color" aria-hidden="true" autocomplete="off">
                             {% csrf_token %}
-                            <div class=" row form-group">
+                            <div class=" row form-group justify-content-center">
                                 <label for="{{ signup_form.username.id_for_label }}" class="col-sm-3 ">Username</label>
-                                <div class="col-sm-9">
+                                <div class="col-sm-9 ">
                                     {{ signup_form.username }}
                                     {% if signup_form.username.errors %}
                                         <div class="text-danger">

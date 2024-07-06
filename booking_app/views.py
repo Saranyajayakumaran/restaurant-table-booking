@@ -151,7 +151,7 @@ def user_booking_delete(request,id):
     if request.method == 'POST':
         booking.delete()
         messages.success(request, "Booking deleted successfully.")
-        return redirect('user_booking_list') 
+        return redirect('user_booking_list')
     
     #return render(request, "delete.html",)
     

@@ -283,12 +283,6 @@ th{
     font-size: 16px; /* Example font size */
     border-radius: 10px;
 }
-.btn-primary {
-    /* Example button styling */
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
 .form-body-color{
    
     /*background-color: #000000;*/
@@ -317,13 +311,12 @@ th{
     line-height: 1.5;
     border-radius: 0.2rem;
 }
-.signupform {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    background: rgba(0, 0, 0, 0.7); 
-    color: #ffffff;
-}
-.form-position{
-    padding:20px;
+
+.center-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust this as needed for vertical centering */
+
 }
