@@ -23,9 +23,15 @@
                             {% endfor %}
                             </div>
                         {% endif %}
-                        <form method="post" class="" novalidate>
+                        <form method="post" class="" novalidate autocomplete="off">
                             {% csrf_token %}
                             {{ form.as_p }}
+                            <!--<div class="input-group mb-3">
+                                <label for="id_username">Username: </label>
+                                <!--<span class="helptext">Uaename can be Letters,digitsand special characters(@/.+/-_)</span>-->
+                                <!--<input type="text" name="username" maxlength="50" id="id_usename">
+                              </div>-->
+                              
                             <div class="row justify-content-center mt-4">
                                 <button type="submit" class="btn btn-color">Sign Up</button>
                                 <button type="button" class="btn btn-color ml-2" onclick="window.location.href='{% url 'home' %}'">Cancel</button>

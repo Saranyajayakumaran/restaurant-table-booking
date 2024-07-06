@@ -35,6 +35,45 @@ class CustomerSignUpForm(UserCreationForm):
         
         return password2
     
+
+    def clean_email(self):
+        email=self.cleaned_data.get("email")
+        if not email:
+            raise ValidationError("Email is required")
+        if User.objects.filter(email=email).exist():
+            raise ValidationError("A user with the email already exist, Please give another email id")
+        return email
+    
+    def clean_username(self):
+        username=self.cleaned_data.get("username")
+        if not username:
+            raise ValidationError("Username field cannot be empty")
+        if len(username)<8:
+            raise ValidationError("Username should contain atleast 8 characters")
+        allowed_characters = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.@+-_')
+        if not all(char in allowed_characters for char in username):
+            raise ValidationError("Username can only contain letters, digits, and @/./+/-/_ characters")
+        if User.objects.filter(username=username).exists():
+            raise ValidationError("A user with that username already exists")
+        return username
+    
+    def clean_first_name(self):
+        first_name = self.cleaned_data.get("first_name")
+        if not first_name:
+            raise ValidationError("First name is required")
+        if not first_name.isalpha():
+            raise ValidationError("First name can only contain letters")
+        return first_name
+    
+    def clean_last_name(self):
+        last_name = self.cleaned_data.get("last_name")
+        if not last_name:
+            raise ValidationError("Last name is required")
+        if not last_name.isalpha():
+            raise ValidationError("Last name can only contain letters")
+        return last_name
+
+
 class CustomerLoginForm(forms.Form):
     """
     Form for user authentication , allow user to login
