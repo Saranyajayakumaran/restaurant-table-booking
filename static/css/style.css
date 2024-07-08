@@ -61,7 +61,7 @@ main{
 
 }
 .menu-content-box{
-    max-width: 60%;
+    max-width: 80%;
   
 }
 .login-container{
@@ -157,7 +157,7 @@ th{
     text-align: center;
     color:#FF4500;
     font-family: 'Dancing Script', cursive;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 300;
 }
 .sub-title{
@@ -299,7 +299,8 @@ th{
 /*booking table form styling*/
 
 .booking-container{
-    margin-top:-120px;
+    margin-top:-40px;
+    position:;
 }
 .form-group {
     align-items: center;
@@ -366,7 +367,7 @@ th{
 /* Signup form styling*/
 
 .signup-container{
-    margin-top: -80px;
+    margin-top:-50px;
 }
 .button-center{
     margin-left: 60px;
@@ -388,5 +389,11 @@ th{
 }
 .form-group-input{
     padding-left:20px;
+}
+
+/* Booking list page styling*/
+
+.my-bookings{
+    margin-top:5px;
 }
 

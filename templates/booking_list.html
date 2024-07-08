@@ -8,40 +8,42 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
-    <h2>My Bookings</h2>
-    <table class="table table-bordered" autocomplete="off">
-        <thead>
-            <tr>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Table Number</th>
-                <th scope="col">Number_of_guests</th>
-                <th scope="col">Phone Number</th>
-                <th scope="col">Special request</th>
-                <th scope="col">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for booking in bookings %}
-            <tr>
-                <td>{{ booking.booking_date }}</td>
-                <td>{{ booking.booking_time }}</td>
-                <td>{{ booking.table }}</td>
-                <td>{{ booking.number_of_guests}}</td>
-                <td>{{ booking.phone_number}}</td>
-                <td>{{ booking.special_requests}}</td>
-                <td class="center">
-                    <a href="{% url 'user_booking_update' booking.id %}" class="btn btn-sm btn-primary">Update booking</a>
-                    <a href="{% url 'user_booking_delete' booking.id %}" class="btn btn-sm btn-danger">Delete booking</a>
-                </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="4">No bookings found.</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
+<main class="home-content-box my-bookings">
+    <body class="">
+        <h4 class="title ">My Bookings</h4>
+        <table class="table table-bordered" autocomplete="off">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Table Number</th>
+                    <th scope="col">Number_of_guests</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Special request</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.booking_date }}</td>
+                    <td>{{ booking.booking_time }}</td>
+                    <td>{{ booking.table }}</td>
+                    <td>{{ booking.number_of_guests}}</td>
+                    <td>{{ booking.phone_number}}</td>
+                    <td>{{ booking.special_requests}}</td>
+                    <td class="center ">
+                        <a href="{% url 'user_booking_update' booking.id %}" class="btn btn-sm btn-primary">Update booking</a>
+                        <a href="{% url 'user_booking_delete' booking.id %}" class=" btn btn-sm btn-danger">Delete booking</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">No bookings found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</main>
 </html>
