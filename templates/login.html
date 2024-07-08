@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<main class="form-center d-flex justify-content-center align-items-center">
+ 
     <div class=" login-container">
         <div class="col-md-12">
             <h2 class="text-center title">Login</h2>
@@ -10,20 +10,20 @@
                 {{ error_message }}
             </div>
             {% endif %}
-            <div class="container-fluid">
+            <div class="container">
                 <form class="form-group mt-4" method="POST" autocomplete="off">
                     <div class="">
                         {% csrf_token %}
                         <!--{{ form.as_p }}-->
                         <div class="mb-3">
                             <label for="id_username" class="form-label">Username</label>
-                            <input type="text" name="username" class="form-control" required id="id_username" >
+                            <input type="text" name="username" class="login-input" required id="id_username" >
                         </div>
                         <div class="mb-3">
                             <label for="id_password" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" required id="id_password">
+                            <input type="password" name="password" class="login-input" required id="id_password">
                         </div>
-                            <div class="row button-container">
+                            <div class="row button-container login-button-center">
                                 <div class="col">
                                     <button type="submit" class="btn btn-color">Login</button>
                                     <p class="new-user-text ">new user? <a href="{% url 'signup' %}">Register</a></p>    
