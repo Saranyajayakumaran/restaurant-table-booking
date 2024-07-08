@@ -137,7 +137,7 @@ def user_booking_update(request,id):
             if form.has_changed():
                 form.save()
                 messages.success(request, "Updated Successfully")
-                #return redirect("user_booking_update") #redirect to same page
+                return redirect("user_booking_list") #redirect to same page
     else:
         form = TableBookingForm(instance=booking)
     return render(request, "booking_update.html", {'form': form})

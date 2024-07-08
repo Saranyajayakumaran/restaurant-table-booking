@@ -149,6 +149,8 @@ class TableBookingForm(forms.ModelForm):
         phone_number = self.cleaned_data.get('phone_number')
         if phone_number and not phone_number.isdigit():
             raise ValidationError("Phone number can only be numbers, please enter a valid number")
+        if len(phone_number)<10:
+            raise ValidationError("Phone number cannot be less than 10 digit,please enter a valid number")
         return phone_number
     
     def clean_number_of_guests(self):

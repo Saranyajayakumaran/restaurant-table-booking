@@ -15,12 +15,94 @@
             $(".alert").hide(4000)
         });
     </script>
-    <div class="container mt-5 py-4">
+    <div class="container-fluid py-4 booking-container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h2 class="mb-4 text-center text-color form-body-color ">Update Booking</h2>
+                <div class="">
+                    <div class="card-header form-body-color booking-header">
+                        <h2 class="text-center title ">Update Booking</h2>
+                    </div>
+                    <div class="card-body form-body-color ">
+                        <!--<h5 class="text-center text-color">Welcome, {{ request.user.username }}</h5>-->
+                        {% if messages %}
+                            {% for message in messages %}
+                            <div class="alert alert-success alert-custom" role="alert">           
+                                    <p>{{ message }}</p>
+                            {% endfor %}
+                            </div>
+                        {% endif %}
+    
+                        <form method="post" class=" form-group " autocomplete="off">
+                            {% csrf_token %}
+    
+                            <!--{{ booking_form.as_p }}-->
+
+                            <div class="form-group form-group-input row">
+                                <label for="{{ form.table.id_for_label }}" class="col-sm-3 col-form-label">Booked Table:</label>
+                                <div class="col-sm-9">
+                                    {{ form.table }}
+                                    {% if form.table.errors %}
+                                        <div class="text-danger">{{ form.table.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group form-group-input row">
+                                <label for="{{ form.booking_date.id_for_label }}" class="col-sm-3 col-form-label" >Booking Date:</label>
+                                <div class="col-sm-9">
+                                    {{ form.booking_date }}
+                                    {% if form.booking_date.errors %}
+                                        <div class="text-danger">{{ form.booking_date.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group form-group-input row">
+                                <label for="{{ form.booking_time.id_for_label }}" class="col-sm-3 col-form-label">Booking Time:</label>
+                                <div class="col-sm-9">
+                                    {{ form.booking_time }}
+                                    {% if booking_form.booking_time.errors %}
+                                        <div class="text-danger">{{ form.booking_time.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group form-group-input row">
+                                <label for="{{ form.phone_number.id_for_label }}" class="col-sm-3 col-form-label">Phone Number:</label>
+                                <div class="col-sm-9">
+                                    {{ form.phone_number }}
+                                    {% if form.phone_number.errors %}
+                                        <div class="text-danger">{{ form.phone_number.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group form-group-input row">
+                                <label for="{{ form.number_of_guests.id_for_label }}" class="col-sm-3 col-form-label">Number of Guests:</label>
+                                <div class="col-sm-9">
+                                    {{ form.number_of_guests }}
+                                    {% if form.number_of_guests.errors %}
+                                        <div class="text-danger">{{ form.number_of_guests.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group form-group-input row">
+                                <label  for="{{ form.special_requests.id_for_label }}" class="col-sm-3 col-form-label">Special Requests:</label>
+                                <div class="col-sm-9">
+                                    <textarea  class="sp-form-control" name="special_requests" autocomplete="off">{{ booking_form.special_requests.value }}</textarea>
+                                    {% if form.special_requests.errors %}
+                                        <div class="text-danger">{{ form.special_requests.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>               
+                            <div class=" text-center">
+                                <button type="submit" class="btn btn-color">Update</button>
+                                <a href="{% url 'booking' %}" class="btn manage-btn btn-color ml-2">Cancel</a>
+                                <a href="{% url 'user_booking_list' %}" class="btn manage-btn btn-color ml-2">Manage Bookings</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-        {% if from.errors %}
+        </div>
+    </div>    
+        <!--{% if from.errors %}
             <div class="alert alert-danger alert-custom" role="alert">
                 <ul>
                     {% for field,errors in form.errors.items %}
@@ -46,7 +128,7 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div>-->
         
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
