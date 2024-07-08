@@ -61,13 +61,15 @@ main{
 
 }
 .menu-content-box{
-    max-width: 80%;
+    max-width: 60%;
   
 }
 .login-container{
+    max-width: 30%;
     position:fixed;
     margin:60px;
     margin-left: 0px;
+    padding: 20px;
 }
 
 .content {
@@ -304,9 +306,9 @@ th{
     margin-right:30px;
 }
 
-.form-group input {
+/*.form-group input {
     flex: 1;
-}
+}*/
 .form-control {
     width: 150%; /* Full width input fields */
     padding-left: 20px; /* Padding for input fields */

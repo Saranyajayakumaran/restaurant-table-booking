@@ -26,7 +26,7 @@
                         {% endif %}
                         <form method="post" class="card-body form-group form-body-color" aria-hidden="true" autocomplete="off">
                             {% csrf_token %}
-                            <div class=" row form-group ">
+                            <div class="form-group row">
                                 <label for="{{ signup_form.username.id_for_label }}" class="col-sm-3 ">Username</label>
                                 <div class="col-sm-9 ">
                                     {{ signup_form.username }}
