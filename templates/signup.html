@@ -27,37 +27,6 @@
                         <form method="post" class="card-body form-group form-body-color" aria-hidden="true" autocomplete="off">
                             {% csrf_token %}
                             <div class="form-group row">
-                                <label for="{{ signup_form.username.id_for_label }}" class="col-sm-3 ">Username</label>
-                                <div class="col-sm-9 ">
-                                    {{ signup_form.username }}
-                                    {% if signup_form.password2.help_text %}
-                                        <small class=" text-muted">{{ signup_form.username.help_text }}</small>
-                                    {% endif %}
-                                    {% if signup_form.username.errors %}
-                                        <div class="text-danger">
-                                            {% for error in signup_form.username.errors %}
-                                                <p>{{ error }}</p>
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            
-                            <div class="form-group row">
-                                <label for="{{ signup_form.email.id_for_label }}" class="col-sm-3 col-form-label">Email</label>
-                                <div class="col-sm-9">
-                                    {{ signup_form.email }}
-                                    {% if signup_form.email.errors %}
-                                        <div class="text-danger">
-                                            {% for error in signup_form.email.errors %}
-                                                <p>{{ error }}</p>
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            
-                            <div class="form-group row">
                                 <label for="{{ signup_form.first_name.id_for_label }}" class="col-sm-3 col-form-label">First Name</label>
                                 <div class="col-sm-9">
                                     {{ signup_form.first_name }}
@@ -84,6 +53,35 @@
                                     {% endif %}
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="{{ signup_form.email.id_for_label }}" class="col-sm-3 col-form-label">Email</label>
+                                <div class="col-sm-9">
+                                    {{ signup_form.email }}
+                                    {% if signup_form.email.errors %}
+                                        <div class="text-danger">
+                                            {% for error in signup_form.email.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="{{ signup_form.username.id_for_label }}" class="col-sm-3 col-form-label">Username</label>
+                                <div class="col-sm-9 ">
+                                    {{ signup_form.username }}
+                                    {% if signup_form.password2.placeholder %}
+                                        <small class=" text-small text-muted">{{ signup_form.username.placeholder }}</small>
+                                    {% endif %}
+                                    {% if signup_form.username.errors %}
+                                        <div class="text-danger">
+                                            {% for error in signup_form.username.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
                             
                             <div class="form-group row">
                                 <label for="{{ signup_form.password1.id_for_label }}" class="col-sm-3 col-form-label">Password</label>
@@ -100,11 +98,11 @@
                             </div>
                             
                             <div class="form-group row">
-                                <label for="{{ signup_form.password2.id_for_label }}" class="col-sm-3 col-form-label">Confirm Password</label>
+                                <label for="{{ signup_form.password2.id_for_label}}" class="col-sm-3 row-form-label">Confirm Password</label>
                                 <div class="col-sm-9">
                                     {{ signup_form.password2 }}
-                                    {% if signup_form.password2.help_text %}
-                                        <small class="form-text text-muted">{{ signup_form.password2.help_text }}</small>
+                                    {% if signup_form.password2.placeholder %}
+                                        <small class="text-small text-muted">{{ signup_form.password2.placeholder }}</small>
                                     {% endif %}
                                     {% if signup_form.password2.errors %}
                                         <div class="text-danger">
@@ -116,8 +114,8 @@
                                 </div>
                             </div>
                             
-                            <div class="row button-center mt-4">
-                                <button type="submit" class="btn btn-color ">Sign Up</button>
+                            <div class="row button-center">
+                                <button type="submit" class="btn btn-color ">Submit</button>
                                 <button type="button" class="btn btn-color ml-4" onclick="window.location.href='{% url 'home' %}'">Cancel</button>
                             </div>
                         </form>

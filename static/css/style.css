@@ -280,7 +280,7 @@ th{
 }
 
 .booking-content-box{
-    background: rgba(0, 0, 0, 0.7); 
+    background: rgba(0, 0, 0, 0.8); 
     padding: 20px;
     margin: 200px ;
     margin-top:70px;
@@ -356,12 +356,19 @@ th{
 /* Signup form styling*/
 
 .signup-container{
-    margin-top: -80px;
-    position:fixed;
+    margin-top: -100px;
 }
 .button-center{
     margin-left: 60px;
 }
-.small{
-    font-size: 0.75em;
+.text-small{
+    font-size: 0.80em;
+}
+
+.signup-input{
+    width:100%;
+}
+.login-input::placeholder {
+    font-size: 0.75em; /* Adjust the size as needed */
+    color: #fff3f3; /* Optional: Change the placeholder text color */
 }

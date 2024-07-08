@@ -17,17 +17,18 @@ class CustomerSignUpForm(UserCreationForm):
     Form to register new user
     """
     username= forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'min 8 characters'})
+        widget=forms.TextInput(attrs={'placeholder': 'letters, digits, @/./+/-/_'})
     )
     password2 = forms.CharField(
-        help_text="Enter the same password as before.")
+        widget=forms.PasswordInput(attrs={'placeholder': 'Enter same password'})
+    )
 
     class Meta:
         """
         Get all the required fileds from usercreationForm
         """
         model = User
-        fields = ('username','email','first_name','last_name','password1','password2') 
+        fields = ('first_name','last_name','email','username','password1','password2') 
 
 
 
