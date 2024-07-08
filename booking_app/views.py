@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 from .models import HomePageContent, MenuPageContent, TableBooking
 from .forms import CustomerSignUpForm, CustomerLoginForm, TableBookingForm
 
-
 #from .models import SignupModel
 
 
@@ -108,7 +107,7 @@ def delete_user_old_bookings(request):
     """
     Delete old bookings for logged in user
     """
-    all_bookings = TableBooking.objects.filter(user=request.user)
+    all_bookings = TableBooking.objects.all().filter(user=request.user)
     deleted_bookings=[]
     for booking in all_bookings:
         if booking.booking_date < date.today():
@@ -125,11 +124,11 @@ def user_booking_list(request):
     return render(request, 'booking_list.html', {'bookings': all_bookings})
 
 
-def user_booking_update(request,id):
+def user_booking_update(request,booking_id):
     """
     Update an existing booking.
     """
-    booking = get_object_or_404(TableBooking, id=id, user=request.user)
+    booking = get_object_or_404(TableBooking, id=booking_id, user=request.user)
     
     if request.method == 'POST':
         form = TableBookingForm(request.POST, instance=booking)
@@ -143,18 +142,25 @@ def user_booking_update(request,id):
     return render(request, "booking_update.html", {'form': form})
 
 
-def user_booking_delete(request,id):
+def user_booking_delete(request,booking_id):
     """
     Delete the selected existing  booking.
     """
-    booking = get_object_or_404(TableBooking, id=id, user=request.user)
-    if request.method == 'POST':
+    print("Debug: user_booking_delete()")
+    booking = get_object_or_404(TableBooking, id=booking_id, user=request.user)
+
+
+
+    if request.method == 'GET':
+        print("it is a GET")
         booking.delete()
+        print("record deleted")
         messages.success(request, "Booking deleted successfully.")
-        return redirect('user_booking_list')
+        #return redirect('user_booking_list')
+    else:
+        print("Error : Wrong request method type")
     
-    #return render(request, "delete.html",)
-    
+    return redirect('user_booking_list')
 
 
 

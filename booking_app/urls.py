@@ -17,6 +17,6 @@ urlpatterns = [
     path('logout/',logout_view,name='logout'),
     path('booking/',table_booking_view,name='booking'),
     path('my-bookings/', user_booking_list, name='user_booking_list'),
-    path('update_bookings/<int:id>',user_booking_update,name='user_booking_update'),
-    path('delete_bookings/<int:id>',user_booking_delete,name='user_booking_delete'),
+    path('update_bookings/<int:booking_id>',user_booking_update,name='user_booking_update'),
+    path('delete_bookings/<int:booking_id>',user_booking_delete,name='user_booking_delete'),
 ]
