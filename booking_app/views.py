@@ -148,9 +148,6 @@ def user_booking_delete(request,booking_id):
     """
     print("Debug: user_booking_delete()")
     booking = get_object_or_404(TableBooking, id=booking_id, user=request.user)
-
-
-
     if request.method == 'GET':
         print("it is a GET")
         booking.delete()
