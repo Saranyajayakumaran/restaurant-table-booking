@@ -49,7 +49,7 @@ class TableBooking(models.Model):
     booking_time = models.TimeField()
     phone_number=models.CharField(max_length=15,blank=True,null=True,help_text='optional')
     number_of_guests=models.PositiveIntegerField()
-    special_requests=models.TextField(max_length=200,blank=True,null=True)
+    special_requests=models.TextField(max_length=100,blank=True,null=True)
 
     def __str__(self):
         return f"{self.user} has booked {self.table} on {self.booking_date} at {self.booking_time}"

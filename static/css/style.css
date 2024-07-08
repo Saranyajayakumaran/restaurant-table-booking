@@ -272,7 +272,10 @@ th{
 }
 
 .form-group button {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+}
+.manage-btn{
+    margin-top: 8px;
 }
 
 .booking-text-color{
@@ -293,8 +296,11 @@ th{
     justify-content: space-between;
 }
 
-/*booing table form styling*/
+/*booking table form styling*/
 
+.booking-container{
+    margin-top:-120px;
+}
 .form-group {
     align-items: center;
     flex-wrap: nowrap; /* Prevents wrapping */
@@ -304,6 +310,10 @@ th{
     white-space:nowrap;
     padding:5px;
     margin-right:30px;
+}
+
+.booking-header{
+    margin-top:-20px;
 }
 
 /*.form-group input {
@@ -356,7 +366,7 @@ th{
 /* Signup form styling*/
 
 .signup-container{
-    margin-top: -100px;
+    margin-top: -80px;
 }
 .button-center{
     margin-left: 60px;
@@ -372,3 +382,11 @@ th{
     font-size: 0.75em; /* Adjust the size as needed */
     color: #fff3f3; /* Optional: Change the placeholder text color */
 }
+.sp-form-control{
+    width:50%;
+    padding:;
+}
+.form-group-input{
+    padding-left:20px;
+}
+

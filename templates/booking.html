@@ -10,15 +10,15 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="container py-4 ">
+    <div class="container-fluid py-4 booking-container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div>
-                    <div class="card-header form-body-color">
+                <div class="">
+                    <div class="card-header form-body-color booking-header">
                         <h2 class="text-center title ">Book a Table</h2>
                     </div>
                     <div class="card-body form-body-color ">
-                        <h3 class="text-center text-color">Welcome, {{ request.user.username }}</h3>
+                        <h5 class="text-center text-color">Welcome, {{ request.user.username }}</h5>
                         {% if messages %}
                             {% for message in messages %}
                             <div class="alert alert-success alert-custom" role="alert">           
@@ -32,51 +32,64 @@
     
                             <!--{{ booking_form.as_p }}-->
 
-                            <div class="form-group row">
-                                <label for="{{ booking_form.table.id_for_label }}">Select a Table:</label>
-                                {{ booking_form.table }}
+                            <div class="form-group form-group-input row">
+                                <label for="{{ booking_form.table.id_for_label }}" class="col-sm-3 col-form-label">Select a Table:</label>
+                                <div class="col-sm-9">
+                                    {{ booking_form.table }}
+                                    {% if booking_form.table.errors %}
+                                        <div class="text-danger">{{ booking_form.table.errors }}</div>
+                                    {% endif %}
+                                </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="{{ booking_form.booking_date.id_for_label }}">Booking Date:</label>
-                                {{ booking_form.booking_date }}
-                                {% if booking_form.booking_date.errors %}
-                                    <div class="text-danger">{{ booking_form.booking_date.errors }}</div>
-                                {% endif %}
+                            <div class="form-group form-group-input row">
+                                <label for="{{ booking_form.booking_date.id_for_label }}" class="col-sm-3 col-form-label" >Booking Date:</label>
+                                <div class="col-sm-9">
+                                    {{ booking_form.booking_date }}
+                                    {% if booking_form.booking_date.errors %}
+                                        <div class="text-danger">{{ booking_form.booking_date.errors }}</div>
+                                    {% endif %}
+                                </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="{{ booking_form.booking_time.id_for_label }}">Booking Time:</label>
-                                {{ booking_form.booking_time }}
-                                {% if booking_form.booking_time.errors %}
-                                    <div class="text-danger">{{ booking_form.booking_time.errors }}</div>
-                                {% endif %}
+                            <div class="form-group form-group-input row">
+                                <label for="{{ booking_form.booking_time.id_for_label }}" class="col-sm-3 col-form-label">Booking Time:</label>
+                                <div class="col-sm-9">
+                                    {{ booking_form.booking_time }}
+                                    {% if booking_form.booking_time.errors %}
+                                        <div class="text-danger">{{ booking_form.booking_time.errors }}</div>
+                                    {% endif %}
+                                </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="{{ booking_form.phone_number.id_for_label }}">Phone Number:</label>
-                                {{ booking_form.phone_number }}
-                                {% if booking_form.phone_number.errors %}
-                                    <div class="text-danger">{{ booking_form.phone_number.errors }}</div>
-                                {% endif %}
+                            <div class="form-group form-group-input row">
+                                <label for="{{ booking_form.phone_number.id_for_label }}" class="col-sm-3 col-form-label">Phone Number:</label>
+                                <div class="col-sm-9">
+                                    {{ booking_form.phone_number }}
+                                    {% if booking_form.phone_number.errors %}
+                                        <div class="text-danger">{{ booking_form.phone_number.errors }}</div>
+                                    {% endif %}
+                                </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="{{ booking_form.number_of_guests.id_for_label }}">Number of Guests:</label>
-                                {{ booking_form.number_of_guests }}
-                                {% if booking_form.number_of_guests.errors %}
-                                    <div class="text-danger">{{ booking_form.number_of_guests.errors }}</div>
-                                {% endif %}
+                            <div class="form-group form-group-input row">
+                                <label for="{{ booking_form.number_of_guests.id_for_label }}" class="col-sm-3 col-form-label">Number of Guests:</label>
+                                <div class="col-sm-9">
+                                    {{ booking_form.number_of_guests }}
+                                    {% if booking_form.number_of_guests.errors %}
+                                        <div class="text-danger">{{ booking_form.number_of_guests.errors }}</div>
+                                    {% endif %}
+                                </div>
                             </div>
-                            <div class="form-group text-row">
-                                <label  for="{{ booking_form.special_requests.id_for_label }}">Special Requests:</label>
-                                {{ booking_form.special_requests }}
-                                {% if booking_form.special_requests.errors %}
-                                    <div class="text-danger">{{ booking_form.special_requests.errors }}</div>
-                                {% endif %}
-                            </div>
-                           
-                            
-                            <div class="form-group text-center">
+                            <div class="form-group form-group-input row">
+                                <label  for="{{ booking_form.special_requests.id_for_label }}" class="col-sm-3 col-form-label">Special Requests:</label>
+                                <div class="col-sm-9">
+                                    <textarea  class="sp-form-control" name="special_requests" autocomplete="off">{{ booking_form.special_requests.value }}</textarea>
+                                    {% if booking_form.special_requests.errors %}
+                                        <div class="text-danger">{{ booking_form.special_requests.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>               
+                            <div class=" text-center">
                                 <button type="submit" class="btn btn-color">Book Now</button>
                                 <button type="button" class="btn btn-color ml-2" onclick="window.location.href='{% url 'home' %}'">Log Out</button>
-                                <a href="{% url 'user_booking_list' %}" class="btn btn-color ml-2">Manage Bookings</a>
+                                <a href="{% url 'user_booking_list' %}" class="btn manage-btn btn-color ml-2">Manage Bookings</a>
                             </div>
                         </form>
                     </div>
