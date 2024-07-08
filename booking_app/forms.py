@@ -16,6 +16,12 @@ class CustomerSignUpForm(UserCreationForm):
     """
     Form to register new user
     """
+    username= forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'min 8 characters'})
+    )
+    password2 = forms.CharField(
+        help_text="Enter the same password as before.")
+
     class Meta:
         """
         Get all the required fileds from usercreationForm
@@ -23,6 +29,9 @@ class CustomerSignUpForm(UserCreationForm):
         model = User
         fields = ('username','email','first_name','last_name','password1','password2') 
 
+
+
+       
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")

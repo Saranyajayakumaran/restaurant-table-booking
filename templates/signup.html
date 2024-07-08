@@ -9,7 +9,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
+<body class="signup-container">
     <div class="container dflex ">
         <div class=" row justify-content-center ">
             <div class="col-md-6">
@@ -19,17 +19,20 @@
                     </div>
                         {% if messages %}
                             {% for message in messages %}
-                            <div class="alert alert-success alert-custom" role="alert">           
+                            <div class=" alert alert-success alert-custom" role="alert">           
                                 <p>{{ message }}</p>
                             {% endfor %}
                             </div>
                         {% endif %}
-                        <form method="post" class="form-group form-body-color" aria-hidden="true" autocomplete="off">
+                        <form method="post" class="card-body form-group form-body-color" aria-hidden="true" autocomplete="off">
                             {% csrf_token %}
-                            <div class=" row form-group justify-content-center">
+                            <div class=" row form-group ">
                                 <label for="{{ signup_form.username.id_for_label }}" class="col-sm-3 ">Username</label>
                                 <div class="col-sm-9 ">
                                     {{ signup_form.username }}
+                                    {% if signup_form.password2.help_text %}
+                                        <small class=" text-muted">{{ signup_form.username.help_text }}</small>
+                                    {% endif %}
                                     {% if signup_form.username.errors %}
                                         <div class="text-danger">
                                             {% for error in signup_form.username.errors %}
@@ -100,6 +103,9 @@
                                 <label for="{{ signup_form.password2.id_for_label }}" class="col-sm-3 col-form-label">Confirm Password</label>
                                 <div class="col-sm-9">
                                     {{ signup_form.password2 }}
+                                    {% if signup_form.password2.help_text %}
+                                        <small class="form-text text-muted">{{ signup_form.password2.help_text }}</small>
+                                    {% endif %}
                                     {% if signup_form.password2.errors %}
                                         <div class="text-danger">
                                             {% for error in signup_form.password2.errors %}
@@ -110,9 +116,9 @@
                                 </div>
                             </div>
                             
-                            <div class="row justify-content-center mt-4">
-                                <button type="submit" class="btn btn-color">Sign Up</button>
-                                <button type="button" class="btn btn-color ml-2" onclick="window.location.href='{% url 'home' %}'">Cancel</button>
+                            <div class="row button-center mt-4">
+                                <button type="submit" class="btn btn-color ">Sign Up</button>
+                                <button type="button" class="btn btn-color ml-4" onclick="window.location.href='{% url 'home' %}'">Cancel</button>
                             </div>
                         </form>
 
