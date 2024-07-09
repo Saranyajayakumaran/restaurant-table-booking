@@ -44,8 +44,7 @@
                                     {% endfor %}
                                 </ul>
                             </div>
-                        {% endif %}
-    
+                        {% endif %}    
                         <form method="post" class=" form-group " autocomplete="off">
                             {% csrf_token %}
     
@@ -107,7 +106,7 @@
                             </div>               
                             <div class=" text-center">
                                 <button type="submit" class="btn btn-color">Book Now</button>
-                                <a href="{% url 'home' %}" class="btn btn-color ml-2">Cancel</a>
+                                <a href="{% url 'login' %}" class="btn btn-color ml-2">Cancel</a>
                                 <a href="{% url 'user_booking_list' %}" class="btn manage-btn btn-color ml-2">Manage Bookings</a>
                             </div>
                         </form>

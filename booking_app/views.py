@@ -1,6 +1,8 @@
+"""
+Required imports
+"""
 from datetime import date
 from django.shortcuts import render, redirect,get_object_or_404
-from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout,login
 from django.contrib.auth.decorators import login_required
@@ -61,7 +63,7 @@ def login_view(request):
                     error_message = "Account is disabled"
             else:
                 error_message = "Invalid username or password"
-            
+          
             form.fields['password'].widget.attrs['value'] = ''
 
             return render(request, 'login.html', {'form': form, 'error_message': error_message})
@@ -95,8 +97,6 @@ def table_booking_view(request):
             booking.user=request.user
             booking.save()
             messages.success(request, "Thank you for booking with us!")
-        else:
-            messages.error(request, "Please correct the Field below.")
     else:
         booking_form = TableBookingForm()
 
@@ -156,12 +156,5 @@ def user_booking_delete(request,booking_id):
         #return redirect('user_booking_list')
     else:
         print("Error : Wrong request method type")
-    
+
     return redirect('user_booking_list')
-
-
-
-
-
-
-

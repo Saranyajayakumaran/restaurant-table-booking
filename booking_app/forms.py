@@ -9,8 +9,6 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from .models import TableBooking
 
-
-
 class CustomerSignUpForm(UserCreationForm):
     """
     Form to register new user
@@ -27,60 +25,61 @@ class CustomerSignUpForm(UserCreationForm):
         Get all the required fileds from usercreationForm
         """
         model = User
-        fields = ('first_name','last_name','email','username','password1','password2') 
-  
+        fields = ('first_name','last_name','email','username','password1','password2')
+
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
-        
         if password1 and password2 and password1 != password2:
             raise ValidationError("Passwords don't match")
-        
         if len(password1) < 8:  # Custom password length validation
             raise ValidationError("Password is too short, it must be at least 8 characters long")
-        
         return password2
-    
 
     def clean_email(self):
+        """
+        Validate the emaila adress it should contain @
+        """
         email=self.cleaned_data.get("email")
         if not email:
             raise ValidationError("Email is required")
-        
         if User.objects.filter(email=email).exists():
             raise ValidationError("A user with the email already exist, Please give another email id")
         return email
-    
+
     def clean_username(self):
         username=self.cleaned_data.get("username")
         if not username:
             raise ValidationError("Username field cannot be empty")
-        
         if len(username)<8:
             raise ValidationError("Username should contain atleast 8 characters")
+      
         allowed_characters = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.@+-_')
-        
         if not all(char in allowed_characters for char in username):
             raise ValidationError("Username can only contain letters, digits, and @/./+/-/_ characters")
-        
         if User.objects.filter(username=username).exists():
             raise ValidationError("A user with that username already exists")
         return username
-    
+
     def clean_first_name(self):
+        """
+        Validate the firt name cannot be empty and digits
+        """
         first_name = self.cleaned_data.get("first_name")
         if not first_name:
             raise ValidationError("First name field cannot be empty")
-        
         if not first_name.isalpha():
             raise ValidationError("First name can only contain letters")
         return first_name
-    
+
     def clean_last_name(self):
+        """
+        Validate last name cannot be empty and digits
+        """
         last_name = self.cleaned_data.get("last_name")
         if not last_name:
             raise ValidationError("Last name field cannot be empty")
-        
+   
         if not last_name.isalpha():
             raise ValidationError("Last name can only contain letters")
         return last_name
@@ -120,7 +119,7 @@ class TableBookingForm(forms.ModelForm):
 
         if user_selected_booking_date and user_selected_booking_time and table_data:
             booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
-            if not self.is_update:  # Only check for new bookings (not updates)
+            if not self.is_update:  # Only check for new bookings 
                 booking_exists = TableBooking.objects.filter(
                     table=table_data,
                     booking_date=user_selected_booking_date,
@@ -181,7 +180,7 @@ class TableBookingForm(forms.ModelForm):
         if number_of_guests <= 0:
             raise ValidationError("Number of guests must be greater than zero.")
         return number_of_guests
-    
+
     def clean_special_requests(self):
         """
         Validate special request field cannot be more than 200 characters
@@ -190,11 +189,6 @@ class TableBookingForm(forms.ModelForm):
         if special_requests and len(special_requests) > 200:
             raise ValidationError("Special requests must be less than 200 characters.")
         return special_requests
-    
-
-    #def __init__(self, *args, **kwargs):
-        #self.is_update = kwargs.pop('is_update', False)  # Custom flag to indicate update
-        #super().__init__(*args, **kwargs)
 
     def clean(self):
         cleaned_data = super().clean()
@@ -202,16 +196,25 @@ class TableBookingForm(forms.ModelForm):
         if not self.is_update:
             self.validate_update()
         return cleaned_data
-    
+
     def validate_table_capacity(self,cleaned_data):
+        """
+        Validate table capacity and number of guests
+        if no.of.guests esceed table capacity 
+        """
         table_data=cleaned_data.get('table')
         number_of_guests=cleaned_data.get('number_of_guests')
 
         if table_data and number_of_guests:
             if number_of_guests>table_data.seats:
                 raise ValidationError(f"The selected table can only accommodate {table_data.seats} persons. Please select another table.")
+            return table_data
 
     def validate_update(self):
+        """
+        validate the exisiting booking in update booking
+        exclude the current id 
+        """
         cleaned_data = self.cleaned_data
         table_data = cleaned_data.get('table')
         #number_of_guests = cleaned_data.get('number_of_guests')
@@ -222,20 +225,20 @@ class TableBookingForm(forms.ModelForm):
         #if table_data and number_of_guests:
             #if number_of_guests > table_data.seats:
                 #raise ValidationError(f"The selected table can only accommodate {table_data.seats} persons. Please select another table.")
-                
+           
         # Skip conflict booking validation during update
         # Check if user_selected_booking_date and user_selected_booking_time are provided
         if user_selected_booking_date and user_selected_booking_time:
             #if not self.instance.id:  # Ensure this is a new instance (create operation)
                 # Combine date and time
-                booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
+            booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
 
                 # Check for existing bookings at the same date and time
-                booking_exists= TableBooking.objects.filter(
-                    table=table_data,
-                    booking_date=user_selected_booking_date,
-                    booking_time=user_selected_booking_time
-                ).exclude(id=self.instance.id)
+            booking_exists= TableBooking.objects.filter(
+                table=table_data,
+                booking_date=user_selected_booking_date,
+                booking_time=user_selected_booking_time
+            ).exclude(id=self.instance.id)
 
-                if booking_exists:
-                    raise ValidationError(f"The table {table_data} is already booked at {booking_datetime}. Please select another time.")
+            if booking_exists:
+                raise ValidationError(f"The table {table_data} is already booked at {booking_datetime}. Please select another time.")

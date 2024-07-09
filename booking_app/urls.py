@@ -1,3 +1,6 @@
+"""
+Imports
+"""
 from django.contrib import admin
 from django.urls import path
 from booking_app.views import homepage
