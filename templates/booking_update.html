@@ -41,7 +41,7 @@
                             {% endfor %}
                             </div>
                         {% endif %}
-                        {% if form.errors %}
+                        <!--{% if form.errors %}
                         <div class="alert alert-danger" role="alert">
                             <ul>
                                 {% for field, errors in form.errors.items %}
@@ -51,7 +51,7 @@
                                 {% endfor %}
                             </ul>
                         </div>
-                    {% endif %}
+                        {% endif %}-->
     
                         <form method="post" class=" form-group " autocomplete="off">
                             {% csrf_token %}
@@ -63,7 +63,11 @@
                                 <div class="col-sm-9">
                                     {{ form.table }}
                                     {% if form.table.errors %}
-                                        <div class="text-danger">{{ form.table.errors }}</div>
+                                        <div class="text-danger">
+                                            {% for error in form.table.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
                                     {% endif %}
                                 </div>
                             </div>
@@ -72,7 +76,11 @@
                                 <div class="col-sm-9">
                                     {{ form.booking_date }}
                                     {% if form.booking_date.errors %}
-                                        <div class="text-danger">{{ form.booking_date.errors }}</div>
+                                        <div class="text-danger">
+                                            {% for error in form.booking_date.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
                                     {% endif %}
                                 </div>
                             </div>
@@ -80,8 +88,12 @@
                                 <label for="{{ form.booking_time.id_for_label }}" class="col-sm-3 col-form-label">Booking Time:</label>
                                 <div class="col-sm-9">
                                     {{ form.booking_time }}
-                                    {% if booking_form.booking_time.errors %}
-                                        <div class="text-danger">{{ form.booking_time.errors }}</div>
+                                    {% if form.booking_time.errors %}
+                                        <div class="text-danger">
+                                            {% for error in form.booking_time.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
                                     {% endif %}
                                 </div>
                             </div>
@@ -90,7 +102,11 @@
                                 <div class="col-sm-9">
                                     {{ form.phone_number }}
                                     {% if form.phone_number.errors %}
-                                        <div class="text-danger">{{ form.phone_number.errors }}</div>
+                                        <div class="text-danger">
+                                            {% for error in form.phone_number.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
                                     {% endif %}
                                 </div>
                             </div>
@@ -99,7 +115,11 @@
                                 <div class="col-sm-9">
                                     {{ form.number_of_guests }}
                                     {% if form.number_of_guests.errors %}
-                                        <div class="text-danger">{{ form.number_of_guests.errors }}</div>
+                                        <div class="text-danger">
+                                            {% for error in form.number_of_guests.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
                                     {% endif %}
                                 </div>
                             </div>
@@ -108,7 +128,11 @@
                                 <div class="col-sm-9">
                                     <textarea  class="sp-form-control" name="special_requests" autocomplete="off">{{ booking_form.special_requests.value }}</textarea>
                                     {% if form.special_requests.errors %}
-                                        <div class="text-danger">{{ form.special_requests.errors }}</div>
+                                        <div class="text-danger">
+                                            {% for error in form.special_requests.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
                                     {% endif %}
                                 </div>
                             </div>               
