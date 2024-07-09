@@ -1,19 +1,17 @@
-// Wait for the document to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Find all elements with the class 'delete-booking'
-    const deleteButtons = document.querySelectorAll('.delete-booking');
+console.log("JavaScript file loaded");
 
-    // Add a click event listener to each delete button
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("DOM fully loaded and parsed"); // Check if DOMContentLoaded is fired
+
+    const deleteButtons = document.querySelectorAll('.delete-booking');
+    console.log("Delete buttons found:", deleteButtons.length); // Check if delete buttons are found
+
     deleteButtons.forEach(button => {
         button.addEventListener('click', function(event) {
-            // Prevent the default action (following the link)
+            console.log("Delete button clicked"); // Check if click event is attached
             event.preventDefault();
-
-            // Confirm deletion using a browser dialog
             if (confirm('Are you sure you want to delete this booking?')) {
-                // If confirmed, get the href attribute of the clicked link and navigate to it
                 window.location.href = this.getAttribute('href');
             }
         });
     });
-});

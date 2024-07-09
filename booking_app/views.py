@@ -164,8 +164,10 @@ def user_booking_delete(request,booking_id):
         booking.delete()
         print("record deleted")
         messages.success(request, "Booking deleted successfully.")
-        #return redirect('user_booking_list')
-    else:
-        print("Error : Wrong request method type")
-
     return redirect('user_booking_list')
+
+    #return render(request, 'delete.html', {'booking': booking})
+
+def booking_confirm_delete(request, booking_id):
+    booking = get_object_or_404(TableBooking, id=booking_id)
+    return render(request, 'delete.html', {'booking': booking})

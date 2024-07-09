@@ -19,7 +19,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Your Bookings</h1>
+        <h1 class="title">Your Bookings</h1>
         {% for booking in bookings %}
             <div class="card mb-3">
                 <div class="card-body">
@@ -31,7 +31,9 @@
                     <p><strong>Special Requests:</strong> {{ booking.special_requests }}</p>
                     <form method="post" onsubmit="return confirmDelete();">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-color btn-danger">Delete</button>
+                        <a href="{% url 'user_booking_list' %}" class="btn btn-color ml-2">Cancel</a>
+                        <button></button>
                     </form>
                 </div>
             </div>
