@@ -193,8 +193,8 @@ class TableBookingForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()
         self.validate_table_capacity(cleaned_data)
-        #if not self.is_update:
-            #self.validate_update()
+        if self.is_update:
+            self.validate_update()
         #self.validate_update()
         return cleaned_data
 
@@ -213,7 +213,7 @@ class TableBookingForm(forms.ModelForm):
                 self.add_error('number_of_guests', f"The selected table can only accommodate {table_data.seats} persons. Please select another table.")
 
         return table_data
-    """
+    
     def validate_update(self):
         print("i am in validation")
         cleaned_data = self.cleaned_data
@@ -233,7 +233,7 @@ class TableBookingForm(forms.ModelForm):
             #if not self.instance.id:  # Ensure this is a new instance (create operation)
                 # Combine date and time
             booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
-            current_id = self.instance.id if self.instance and self.instance.id else None
+            current_id = self.instance.id if self.instance else None
 
             print(f"Debug - Current instance ID: {current_id}")
             print(f"Debug - Booking datetime: {booking_datetime}")
@@ -246,11 +246,11 @@ class TableBookingForm(forms.ModelForm):
             )
             if current_id:
                 booking_exists = booking_exists.exclude(id=current_id)
-                print(f"excluded id:{booking_exists}")
+                print(f"excluded id:{current_id}")
             
             print(f"Debug - Query: {booking_exists.query}")
 
             if booking_exists.exists():
                 #raise ValidationError(f"The table {table_data} is already booked at {booking_datetime}. Please select another time.")
                 self.add_error('booking_date', f"The table {table_data} is already booked at {booking_datetime}. Please select another time.. Please select another time.")
-                #self.add_error('booking_time', f"The table {table_data} is already booked at {user_selected_booking_date} {user_selected_booking_time}. Please select another time.")"""
+                #self.add_error('booking_time', f"The table {table_data} is already booked at {user_selected_booking_date} {user_selected_booking_time}. Please select another time.")

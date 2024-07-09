@@ -8,6 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     {% load static %}
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/static/fontawesome/css/all.min.css">
@@ -15,6 +16,7 @@
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link src="{% static 'js/deletetion.js'%}"></script>
 </head>
 <main class="home-content-box my-bookings">
     <body class="">
@@ -42,7 +44,7 @@
                     <td>{{ booking.special_requests}}</td>
                     <td class="center ">
                         <a href="{% url 'user_booking_update' booking.id %}" class="btn btn-sm btn-primary">Update booking</a>
-                        <a href="{% url 'user_booking_delete' booking.id %}" class="btn btn-sm btn-danger">Delete booking</a>
+                        <a href="{% url 'user_booking_delete' booking.id %}" id="dleteData" class="btn btn-sm btn-danger delete-booking">Delete booking</a>
                     </td>
                 </tr>
                 {% empty %}
