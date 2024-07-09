@@ -4,7 +4,6 @@ Imports
 import datetime
 from datetime import date,datetime,time
 from django import forms
-from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
@@ -29,10 +28,7 @@ class CustomerSignUpForm(UserCreationForm):
         """
         model = User
         fields = ('first_name','last_name','email','username','password1','password2') 
-
-
-
-       
+  
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
@@ -109,11 +105,33 @@ class TableBookingForm(forms.ModelForm):
             'booking_time': forms.TimeInput(attrs={'type': 'time'}),
         }
 
+    def __init__(self, *args, **kwargs):
+        self.is_update = kwargs.pop('is_update', False)
+        super().__init__(*args, **kwargs)
+
     def clean_booking_date(self):
         """
         Validate Past date cannot be booked and limit the booking depends on opening days
         """
-        user_selected_booking_date=self.cleaned_data.get('booking_date')
+        cleaned_data = self.cleaned_data
+        user_selected_booking_date = cleaned_data.get('booking_date')
+        user_selected_booking_time = cleaned_data.get('booking_time')
+        table_data = cleaned_data.get('table')
+
+        if user_selected_booking_date and user_selected_booking_time and table_data:
+            booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
+            if not self.is_update:  # Only check for new bookings (not updates)
+                booking_exists = TableBooking.objects.filter(
+                    table=table_data,
+                    booking_date=user_selected_booking_date,
+                    booking_time=user_selected_booking_time
+                ).exists()
+
+                if booking_exists:
+                    raise ValidationError(f"The table {table_data} is already booked at {booking_datetime}. Please select another time.")
+
+    
+        #user_selected_booking_date=self.cleaned_data.get('booking_date')
         if user_selected_booking_date<date.today():
             raise ValidationError("Please select another date in future, you cannot book a table in past date")
         
@@ -121,8 +139,7 @@ class TableBookingForm(forms.ModelForm):
             raise ValidationError("Restaurant is closed on Tuesdays,please select another date")
         return user_selected_booking_date
     
-    #def clean_booking_table(self):
-        #user_se
+        
     
     def clean_booking_time(self):
         """
@@ -175,9 +192,9 @@ class TableBookingForm(forms.ModelForm):
         return special_requests
     
 
-    def __init__(self, *args, **kwargs):
-        self.is_update = kwargs.pop('is_update', False)  # Custom flag to indicate update
-        super().__init__(*args, **kwargs)
+    #def __init__(self, *args, **kwargs):
+        #self.is_update = kwargs.pop('is_update', False)  # Custom flag to indicate update
+        #super().__init__(*args, **kwargs)
 
     def clean(self):
         cleaned_data = super().clean()
@@ -197,19 +214,19 @@ class TableBookingForm(forms.ModelForm):
     def validate_update(self):
         cleaned_data = self.cleaned_data
         table_data = cleaned_data.get('table')
-        number_of_guests = cleaned_data.get('number_of_guests')
+        #number_of_guests = cleaned_data.get('number_of_guests')
         user_selected_booking_date = cleaned_data.get('booking_date')
         user_selected_booking_time = cleaned_data.get('booking_time')
 
         # Validate table seats only if number_of_guests and table_data are provided
-        if table_data and number_of_guests:
-            if number_of_guests > table_data.seats:
-                raise ValidationError(f"The selected table can only accommodate {table_data.seats} persons. Please select another table.")
+        #if table_data and number_of_guests:
+            #if number_of_guests > table_data.seats:
+                #raise ValidationError(f"The selected table can only accommodate {table_data.seats} persons. Please select another table.")
                 
         # Skip conflict booking validation during update
         # Check if user_selected_booking_date and user_selected_booking_time are provided
         if user_selected_booking_date and user_selected_booking_time:
-            if not self.instance.id:  # Ensure this is a new instance (create operation)
+            #if not self.instance.id:  # Ensure this is a new instance (create operation)
                 # Combine date and time
                 booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
 
@@ -218,7 +235,7 @@ class TableBookingForm(forms.ModelForm):
                     table=table_data,
                     booking_date=user_selected_booking_date,
                     booking_time=user_selected_booking_time
-                ).exists()
+                ).exclude(id=self.instance.id)
 
                 if booking_exists:
                     raise ValidationError(f"The table {table_data} is already booked at {booking_datetime}. Please select another time.")

@@ -41,6 +41,17 @@
                             {% endfor %}
                             </div>
                         {% endif %}
+                        {% if form.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            <ul>
+                                {% for field, errors in form.errors.items %}
+                                    {% for error in errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
     
                         <form method="post" class=" form-group " autocomplete="off">
                             {% csrf_token %}

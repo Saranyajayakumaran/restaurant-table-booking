@@ -123,7 +123,7 @@ def user_booking_list(request):
     all_bookings = TableBooking.objects.filter(user=request.user)
     return render(request, 'booking_list.html', {'bookings': all_bookings})
 
-
+@login_required
 def user_booking_update(request,booking_id):
     """
     Update an existing booking.
@@ -141,7 +141,7 @@ def user_booking_update(request,booking_id):
         form = TableBookingForm(instance=booking)
     return render(request, "booking_update.html", {'form': form})
 
-
+@login_required
 def user_booking_delete(request,booking_id):
     """
     Delete the selected existing  booking.
