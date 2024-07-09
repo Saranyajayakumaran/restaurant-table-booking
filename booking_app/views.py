@@ -86,16 +86,25 @@ def table_booking_view(request):
     booking table allow user to book a table in restaurant 
     if form is valid it save all the data in database
     """
-    delete_user_old_bookings(request)
+    print("i am in booking page")
+    #delete_user_old_bookings(request)
 
     #print("i am in booking page")
     if request.method == 'POST':
         booking_form = TableBookingForm(request.POST)
         if booking_form.is_valid():
-
             booking=booking_form.save(commit=False)
             booking.user=request.user
+            print("Form cleaned data:", booking_form.cleaned_data)  # Check form's cleaned data
+            print("Phone number before saving:", booking.phone_number)
             booking.save()
+            print("Saved booking data:")
+            print(f"Table: {booking.table}")
+            print(f"Booking Date: {booking.booking_date}")
+            print(f"Booking Time: {booking.booking_time}")
+            print(f"Phone Number: {booking.phone_number}")
+            print(f"Number of Guests: {booking.number_of_guests}")
+            print(f"Special Requests: {booking.special_requests}")
             messages.success(request, "Thank you for booking with us!")
     else:
         booking_form = TableBookingForm()
@@ -128,15 +137,17 @@ def user_booking_update(request,booking_id):
     """
     Update an existing booking.
     """
+    print("inside update")
     booking = get_object_or_404(TableBooking, id=booking_id, user=request.user)
     
     if request.method == 'POST':
         form = TableBookingForm(request.POST, instance=booking)
         if form.is_valid():
-            if form.has_changed():
-                form.save()
-                messages.success(request, "Updated Successfully")
-                return redirect("user_booking_list") #redirect to same page
+            form.save()
+            messages.success(request, "Updated Successfully")
+            return redirect("user_booking_list") #redirect to same page
+        else:
+            print("Form errors:", form.errors)
     else:
         form = TableBookingForm(instance=booking)
     return render(request, "booking_update.html", {'form': form})

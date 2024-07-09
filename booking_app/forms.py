@@ -167,10 +167,10 @@ class TableBookingForm(forms.ModelForm):
         phone_number = self.cleaned_data.get('phone_number')
         if phone_number and not phone_number.isdigit():
             raise ValidationError("Phone number can only be numbers, please enter a valid number")
-        phone_number = str(phone_number)
+        #phone_number = str(phone_number)
         #if len(phone_number)<10:
             #raise ValidationError("Phone number cannot be less than 10 digit,please enter a valid number")
-        #return phone_number
+        return phone_number
     
     def clean_number_of_guests(self):
         """
@@ -193,8 +193,9 @@ class TableBookingForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()
         self.validate_table_capacity(cleaned_data)
-        if not self.is_update:
-            self.validate_update()
+        #if not self.is_update:
+            #self.validate_update()
+        #self.validate_update()
         return cleaned_data
 
     def validate_table_capacity(self,cleaned_data):
@@ -202,19 +203,19 @@ class TableBookingForm(forms.ModelForm):
         Validate table capacity and number of guests
         if no.of.guests esceed table capacity 
         """
+        
         table_data=cleaned_data.get('table')
         number_of_guests=cleaned_data.get('number_of_guests')
 
         if table_data and number_of_guests:
             if number_of_guests>table_data.seats:
-                raise ValidationError(f"The selected table can only accommodate {table_data.seats} persons. Please select another table.")
-            return table_data
+                #raise ValidationError(f"The selected table can only accommodate {table_data.seats} persons. Please select another table.")
+                self.add_error('number_of_guests', f"The selected table can only accommodate {table_data.seats} persons. Please select another table.")
 
+        return table_data
+    """
     def validate_update(self):
-        """
-        validate the exisiting booking in update booking
-        exclude the current id 
-        """
+        print("i am in validation")
         cleaned_data = self.cleaned_data
         table_data = cleaned_data.get('table')
         #number_of_guests = cleaned_data.get('number_of_guests')
@@ -232,13 +233,24 @@ class TableBookingForm(forms.ModelForm):
             #if not self.instance.id:  # Ensure this is a new instance (create operation)
                 # Combine date and time
             booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
+            current_id = self.instance.id if self.instance and self.instance.id else None
+
+            print(f"Debug - Current instance ID: {current_id}")
+            print(f"Debug - Booking datetime: {booking_datetime}")
 
                 # Check for existing bookings at the same date and time
             booking_exists= TableBooking.objects.filter(
                 table=table_data,
                 booking_date=user_selected_booking_date,
                 booking_time=user_selected_booking_time
-            ).exclude(id=self.instance.id)
+            )
+            if current_id:
+                booking_exists = booking_exists.exclude(id=current_id)
+                print(f"excluded id:{booking_exists}")
+            
+            print(f"Debug - Query: {booking_exists.query}")
 
-            if booking_exists:
-                raise ValidationError(f"The table {table_data} is already booked at {booking_datetime}. Please select another time.")
+            if booking_exists.exists():
+                #raise ValidationError(f"The table {table_data} is already booked at {booking_datetime}. Please select another time.")
+                self.add_error('booking_date', f"The table {table_data} is already booked at {booking_datetime}. Please select another time.. Please select another time.")
+                #self.add_error('booking_time', f"The table {table_data} is already booked at {user_selected_booking_date} {user_selected_booking_time}. Please select another time.")"""
