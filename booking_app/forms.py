@@ -121,6 +121,8 @@ class TableBookingForm(forms.ModelForm):
             raise ValidationError("Restaurant is closed on Tuesdays,please select another date")
         return user_selected_booking_date
     
+    #def clean_booking_table(self):
+        #user_se
     
     def clean_booking_time(self):
         """
@@ -149,9 +151,10 @@ class TableBookingForm(forms.ModelForm):
         phone_number = self.cleaned_data.get('phone_number')
         if phone_number and not phone_number.isdigit():
             raise ValidationError("Phone number can only be numbers, please enter a valid number")
-        if len(phone_number)<10:
-            raise ValidationError("Phone number cannot be less than 10 digit,please enter a valid number")
-        return phone_number
+        phone_number = str(phone_number)
+        #if len(phone_number)<10:
+            #raise ValidationError("Phone number cannot be less than 10 digit,please enter a valid number")
+        #return phone_number
     
     def clean_number_of_guests(self):
         """
@@ -178,11 +181,18 @@ class TableBookingForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-
+        self.validate_table_capacity(cleaned_data)
         if not self.is_update:
             self.validate_update()
-
         return cleaned_data
+    
+    def validate_table_capacity(self,cleaned_data):
+        table_data=cleaned_data.get('table')
+        number_of_guests=cleaned_data.get('number_of_guests')
+
+        if table_data and number_of_guests:
+            if number_of_guests>table_data.seats:
+                raise ValidationError(f"The selected table can only accommodate {table_data.seats} persons. Please select another table.")
 
     def validate_update(self):
         cleaned_data = self.cleaned_data
