@@ -1,1 +1,1 @@
-web: gunicorn table_booking.wsgi
+web: gunicorn table_booking.wsgi --log-file -
