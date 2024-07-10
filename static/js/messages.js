@@ -6,6 +6,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             setTimeout(() => {
                 messagesDiv.style.display = 'none';
             }, 1000);  // Match this timeout with the CSS transition duration
-        }, 3000);  // Start fading out after 3 seconds
+        }, 4000);  // Start fading out after 3 seconds
     }
 });
