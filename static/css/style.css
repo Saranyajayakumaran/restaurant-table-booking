@@ -412,3 +412,47 @@ th{
     opacity: 0;
     /*transform:scale(1.15);*/
 }
+/* s,mall devices( phones)*/
+
+@media(max-width:600px){
+    .home-content-box, .menu-content-box, .login-container {
+        margin:  2rem;
+        margin-top:5rem;
+        padding: 1rem;
+        height:fit-content;
+        ;
+    }
+    .title{
+        font-size: 15px;
+        font-weight: 100;
+    }
+    .login-container {
+        max-width: 90%;
+        margin-top:12rem;
+    }
+    .button-center {
+        margin-left: 10%;
+    }
+    h1{
+        font-size: 10px;
+    }  
+    h4{
+        font-size:10px;
+    }
+    .bold-text{
+        font-weight: 10;
+        font-size:10px
+    }
+    .opening-time .text-right, .opening-time .text-left {
+        text-align: center !important; /* Center text on small screens */
+    }
+    .opening-time .col-md-6 {
+        margin-bottom: 1rem; /* Space between columns on mobile */
+    }
+    main{
+        padding-bottom: 5rem;
+    }
+
+}
+
+
