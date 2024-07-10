@@ -1,4 +1,4 @@
-
+/*Global styles*/
 *{
     padding:0;
     margin:0;
@@ -8,9 +8,10 @@ body,html{
     height: 100%;
     margin: 0;
     padding: 0;
+    font-size: 16px;
 }
 body{
-    padding-top:50px;
+    padding-top:3.125rem;
     display:flex;
     flex-direction:column;
     min-width: 100%;
@@ -30,7 +31,7 @@ body{
 main{
     flex-grow: 1;
     padding: 1rem;
-    padding-bottom: -80px;
+    padding-bottom: -5rem;
 }
 
 /*.content-box {
@@ -52,9 +53,9 @@ main{
 .home-content-box,.menu-content-box,
 .login-container{
     background: rgba(0, 0, 0, 0.7); 
-    padding: 20px;
-    margin: 120px ;
-    margin-top:100px;
+    padding: 1.25rem;
+    margin: 7.5rem ;
+    margin-top:5rem;
     color: #ffffff;
     border-radius: 10px;
     justify-content: space-between
@@ -143,7 +144,6 @@ th{
 .navbar-custom .navbar-brand {
     color: #ffffff; 
 }
-
 
 
 /*home page styling */
@@ -241,10 +241,7 @@ th{
     background-color:#ffffff;
 }
 
-
 /*booking table form*/
-
-
 .card {
     border: 1px solid #dee2e6;
     border-radius: 0.25rem;
@@ -262,7 +259,7 @@ th{
 
 .card-body {
     padding: 2rem;
-    padding-left:120px;
+    padding-left:7.5rem;
     border-radius: 10px;
 }
 
@@ -271,7 +268,7 @@ th{
 }
 .manage-btn,
 .cancel-btn{
-    margin-top: 8px;
+    margin-top: px;
 }
 
 .booking-text-color{
@@ -295,35 +292,46 @@ th{
 /*booking table form styling*/
 
 .booking-container{
-    margin-top:-40px;
+    margin-top:10%;
 }
+.booking-form label{
+    margin:0px;
+    margin-left:15em;
+    
+}
+.booking-form input{
+    margin-right:15em;
+}
+
+/*login form*/
 .form-group {
     align-items: center;
-    flex-wrap: nowrap; /* Prevents wrapping */
+    flex-wrap: nowrap; 
 }
+
 .form-group label {
     border-radius:10px;
     white-space:nowrap;
-    padding:5px;
-    margin-right:30px;
+    padding:0.5em 0.2em;
+    margin-right:3%;
 }
-
 .booking-header{
-    margin-top:-20px;
+    margin-top:-5%;
 }
 
-/*.form-group input {
+.form-group input {
     flex: 1;
-}*/
+    margin-left:rem;
+}
 .form-control {
-    width: 150%; /* Full width input fields */
-    padding-left: 20px; /* Padding for input fields */
-    /*font-size: 16px; /* Example font size */
+    width: 200px; /* Full width input fields */
+    padding-left: 0.25rem; /* Padding for input fields */
+    font-size: 16px; /* Example font size */
     border-radius: 10px;
 }
 .form-body-color{
    
-    /*background-color: #000000;*/
+    background-color: #000000;
     background: rgba(0, 0, 0, 0.7); 
     color:#ffffff;
 }
@@ -362,28 +370,32 @@ th{
 /* Signup form styling*/
 
 .signup-container{
-    margin-top:-50px;
+    margin-top:5em;
 }
+/*signup input field*/
+.input-field input{
+    flex: 1;
+    margin-left:2rem;
+}
+
 .button-center{
-    margin-left: 60px;
+    margin-left: 15%;
 }
 .text-small{
     font-size: 0.80em;
 }
 
-.signup-input{
-    width:100%;
-}
 .login-input::placeholder {
-    font-size: 0.75em; /* Adjust the size as needed */
-    color: #fff3f3; /* Optional: Change the placeholder text color */
+    font-size: 0.75em; /*font size*/
+    /*color: #fff3f3; */ 
 }
 .sp-form-control{
     width:50%;
 }
-.form-group-input{
+/*.form-group-input{
     padding-left:20px;
-}
+    width:100%;
+}*/
 
 /* Booking list page styling*/
 

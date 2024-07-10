@@ -47,11 +47,9 @@
                                 </ul>
                             </div>
                         {% endif %}-->    
-                        <form method="post" class=" form-group " autocomplete="off">
+                        <form method="post" class=" form-group booking-form " autocomplete="off">
                             {% csrf_token %}
-    
                             <!--{{ booking_form.as_p }}-->
-
                             <div class="form-group form-group-input row">
                                 <label for="{{ booking_form.table.id_for_label }}" class="col-sm-3 col-form-label">Select a Table:</label>
                                 <div class="col-sm-9">
