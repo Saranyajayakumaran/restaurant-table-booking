@@ -274,7 +274,8 @@ th{
 .form-group button {
     margin-top: 0.5rem;
 }
-.manage-btn{
+.manage-btn,
+.cancel-btn{
     margin-top: 8px;
 }
 
@@ -396,4 +397,11 @@ th{
 .my-bookings{
     margin-top:5px;
 }
-
+/*meaages*/
+.fade-out {
+    opacity: 1;
+    transition: opacity 1s linear;
+}
+/*.fade-out.hide {
+    opacity: 0;
+}

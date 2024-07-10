@@ -9,9 +9,6 @@ from django.contrib.auth.decorators import login_required
 from .models import HomePageContent, MenuPageContent, TableBooking
 from .forms import CustomerSignUpForm, CustomerLoginForm, TableBookingForm
 
-#from .models import SignupModel
-
-
 # Create your views here.
 def homepage(request):
     """
