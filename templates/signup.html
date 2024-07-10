@@ -24,13 +24,15 @@
                     <div class="card-header form-body-color">  
                         <h2 class="text-center title">Register</h2>
                     </div>
+                    <div id="messages" >
                         {% if messages %}
                             {% for message in messages %}
-                            <div class=" alert alert-success alert-custom" role="alert">           
-                                <p>{{ message }}</p>
+                                <div class="alert alert-success alert-custom fade-out" role="alert">           
+                                    <p>{{ message }}</p>
                             {% endfor %}
-                            </div>
+                                </div>
                         {% endif %}
+                    </div>
                         <form method="post" class="card-body form-group form-body-color" aria-hidden="true" autocomplete="off">
                             {% csrf_token %}
                             <div class="form-group row">
@@ -121,9 +123,10 @@
                                 </div>
                             </div>
                             
-                            <div class="row button-center">
+                            <div class=" button-center">
                                 <button type="submit" class="btn btn-color ">Submit</button>
-                                <a href="{% url 'home' %}" class="btn btn-color ml-2">Cancel</a>
+                                <a href="{% url 'login' %}" class="btn btn-color ml-2 manage-btn">Login</a>
+                                <a href="{% url 'home' %}" class="btn btn-color ml-2 manage-btn">Cancel</a>
                             </div>
                         </form>
 
@@ -135,5 +138,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/messages.js' %}"></script>  
 </body>
 </html>
