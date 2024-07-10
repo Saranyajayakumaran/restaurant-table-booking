@@ -24,16 +24,17 @@
                     <div class="card-header form-body-color">  
                         <h2 class="text-center title">Register</h2>
                     </div>
-                    <div id="messages" >
-                        {% if messages %}
-                            {% for message in messages %}
-                                <div class="alert alert-success alert-custom fade-out" role="alert">           
-                                    <p>{{ message }}</p>
-                            {% endfor %}
-                                </div>
-                        {% endif %}
-                    </div>
-                        <form method="post" class="card-body form-group form-body-color" aria-hidden="true" autocomplete="off">
+                    <div class="card-body form-group form-body-color">
+                        <div id="messages" >
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-success alert-custom fade-out" role="alert">           
+                                        <p>{{ message }}</p>
+                                {% endfor %}
+                                    </div>
+                            {% endif %}
+                        </div>
+                        <form method="post"  aria-hidden="true" autocomplete="off">
                             {% csrf_token %}
                             <div class="form-group row">
                                 <label for="{{ signup_form.first_name.id_for_label }}" class="col-sm-3 col-form-label">First Name</label>
@@ -129,7 +130,7 @@
                                 <a href="{% url 'home' %}" class="btn btn-color ml-2 manage-btn">Cancel</a>
                             </div>
                         </form>
-
+                    </div>
                 </div>
             </div>
         </div>

@@ -35,6 +35,7 @@ def signup_view(request):
             signup_form.save()
             messages.success(request, 'Registration successful! You can now log in.')
             #return redirect('login')
+            signup_form = CustomerSignUpForm()
     else:
         signup_form = CustomerSignUpForm()
     return render(request, 'signup.html', {'signup_form': signup_form})
@@ -92,16 +93,7 @@ def table_booking_view(request):
         if booking_form.is_valid():
             booking=booking_form.save(commit=False)
             booking.user=request.user
-            print("Form cleaned data:", booking_form.cleaned_data)  # Check form's cleaned data
-            print("Phone number before saving:", booking.phone_number)
             booking.save()
-            print("Saved booking data:")
-            print(f"Table: {booking.table}")
-            print(f"Booking Date: {booking.booking_date}")
-            print(f"Booking Time: {booking.booking_time}")
-            print(f"Phone Number: {booking.phone_number}")
-            print(f"Number of Guests: {booking.number_of_guests}")
-            print(f"Special Requests: {booking.special_requests}")
             messages.success(request, "Booking successfull.Thank you for booking with us!")
             booking_form = TableBookingForm()
     else:

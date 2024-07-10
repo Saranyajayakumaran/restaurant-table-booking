@@ -18,6 +18,7 @@
 </head>
 <main class="home-content-box my-bookings">
     <body class="">
+        <h4 class="title ">My Bookings</h4>
         <div id="messages" >
             {% if messages %}
                 {% for message in messages %}
@@ -27,7 +28,6 @@
                     </div>
             {% endif %}
         </div>
-        <h4 class="title ">My Bookings</h4>
         <table class="table table-bordered" autocomplete="off">
             <thead>
                 <tr>
@@ -50,8 +50,8 @@
                     <td>{{ booking.phone_number}}</td>
                     <td>{{ booking.special_requests}}</td>
                     <td class="center button-container">
-                        <a href="{% url 'user_booking_update' booking.id %}" class="btn btn-sm btn-primary">Update booking</a>
-                        <a href="{% url 'user_booking_delete' booking.id %}" id="deleteData" class="btn btn-sm btn-danger delete-booking">Delete booking</a>
+                        <a href="{% url 'user_booking_update' booking.id %}" class="btn btn-sm btn-primary">Update</a>
+                        <a href="{% url 'user_booking_delete' booking.id %}" id="deleteData" class="btn btn-sm btn-danger delete-booking">Delete</a>
                         <!--<a href="#confirmDeleteModal" class="btn btn-sm btn-danger delete-booking" data-toggle="modal" data-target="#confirmDeleteModal" data-booking-id="{{ booking.id }}">Delete booking</a>-->
                     </td>
                 </tr>
