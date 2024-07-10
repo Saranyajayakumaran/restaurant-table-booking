@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Bookings</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     {% load static %}
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -20,6 +19,14 @@
 </head>
 <main class="home-content-box my-bookings">
     <body class="">
+        <div>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success alert-custom" role="alert">           
+                        <p>{{ message }}</p>
+                {% endfor %}
+        </div>
+            {% endif %}
         <h4 class="title ">My Bookings</h4>
         <table class="table table-bordered" autocomplete="off">
             <thead>

@@ -105,7 +105,8 @@ def table_booking_view(request):
             print(f"Phone Number: {booking.phone_number}")
             print(f"Number of Guests: {booking.number_of_guests}")
             print(f"Special Requests: {booking.special_requests}")
-            messages.success(request, "Thank you for booking with us!")
+            messages.success(request, "Booking successfull.Thank you for booking with us!")
+            booking_form = TableBookingForm()
     else:
         booking_form = TableBookingForm()
 
@@ -144,7 +145,7 @@ def user_booking_update(request,booking_id):
         form = TableBookingForm(request.POST, instance=booking)
         if form.is_valid():
             form.save()
-            messages.success(request, "Updated Successfully")
+            messages.success(request, "Booking updated successfully")
             return redirect("user_booking_list") #redirect to same page
         else:
             print("Form errors:", form.errors)
