@@ -55,13 +55,12 @@ def login_view(request):
             if user is not None:
                 if user.is_active:
                     login(request,user)
-                    #print("entering login page")
                     return redirect('booking')
                 else:
                     error_message = "Account is disabled"
-            else:
+            else:  
                 error_message = "Invalid username or password"
-          
+            
             form.fields['password'].widget.attrs['value'] = ''
 
             return render(request, 'login.html', {'form': form, 'error_message': error_message})
@@ -147,12 +146,9 @@ def user_booking_delete(request,booking_id):
     """
     Delete the selected existing  booking.
     """
-    print("Debug: user_booking_delete()")
     booking = get_object_or_404(TableBooking, id=booking_id, user=request.user)
-    if request.method == 'GET':
-        print("it is a GET")
+    if request.method == 'POST':
         booking.delete()
-        print("record deleted")
         messages.success(request, "Booking deleted successfully.")
     return redirect('user_booking_list')
 
