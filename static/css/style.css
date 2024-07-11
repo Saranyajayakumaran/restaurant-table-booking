@@ -34,22 +34,6 @@ main{
     padding-bottom: -5rem;
 }
 
-/*.content-box {
-    /*background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
-    /*background: rgba(0, 0, 0, 0.7); 
-    padding: 20px;
-    margin: 80px ;*/
-    /*margin-top:100px;
-    margin-bottom: -150px;*/
-    /*padding-bottom:60px;*/
-    /*border-radius: 10px;
-    max-width: 100%; 
-    color: #ffffff;
-    max-height:fit-content;
-    justify-content: space-between;
-    flex-grow:1;
-}*/
-
 .home-content-box,.menu-content-box,
 .login-container,.booking-content-box{
     background: rgba(0, 0, 0, 0.7); 
@@ -494,7 +478,7 @@ th{
     .buttons{
         display: flex;
         flex-direction: column;
-        align-items: center;
+        /*align-items: center;*/
         margin-left: -5em;
     }
     .manage-btn{
@@ -510,6 +494,7 @@ th{
         margin-left:-5em;
         font-size: 10px;
     }   
+    /**/
     .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
         color: white; 
         font-size: 8px;
@@ -535,6 +520,55 @@ th{
         margin-top:-2em;
     }
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    booking-content-box,
+    .menu-content-box,
+    .home-content-box,
+    .login-container {
+        /* Example styles */
+        margin: 5rem;
+        padding: 1rem;
+    }
+    .login-container{
+        max-width: 100%;
+        margin-top:10rem;
+        margin-left: 2rem;
+    }
+    
+    .sm-label{
+        margin-left:-3rem;
+        font-size: 12px;
+    }  
+    .small-input {
+         width: 70%; /* Full width for mobile devices */
+        font-size: 10px; /* Slightly smaller font size for mobile */
+        margin-left:5em;
+    }
+    .signup-form{
+        margin-top:-3em;
+    }
+    .buttons{
+       margin-left:-4rem;
+    }
+
+    /*Booking page*/
+    .sp-form-control{
+        width:70%;
+        margin-left:3rem;
+    }
+    .welcome-message {
+        margin-left: -4em;
+    }
+    .booking-form label{
+        margin-left:-0.8em;
+    }
+    .my-bookings{
+        margin-top:2em;
+    }
+}
+
+
 
 
     
