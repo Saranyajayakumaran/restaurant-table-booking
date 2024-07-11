@@ -649,6 +649,40 @@ th{
    
 }
 
+/* Media query for larger screens (1440px and above) */
+@media (min-width: 1440px) {
+    .booking-container{
+        width:70%;
+        margin-top:3rem;
+    }
+    .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left:-60px;
+        gap: 10px; /* Space between buttons */
+    }
+    .buttons .btn {
+        min-width: 50px; /* Set a minimum width for the buttons */
+        height: 40px; /* Set a fixed height for the buttons */
+        text-align: center; /* Center the text */
+        line-height: 20px; /* Vertically center the text */
+        display: flex; /* Use flexbox for centering */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+    }
+    .manage-btn{
+        margin-top:8px
+    }
+    .sm-label{
+        margin-left:4rem;    
+    }  
+    .my-bookings{
+        margin-top:2em;
+    }
+}
+
+
 
 
 
