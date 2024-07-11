@@ -566,6 +566,11 @@ th{
     .my-bookings{
         margin-top:2em;
     }
+    .btn-color {
+        margin: 5px;
+        /*margin: 5px 0; /* Vertical spacing for stacked buttons */
+        width: 40%; /* Full width for mobile devices */
+    }
 }
 
 
