@@ -20,6 +20,7 @@ class CustomerSignUpForm(UserCreationForm):
         widget=forms.PasswordInput(attrs={'placeholder': 'Enter same password'})
     )
 
+
     class Meta:
         """
         Get all the required fileds from usercreationForm
@@ -100,9 +101,14 @@ class TableBookingForm(forms.ModelForm):
         model = TableBooking
         fields = ['table', 'booking_date', 'booking_time', 'phone_number', 'number_of_guests', 'special_requests']
         widgets = {
-            'booking_date': forms.DateInput(attrs={'type': 'date'}),
-            'booking_time': forms.TimeInput(attrs={'type': 'time'}),
+            'table': forms.Select(attrs={'class': 'form-control small-input'}),
+            'booking_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control small-input'}),
+            'booking_time': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control small-input'}),
+            'phone_number': forms.TextInput(attrs={'class': 'form-control small-input'}),
+            'number_of_guests': forms.NumberInput(attrs={'class': 'form-control small-input'}),
+            'special_requests': forms.Textarea(attrs={'class': 'form-control small-input', 'rows': 3}),
         }
+       
 
     def __init__(self, *args, **kwargs):
         self.is_update = kwargs.pop('is_update', False)
