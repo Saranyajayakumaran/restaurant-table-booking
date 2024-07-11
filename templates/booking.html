@@ -25,7 +25,7 @@
                         <h2 class="text-center title ">Book a Table</h2>
                     </div>
                     <div class="card-body form-body-color ">
-                        <h5 class="text-center welcome-message text-color">Welcome, {{ request.user.username }}</h5>
+                        <h5 class="text-center welcome-message text-color">Welcome {{ request.user.username }}</h5>
                         <div id="messages" >
                             {% if messages %}
                                 {% for message in messages %}
@@ -47,11 +47,11 @@
                                 </ul>
                             </div>
                         {% endif %}-->    
-                        <form method="post" class=" booking-form" autocomplete="off">
+                        <form method="post" class="form-group" autocomplete="off">
                             {% csrf_token %}
                             <!--{{ booking_form.as_p }}-->
                             <div class="form-group row">
-                                <label for="{{ booking_form.table.id_for_label }}" class="col-sm-3 col-form-label">Select a Table:</label>
+                                <label for="{{ booking_form.table.id_for_label }}" class="col-sm-3 col-form-label sm-label">Select a Table:</label>
                                 <div class="col-sm-9">
                                     {{ booking_form.table}}
                                     {% if booking_form.table.errors %}
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="{{ booking_form.booking_date.id_for_label }}" class="col-sm-3 col-form-label" >Booking Date:</label>
+                                <label for="{{ booking_form.booking_date.id_for_label }}" class="col-sm-3 col-form-label sm-label" >Booking Date:</label>
                                 <div class="col-sm-9">
                                     {{ booking_form.booking_date }}
                                     {% if booking_form.booking_date.errors %}
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="{{ booking_form.booking_time.id_for_label }}" class="col-sm-3 col-form-label">Booking Time:</label>
+                                <label for="{{ booking_form.booking_time.id_for_label }}" class="col-sm-3 col-form-label sm-label">Booking Time:</label>
                                 <div class="col-sm-9">
                                     {{ booking_form.booking_time }}
                                     {% if booking_form.booking_time.errors %}
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="{{ booking_form.phone_number.id_for_label }}" class="col-sm-3 col-form-label">Phone Number:</label>
+                                <label for="{{ booking_form.phone_number.id_for_label }}" class="col-sm-3 col-form-label sm-label">Phone Number:</label>
                                 <div class="col-sm-9">
                                     {{ booking_form.phone_number }}
                                     {% if booking_form.phone_number.errors %}
@@ -103,7 +103,7 @@
                                 </div>
                             </div>
                             <div class="form-group  row">
-                                <label for="{{ booking_form.number_of_guests.id_for_label }}" class="col-sm-3 col-form-label">Number of Guests:</label>
+                                <label for="{{ booking_form.number_of_guests.id_for_label }}" class="col-sm-3 col-form-label sm-label">Number of Guests:</label>
                                 <div class="col-sm-9">
                                     {{ booking_form.number_of_guests }}
                                     {% if booking_form.number_of_guests.errors %}
@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label  for="{{ booking_form.special_requests.id_for_label }}" class="col-sm-3 col-form-label">Special Requests:</label>
+                                <label  for="{{ booking_form.special_requests.id_for_label }}" class="col-sm-3 col-form-label sm-label">Special Requests:</label>
                                 <div class="col-sm-9">
                                     <textarea  class="sp-form-control" name="special_requests" autocomplete="off">{{ booking_form.special_requests.value }}</textarea>
                                     {% if booking_form.special_requests.errors %}
@@ -129,7 +129,7 @@
                                 </div>
                             </div>               
                             <div class=" buttons text-center">
-                                <button type="submit" class="btn btn-color">Book Now</button>
+                                <button type="submit" class="btn btn-color ">Book Now</button>
                                 <a href="{% url 'logout' %}" class="btn btn-color ml-2 manage-btn">Logout</a>
                                 <a href="{% url 'user_booking_list' %}" class="btn manage-btn btn-color ml-2">Manage Bookings</a>
                             </div>
