@@ -167,7 +167,7 @@ class TableBookingForm(forms.ModelForm):
 
             # Define restaurant operating hours in CET
             restaurant_opening_time = time(11, 0)
-            restaurant_closing_time = time(21, 0)
+            restaurant_closing_time = time(23, 0)
 
             if not (restaurant_opening_time <= user_selected_booking_time <= restaurant_closing_time):
                 # Table can be booked only during operating hours
