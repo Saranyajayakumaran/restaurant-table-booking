@@ -407,7 +407,6 @@ th{
     /*transform:scale(1.15);*/
 }
 
-
 /*media query small devices( phones)*/
 
 @media(max-width:576px){
@@ -419,7 +418,7 @@ th{
         height:fit-content;/*content boxes in all pages*/
     }
     .signup-container{
-        margin-top:-1rem;
+        margin-top:-6rem;
     }
     .booking-content-box{
         width:170%;
@@ -468,15 +467,15 @@ th{
     }
     .small-input {
         width: 100%; /* Full width for mobile devices */
-        font-size: 10px; /* Slightly smaller font size for mobile */
+        font-size: 12px; /* Slightly smaller font size for mobile */
     }
     .sp-form-control{
         width:100%;
     }
     .btn-color {
-        margin: 10px;
+        margin: 5px;
         /*margin: 5px 0; /* Vertical spacing for stacked buttons */
-        width: 80%; /* Full width for mobile devices */
+        width: 60%; /* Full width for mobile devices */
     }
     .buttons{
         display: flex;
@@ -493,9 +492,9 @@ th{
     }
      /*sign up form*/
 
-    .sm-label{
-        margin-left:-5em;
-        font-size: 10px;
+     .sm-label{
+        margin-left:-4em;
+        font-size: 12px;
     }   
     /**/
     .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
@@ -524,14 +523,12 @@ th{
     }
 }
 
-
 /* media query for ipad and tablets*/
 @media (min-width: 768px) and (max-width: 1024px) {
     booking-content-box,
     .menu-content-box,
     .home-content-box,
     .login-container {
-        /* Example styles */
         margin: 5rem;
         padding: 1rem;
     }
@@ -540,7 +537,7 @@ th{
         margin-top:10rem;
         margin-left: 2rem;
     }
-    .signup-form{
+    .signup-container{
         width:150%;
         margin-left:-5em;
         margin-top:-4em;
@@ -585,7 +582,12 @@ th{
     .login-container{
         margin-top:9rem;
     }
-
+    
+    .signup-container{
+        width:100%;
+        margin-left:-2em;
+        margin-top:-7em;
+    }
     .signup-sm-label{
         font-size:15px;
         margin-left:-2em;
@@ -648,12 +650,27 @@ th{
     }
    
 }
+/* Media query for larger screens (1440px and above) */
+@media (min-width:1280px){
+    .signup-container{
+       width:80%;
+       margin-top:-3em;
+   }
+}
 
 /* Media query for larger screens (1440px and above) */
 @media (min-width: 1440px) {
+    .login-container{
+        margin-top:2em;
+    }
     .booking-container{
         width:70%;
         margin-top:3rem;
+    }
+    .signup-container{
+        width:90%;
+        margin-left:-5em;
+        margin-top:-em;
     }
     .buttons {
         display: flex;
@@ -674,6 +691,9 @@ th{
     }  
     .my-bookings{
         margin-top:2em;
+    }
+    .signup-form{
+        margin-left:-2em;
     }
 }
 
