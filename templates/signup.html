@@ -36,9 +36,11 @@
                             <form method="post" class="form-group"  aria-hidden="true" autocomplete="off">
                                 {% csrf_token %}
                                 <div class="form-group row ">
-                                    <label for="id_first_name" class="col-sm-3 col-form-label sm-label">First Name</label>
+                                    <label for="id_first_name" class="col-sm-3 col-form-label sm-label">
+                                        First Name:<span class="text-orange">*</span>
+                                    </label>
                                     <div class="col-sm-9 ">
-                                        <input type="text" name="first_name" class="form-control small-input"  id="id_first_name" required help-text="*">
+                                        <input type="text" name="first_name" class="form-control small-input" value="{{ signup_form.first_name.value|default_if_none:'' }}"  id="id_first_name" required>
                                         <!--{{ signup_form.first_name }}-->
                                         {% if signup_form.first_name.errors %}
                                             <div class="text-danger">
@@ -53,7 +55,7 @@
                                 <div class="form-group row ">
                                     <label for="id_last_name" class="col-sm-3 col-form-label sm-label">Last Name</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="last_name" class="form-control  small-input" id="id_last_name" required>
+                                        <input type="text" name="last_name" class="form-control  small-input" id="id_last_name"  value="{{ signup_form.last_name.value|default_if_none:'' }}" required>
                                         <!--{{ signup_form.last_name }}-->
                                         {% if signup_form.last_name.errors %}
                                             <div class="text-danger">
@@ -67,7 +69,7 @@
                                 <div class="form-group row ">
                                     <label for="id_email" class="col-sm-3 col-form-label sm-label">Email</label>
                                     <div class="col-sm-9">
-                                        <input type="email" name="email" class="form-control  small-input"  id="id_email" required>
+                                        <input type="email" name="email" class="form-control  small-input"  id="id_email" value="{{ signup_form.email.value|default_if_none:'' }}" required>
                                         <!--{{ signup_form.email }}-->
                                         {% if signup_form.email.errors %}
                                             <div class="text-danger">
@@ -81,7 +83,7 @@
                                 <div class="form-group row ">
                                     <label for="id_username" class="col-sm-3 col-form-label sm-label">Username</label>
                                     <div class="col-sm-9 ">
-                                        <input type="text" name="username" class="form-control  small-input" id="id_username" placeholder="'letters, digits, @/./+/-/_'" required>
+                                        <input type="text" name="username" class="form-control  small-input" id="id_username" value="{{ signup_form.username.value|default_if_none:'' }}"placeholder="'letters, digits, @/./+/-/_'" required>
                                         <!--{{ signup_form.username }}-->
                                         {% if signup_form.username.placeholder %}
                                             <small class=" text-small text-muted">{{ signup_form.username.placeholder }}</small>

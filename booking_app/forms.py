@@ -23,11 +23,11 @@ class CustomerSignUpForm(UserCreationForm):
         help_text="*"
     )
 
-
     class Meta:
         """
         Get all the required fileds from usercreationForm
         """
+        
         model = User
         fields = ('first_name','last_name','email','username','password1','password2')
 
@@ -44,6 +44,7 @@ class CustomerSignUpForm(UserCreationForm):
         """
         Validate the emaila adress it should contain @
         """
+        
         email=self.cleaned_data.get("email")
         if not email:
             raise ValidationError("Email is required")
@@ -69,6 +70,7 @@ class CustomerSignUpForm(UserCreationForm):
         """
         Validate the firt name cannot be empty and digits
         """
+        
         first_name = self.cleaned_data.get("first_name")
         if not first_name:
             raise ValidationError("First name field cannot be empty")
@@ -80,6 +82,7 @@ class CustomerSignUpForm(UserCreationForm):
         """
         Validate last name cannot be empty and digits
         """
+        
         last_name = self.cleaned_data.get("last_name")
         if not last_name:
             raise ValidationError("Last name field cannot be empty")
