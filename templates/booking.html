@@ -51,7 +51,9 @@
                             {% csrf_token %}
                             <!--{{ booking_form.as_p }}-->
                             <div class="form-group row">
-                                <label for="{{ booking_form.table.id_for_label }}" class="col-sm-3 col-form-label sm-label">Select a Table:</label>
+                                <label for="{{ booking_form.table.id_for_label }}" class="col-sm-3 col-form-label sm-label">
+                                    Select a Table:<span class="text-orange">*</span>
+                                </label>
                                 <div class="col-sm-9">
                                     {{ booking_form.table}}
                                     {% if booking_form.table.errors %}
@@ -64,9 +66,11 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="{{ booking_form.booking_date.id_for_label }}" class="col-sm-3 col-form-label sm-label" >Booking Date:</label>
+                                <label for="{{ booking_form.booking_date.id_for_label }}" class="col-sm-3 col-form-label sm-label" >
+                                    Booking Date:<span class="text-orange">*</span>
+                                </label>
                                 <div class="col-sm-9">
-                                    {{ booking_form.booking_date }}
+                                    {{ booking_form.booking_date }} 
                                     {% if booking_form.booking_date.errors %}
                                         <div class="text-danger">
                                             {% for error in booking_form.booking_date.errors %}
@@ -77,9 +81,11 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="{{ booking_form.booking_time.id_for_label }}" class="col-sm-3 col-form-label sm-label">Booking Time:</label>
+                                <label for="{{ booking_form.booking_time.id_for_label }}" class="col-sm-3 col-form-label sm-label">
+                                    Booking Time:<span class="text-orange">*</span>
+                                </label>
                                 <div class="col-sm-9">
-                                    {{ booking_form.booking_time }}
+                                    {{ booking_form.booking_time }} 
                                     {% if booking_form.booking_time.errors %}
                                         <div class="text-danger">
                                             {% for error in booking_form.booking_time.errors %}
@@ -103,9 +109,11 @@
                                 </div>
                             </div>
                             <div class="form-group  row">
-                                <label for="{{ booking_form.number_of_guests.id_for_label }}" class="col-sm-3 col-form-label sm-label">Number of Guests:</label>
+                                <label for="{{ booking_form.number_of_guests.id_for_label }}" class="col-sm-3 col-form-label sm-label">
+                                    Number of Guests:<span class="text-orange">*</span>
+                                </label>
                                 <div class="col-sm-9">
-                                    {{ booking_form.number_of_guests }}
+                                    {{ booking_form.number_of_guests }} 
                                     {% if booking_form.number_of_guests.errors %}
                                         <div class="text-danger">
                                             {% for error in booking_form.number_of_guests.errors %}

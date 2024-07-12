@@ -10,7 +10,6 @@
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    <!--<link rel="stylesheet" href="/static/fontawesome/css/all.min.css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -39,7 +38,7 @@
                                 <div class="form-group row ">
                                     <label for="id_first_name" class="col-sm-3 col-form-label sm-label">First Name</label>
                                     <div class="col-sm-9 ">
-                                        <input type="text" name="first_name" class="form-control small-input"  id="id_first_name" required>
+                                        <input type="text" name="first_name" class="form-control small-input"  id="id_first_name" required help-text="*">
                                         <!--{{ signup_form.first_name }}-->
                                         {% if signup_form.first_name.errors %}
                                             <div class="text-danger">

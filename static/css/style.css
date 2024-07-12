@@ -248,6 +248,10 @@ th{
     border-radius: 10px;
 }
 
+.text-orange {
+    color:  #fc7e51;
+}
+
 .form-group button {
     margin-top: 0.5rem;
 }

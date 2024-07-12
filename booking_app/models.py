@@ -54,9 +54,9 @@ class TableBooking(models.Model):
     table = models.ForeignKey(TableInfo, on_delete=models.CASCADE)
     booking_date = models.DateField()
     booking_time = models.TimeField()
-    phone_number=models.CharField(max_length=15,blank=True,null=True,help_text='optional')
+    phone_number=models.CharField(max_length=15,blank=True,null=True)
     number_of_guests=models.PositiveIntegerField()
-    special_requests=models.TextField(max_length=200,blank=True,null=True)
+    special_requests=models.TextField(max_length=200,blank=True,null=True, default="")
 
     objects: Manager['TableBooking'] = models.Manager()
 
