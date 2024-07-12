@@ -148,9 +148,14 @@ class TableBookingForm(forms.ModelForm):
         """
         user_selected_booking_date = self.cleaned_data.get('booking_date')
         user_selected_booking_time = self.cleaned_data.get('booking_time')
+
+        print(f"User selected date: {user_selected_booking_date}")
+        print(f"User selected time: {user_selected_booking_time}")
+        print(f"Current datetime: {datetime.now()}")
         
         if user_selected_booking_date and user_selected_booking_time:
             booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
+            print(f"Booking datetime: {booking_datetime}")
             if booking_datetime < datetime.now():
                 raise ValidationError("Please select a future time, Booking date cannot be past.")
             
