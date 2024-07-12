@@ -83,10 +83,8 @@ def table_booking_view(request):
     booking table allow user to book a table in restaurant 
     if form is valid it save all the data in database
     """
-    print("i am in booking page")
-    #delete_user_old_bookings(request)
-
-    #print("i am in booking page")
+    
+    delete_user_old_bookings(request)
     if request.method == 'POST':
         booking_form = TableBookingForm(request.POST)
         if booking_form.is_valid():
@@ -98,7 +96,6 @@ def table_booking_view(request):
     else:
         booking_form = TableBookingForm()
 
-    #print("Rendering form")  #
     return render(request, 'booking.html', {'booking_form': booking_form})
 
 def delete_user_old_bookings(request):
@@ -128,7 +125,7 @@ def user_booking_update(request,booking_id):
     """
     print("inside update")
     booking = get_object_or_404(TableBooking, id=booking_id, user=request.user)
-    
+ 
     if request.method == 'POST':
         form = TableBookingForm(request.POST, instance=booking)
         if form.is_valid():
@@ -151,9 +148,3 @@ def user_booking_delete(request,booking_id):
         booking.delete()
         messages.success(request, "Booking deleted successfully.")
     return redirect('user_booking_list')
-
-    #return render(request, 'delete.html', {'booking': booking})
-
-def booking_confirm_delete(request, booking_id):
-    booking = get_object_or_404(TableBooking, id=booking_id)
-    return render(request, 'delete.html', {'booking': booking})

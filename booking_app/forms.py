@@ -178,7 +178,7 @@ class TableBookingForm(forms.ModelForm):
             closing_datetime_cet = cet.localize(closing_datetime_naive)
 
             if booking_datetime_cet > closing_datetime_cet - timedelta(hours=2):
-                raise ValidationError("Please book at least 2 hours before closing time.")
+                raise ValidationError("Please select time within (11:00 AM to 9:00 PM) CET")
 
         return user_selected_booking_time
 
