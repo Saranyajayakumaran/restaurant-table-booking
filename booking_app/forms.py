@@ -1,6 +1,7 @@
 """
 Imports
 """
+import pytz
 import datetime
 from datetime import date,datetime,time
 from django import forms
@@ -146,6 +147,9 @@ class TableBookingForm(forms.ModelForm):
         """
         Validate past time cannot be booked
         """
+
+        cet = pytz.timezone('CET')#Central european time
+
         user_selected_booking_date = self.cleaned_data.get('booking_date')
         user_selected_booking_time = self.cleaned_data.get('booking_time')
 
@@ -154,6 +158,36 @@ class TableBookingForm(forms.ModelForm):
         print(f"Current datetime: {datetime.now()}")
         
         if user_selected_booking_date and user_selected_booking_time:
+            # Combine date and time and localize to CET timezone
+            booking_datetime_naive = datetime.combine(user_selected_booking_date, user_selected_booking_time)
+            booking_datetime_cet = cet.localize(booking_datetime_naive)
+            
+            # Get the current time in CET timezone
+            current_time_cet = datetime.now(pytz.utc).astimezone(cet)
+            
+            # Validate booking is in the future
+            if booking_datetime_cet < current_time_cet:
+                raise ValidationError("Please select a future time, Booking date cannot be in the past.")
+
+            # Define restaurant operating hours in CET
+            restaurant_opening_time = time(11, 0)
+            restaurant_closing_time = time(21, 0)
+
+            if not (restaurant_opening_time <= user_selected_booking_time <= restaurant_closing_time):
+                # Table can be booked only during operating hours
+                raise ValidationError("Please select time within (11:00 AM to 9:00 PM) CET")
+
+            # Validate booking is at least 2 hours before closing
+            closing_datetime_naive = datetime.combine(user_selected_booking_date, restaurant_closing_time)
+            closing_datetime_cet = cet.localize(closing_datetime_naive)
+
+            if booking_datetime_cet > closing_datetime_cet - timedelta(hours=2):
+                raise ValidationError("Please book at least 2 hours before closing time.")
+
+        return user_selected_booking_time
+
+
+        """if user_selected_booking_date and user_selected_booking_time:
             booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
             print(f"Booking datetime: {booking_datetime}")
             if booking_datetime < datetime.now():
@@ -169,7 +203,7 @@ class TableBookingForm(forms.ModelForm):
         current_time = datetime.now().time()
         if user_selected_booking_time < current_time and user_selected_booking_date == datetime.today().date():
             raise ValidationError("Please select future time ,Booking time cannot be in the past")
-        return user_selected_booking_time
+        return user_selected_booking_time"""
     
     def clean_phone_number(self):
         """
