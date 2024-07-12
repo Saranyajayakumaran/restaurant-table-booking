@@ -160,11 +160,11 @@ class TableBookingForm(forms.ModelForm):
         if not (restaurant_opening_time<=user_selected_booking_time<=restaurant_closing_time):
             # Table can be booked only 2hours before closing time
             raise ValidationError("Please select time within (11.00 AM to 21.00 PM)")
-        
-        current_time = datetime.now().time()
+       
+        """current_time = datetime.now().time()
         if user_selected_booking_time < current_time and user_selected_booking_date == datetime.today().date():
             raise ValidationError("Please select future time ,Booking time cannot be in the past")
-        return user_selected_booking_time
+        return user_selected_booking_time"""
     
     def clean_phone_number(self):
         """
