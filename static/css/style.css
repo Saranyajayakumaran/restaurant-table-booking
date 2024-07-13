@@ -17,13 +17,11 @@ body{
     min-width: 100%;
     min-height:100vh;
     background-image: url("../images/pexels-karolina-grabowska-4963817.jpg");
-    /*background: linear-gradient(to bottom, #000000, #aa90f3); /* Black to sand gradient */
     background-size: cover;
     background-position: right center;
     background-attachment: fixed;
     background-repeat: no-repeat; 
     width:100%;
-    /*color:#ffffff;*/
     align-items: center;
     position: relative;
     align-content: space-around; 
@@ -189,7 +187,7 @@ th{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px; /* space between buttons as needed */
+    gap: 10px; /* space between buttons*/
 }
 
 /**/
@@ -212,7 +210,7 @@ th{
 }
 .center-content {
     text-align: center;
-    margin-top: -20px; /* Adjust the margin as needed */
+    margin-top: -20px; /* margin space*/
 }
 
 .new-user-text a:hover {
@@ -264,12 +262,9 @@ th{
     padding: 20px;
     margin: 200px ;
     margin-top:70px;
-    /*padding-bottom:60px;*/
     border-radius: 10px;
     max-width: 70%; 
     color: #ffffff;
-   /* max-height:150%;
-    /*display: flex;*/
     justify-content: space-between;
 }
 
@@ -284,14 +279,14 @@ th{
     
 }
 .booking-form input{
-    margin-right:2em;
+    margin-right:2em;/* form center*/
 }
 .small-input {
-    width: 100%; /* Default to full width for better responsiveness */
-    font-size: 16px; /* Adjust the font size as needed */
-    padding: 5px; /* Adjust the padding as needed */
-    border-radius: 5px; /* Optional: Adjust the border radius */
-    box-sizing: border-box; /* Ensure padding is included in the width */
+    width: 100%; /*full width for better responsiveness */
+    font-size: 16px; 
+    padding: 5px;
+    border-radius: 5px; 
+    box-sizing: border-box;
 }
 .welcome-message {
     margin-top: 20px;
@@ -327,8 +322,8 @@ th{
 }
 .form-control {
     width: 200px; /* Full width input fields */
-    padding-left: 0.25rem; /* Padding for input fields */
-    font-size: 16px; /* Example font size */
+    padding-left: 0.25rem; /*input fields padding */
+    font-size: 16px; 
     border-radius: 10px;
 }
 .form-body-color{
@@ -365,7 +360,7 @@ th{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Adjust this as needed for vertical centering */
+    height: 100vh; /* vertical centering */
 
 }
 
@@ -384,16 +379,11 @@ th{
 }
 
 .login-input::placeholder {
-    font-size: 0.75em; /*font size*/
-    /*color: #fff3f3; */ 
+    font-size: 0.75em; /*font size*/ 
 }
 .sp-form-control{
     width:50%;
 }
-/*.form-group-input{
-    padding-left:20px;
-    width:100%;
-}*/
 
 /* Booking list page styling*/
 
@@ -404,14 +394,11 @@ th{
 .fade-out {
     opacity: 1;
     transition: opacity 1s ease-in-out;
-    /*transform:scale(1.15);*/
+   
 }
 .fade-out.hide {
     opacity: 0;
-    /*transform:scale(1.15);*/
 }
-/*Error messages*/
-
 
 /*media query small devices( phones)*/
 
@@ -483,8 +470,7 @@ th{
     }
     .btn-color {
         margin: 5px;
-        /*margin: 5px 0; /* Vertical spacing for stacked buttons */
-        width: 60%; /* Full width for mobile devices */
+        width: 60%; /* button width for mobile devices */
     }
     .buttons{
         display: flex;
@@ -560,7 +546,7 @@ th{
     }  
     .small-input {
         width: 70%; /* Full width for mobile devices */
-        font-size: 10px; /* Slightly smaller font size for mobile */
+        font-size: 10px; /*smaller font size for mobile */
         margin-left:5em;
     }
 
@@ -584,8 +570,7 @@ th{
     }
     .btn-color {
         margin: 5px;
-        /*margin: 5px 0; /* Vertical spacing for stacked buttons */
-        width: 40%; /* Full width for mobile devices */
+        width: 40%; /* button size for mobile devices */
     }
 }
 /* Media query for laptop screens (1024px to 1440px) */
@@ -605,8 +590,8 @@ th{
         margin-left:-2em;
     }
     .small-input {
-        width: 70%; /* Full width for mobile devices */
-        font-size: 15px; /* Slightly smaller font size for mobile */
+        width: 70%; /* input field width */
+        font-size: 15px; /*font size for mobile */
         margin-left:4em;
         font-weight: bold;
     }
@@ -621,7 +606,7 @@ th{
         justify-content: center;
         align-items: center;
         margin-left:-60px;
-        gap: 10px; /* Space between buttons */
+        gap: 10px; /*  buttons space */
     }
     .buttons .btn {
         min-width: 50px; 
@@ -673,9 +658,6 @@ th{
 
 /* Media query for larger screens (1440px and above) */
 @media (min-width: 1440px) {
-    /*.login-container{
-        margin-top:em;
-    }*/
     .booking-container{
         width:70%;
         margin-top:3rem;
@@ -690,7 +672,7 @@ th{
         justify-content: center;
         align-items: center;
         margin-left:-60px;
-        gap: 10px; /* Space between buttons */
+        gap: 10px; /*buttons space */
     }
     .buttons .btn {
         min-width: 50px; 
