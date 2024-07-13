@@ -2,7 +2,7 @@
 Imports
 """
 import datetime
-from datetime import date,datetime,time,timedelta
+from datetime import date, datetime, time, timedelta
 import pytz
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
@@ -10,16 +10,19 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from .models import TableBooking
 
+
 class CustomerSignUpForm(UserCreationForm):
     """
     Form to register a new user
     """
     username = forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'letters, digits, @,.,+,-,_'}),
+        widget=forms.TextInput(attrs={'placeholder':
+                                      'letters, digits, @,.,+,-,_'}),
         help_text="*"
     )
     password2 = forms.CharField(
-        widget=forms.PasswordInput(attrs={'placeholder': 'Enter same password'}),
+        widget=forms.PasswordInput(attrs={'placeholder':
+                                          'Enter same password'}),
         help_text="*"
     )
 
@@ -28,7 +31,8 @@ class CustomerSignUpForm(UserCreationForm):
         Get all the required fields from UserCreationForm
         """
         model = User
-        fields = ('first_name', 'last_name', 'email', 'username', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'email',
+                  'username', 'password1', 'password2')
 
     def validate_passwords(self):
         """
@@ -52,7 +56,6 @@ class CustomerSignUpForm(UserCreationForm):
             self.add_error('email', "A user with this email already exists."
                            "Please use another email address")
 
-
     def validate_username(self):
         """
         Validate username for allowed characters,
@@ -63,13 +66,15 @@ class CustomerSignUpForm(UserCreationForm):
         username = self.cleaned_data.get("username")
         if username:
             if len(username) < 8:
-                self.add_error('username', "Username should contain at least 8 characters")
+                self.add_error('username',
+                               "Username should contain at least 8 characters")
             else:
                 allowed_characters = set('abcdefghijklmnopqrstuvwxyz'
                                          'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
                                          '0123456789.@+-_')
                 if not all(char in allowed_characters for char in username):
-                    self.add_error('username', "Username can only contain letters,"
+                    self.add_error('username',
+                                   "Username can only contain letters,"
                                    "digits, and @,.,+,-,_ characters")
                 elif User.objects.filter(username=username).exists():
                     self.add_error('username', "Username already exists,"
@@ -82,7 +87,6 @@ class CustomerSignUpForm(UserCreationForm):
         first_name = self.cleaned_data.get("first_name")
         if first_name and not first_name.isalpha():
             self.add_error('first_name', "First name can only contain letters")
-
 
     def validate_last_name(self):
         """
@@ -106,12 +110,14 @@ class CustomerSignUpForm(UserCreationForm):
 
         return cleaned_data
 
+
 class CustomerLoginForm(forms.Form):
     """
     Form for user authentication , allow user to login
     """
-    username=forms.CharField(max_length=200)
-    password=forms.CharField(widget=forms.PasswordInput)
+    username = forms.CharField(max_length=200)
+    password = forms.CharField(widget=forms.PasswordInput)
+
 
 class TableBookingForm(forms.ModelForm):
     """
@@ -136,27 +142,33 @@ class TableBookingForm(forms.ModelForm):
                 attrs={'type': 'time', 'class': 'form-control small-input'}),
             'phone_number': forms.TextInput(
                 attrs={'class': 'form-control small-input'}),
-            'number_of_guests': forms.NumberInput(attrs={'class': 'form-control small-input'}),
+            'number_of_guests': forms.NumberInput(attrs={'class': 
+                                                  'form-control small-input'}),
             'special_requests': forms.Textarea(attrs={
                 'class': 'form-control small-input', 
                 'rows': 3, 'placeholder':''}),
         }
+
     def __init__(self, *args, **kwargs):
         self.is_update = kwargs.pop('is_update', False)
         super().__init__(*args, **kwargs)
 
     def clean_booking_date(self):
         """
-        Validate Past date cannot be booked and limit the booking depends on opening days
+        Validate Past date cannot be booked 
+        and limit the booking depends on 
+        opening days
         """
         cleaned_data = self.cleaned_data
         user_selected_booking_date = cleaned_data.get('booking_date')
         user_selected_booking_time = cleaned_data.get('booking_time')
         table_data = cleaned_data.get('table')
 
-        if user_selected_booking_date and user_selected_booking_time and table_data:
+        if (user_selected_booking_date and user_selected_booking_time and
+                                                            table_data):
             booking_datetime = (
-                datetime.combine(user_selected_booking_date, user_selected_booking_time)
+                datetime.combine(user_selected_booking_date,
+                                 user_selected_booking_time)
                 )
             if not self.is_update:  # ensure it is not update
                 booking_exists = TableBooking.objects.filter(
@@ -167,16 +179,18 @@ class TableBookingForm(forms.ModelForm):
 
             if booking_exists:
                 raise ValidationError(
-                    f"The table {table_data} is already booked at {booking_datetime}"
+                    f"The table {table_data} is already booked at"
+                    f"{booking_datetime}"
                     "Please select another time.")
 
-        if user_selected_booking_date<date.today():
+        if user_selected_booking_date < date.today():
             raise ValidationError(
                 "Please select another date in future,"
-                 "you cannot book a table in past date")
+                "you cannot book a table in past date")
 
-        if user_selected_booking_date.weekday()==1:
-            raise ValidationError("Restaurant is closed on Tuesdays,please select another date")
+        if user_selected_booking_date.weekday() == 1:
+            raise ValidationError("Restaurant is closed on Tuesdays,"
+                                  "please select another date")
         return user_selected_booking_date
 
     def clean_booking_time(self):
@@ -184,7 +198,7 @@ class TableBookingForm(forms.ModelForm):
         Validate past time cannot be booked
         """
 
-        cet = pytz.timezone('CET')#Central european time
+        cet = pytz.timezone('CET')  #Central european time
 
         user_selected_booking_date = self.cleaned_data.get('booking_date')
         user_selected_booking_time = self.cleaned_data.get('booking_time')
@@ -195,7 +209,7 @@ class TableBookingForm(forms.ModelForm):
                 user_selected_booking_date, user_selected_booking_time)
             booking_datetime_cet = cet.localize(booking_datetime_naive)
 
-            #convert current time to cet
+            # convert current time to cet
             current_time_cet = datetime.now(pytz.utc).astimezone(cet)
 
             # Validate booking is in the future time
@@ -208,10 +222,11 @@ class TableBookingForm(forms.ModelForm):
             restaurant_opening_time = time(11, 0)
             restaurant_closing_time = time(23, 0)
 
-            if not (restaurant_opening_time <= user_selected_booking_time <= restaurant_closing_time
-                    ):
+            if not (restaurant_opening_time <= user_selected_booking_time <= 
+                    restaurant_closing_time):
                 # Table can be booked only during operating hours
-                raise ValidationError("Please select time within (11:00 AM to 9:00 PM) CET")
+                raise ValidationError("Please select time within" 
+                                      "(11:00 AM to 9:00 PM) CET")
 
             # Validate booking is at least 2 hours before closing
             closing_datetime_naive = datetime.combine(
