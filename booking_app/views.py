@@ -68,8 +68,12 @@ def login_view(request):
 
             return render(
                 request,
-                'login.html', {'form': form,
-                'error_message': error_message})
+                'login.html',
+                {
+                    'form': form,
+                    'error_message': error_message
+                }
+            )
     else:
         form = CustomerLoginForm()
     return render(request, 'login.html', {"form": form})
