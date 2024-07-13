@@ -53,7 +53,9 @@
                                 </div>
                                 
                                 <div class="form-group row ">
-                                    <label for="id_last_name" class="col-sm-3 col-form-label sm-label">Last Name</label>
+                                    <label for="id_last_name" class="col-sm-3 col-form-label sm-label">
+                                        Last Name:<span class="text-orange">*</span>
+                                    </label>
                                     <div class="col-sm-9">
                                         <input type="text" name="last_name" class="form-control  small-input" id="id_last_name"  value="{{ signup_form.last_name.value|default_if_none:'' }}" required>
                                         <!--{{ signup_form.last_name }}-->
@@ -67,7 +69,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row ">
-                                    <label for="id_email" class="col-sm-3 col-form-label sm-label">Email</label>
+                                    <label for="id_email" class="col-sm-3 col-form-label sm-label">
+                                        Email:<span class="text-orange">*</span>
+                                    </label>
                                     <div class="col-sm-9">
                                         <input type="email" name="email" class="form-control  small-input"  id="id_email" value="{{ signup_form.email.value|default_if_none:'' }}" required>
                                         <!--{{ signup_form.email }}-->
@@ -81,9 +85,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group row ">
-                                    <label for="id_username" class="col-sm-3 col-form-label sm-label">Username</label>
+                                    <label for="id_username" class="col-sm-3 col-form-label sm-label">
+                                        Username:<span class="text-orange">*</span>
+                                    </label>
                                     <div class="col-sm-9 ">
-                                        <input type="text" name="username" class="form-control  small-input" id="id_username" value="{{ signup_form.username.value|default_if_none:'' }}"placeholder="'letters, digits, @/./+/-/_'" required>
+                                        <input type="text" name="username" class="form-control  small-input" id="id_username" value="{{ signup_form.username.value|default_if_none:'' }}" placeholder="'letters, digits, @/./+/-/_'" required>
                                         <!--{{ signup_form.username }}-->
                                         {% if signup_form.username.placeholder %}
                                             <small class=" text-small text-muted">{{ signup_form.username.placeholder }}</small>
@@ -99,7 +105,9 @@
                                 </div>
                                 
                                 <div class="form-group row ">
-                                    <label for="id_password1" class="col-sm-3 col-form-label sm-label">Password</label>
+                                    <label for="id_password1" class="col-sm-3 col-form-label sm-label">
+                                        Password:<span class="text-orange">*</span>
+                                    </label>
                                     <div class="col-sm-9">
                                         <input type="password" name="password1" class="form-control  small-input" id="id_password1" required>
                                         <!--{{ signup_form.password1 }}-->
@@ -114,7 +122,9 @@
                                 </div>
                                 
                                 <div class="form-group row "> 
-                                    <label for="id_password2" class="col-sm-3 col-form-label sm-label">Confirm Password</label>
+                                    <label for="id_password2" class="col-sm-3 col-form-label sm-label">
+                                        Confirm Password:<span class="text-orange">*</span>
+                                    </label>
                                     <div class="col-sm-9">
                                         <input type="password" name="password2" class="form-control small-input" id="id_password2" placeholder="Enter same password" required>
                                         <!--{{ signup_form.password2 }}-->
@@ -132,7 +142,7 @@
                                 </div>
                                 
                                 <div class="buttons text-center">
-                                    <button type="submit" class="btn btn-color ">Submit</button>
+                                    <button type="submit" class="btn btn-color ">Rgister now</button>
                                     <a href="{% url 'login' %}" class="btn btn-color ml-2 manage-btn ">Login</a>
                                     <a href="{% url 'home' %}" class="btn btn-color ml-2 manage-btn ">Cancel</a>
                                 </div>

@@ -12,10 +12,10 @@ from .models import TableBooking
 
 class CustomerSignUpForm(UserCreationForm):
     """
-    Form to register new user
+    Form to register a new user
     """
-    username= forms.CharField(
-        widget=forms.TextInput(attrs={'placeholder': 'letters, digits, @/./+/-/_'}),
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'placeholder': 'letters, digits, @,.,+,-,_'}),
         help_text="*"
     )
     password2 = forms.CharField(
@@ -25,72 +25,64 @@ class CustomerSignUpForm(UserCreationForm):
 
     class Meta:
         """
-        Get all the required fileds from usercreationForm
+        Get all the required fields from UserCreationForm
         """
-        
         model = User
-        fields = ('first_name','last_name','email','username','password1','password2')
+        fields = ('first_name', 'last_name', 'email', 'username', 'password1', 'password2')
 
-    def clean_password2(self):
+    def validate_passwords(self):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
-        if password1 and password2 and password1 != password2:
-            raise ValidationError("Passwords don't match")
-        if len(password1) < 8:  # Custom password length validation
-            raise ValidationError("Password is too short, it must be at least 8 characters long")
-        return password2
+        if password1 and password2:
+            if password1 != password2:
+                self.add_error('password2', "Passwords don't match")
+            if len(password1) < 8:
+                self.add_error('password1', "Password is too short, it must be at least 8 characters long")
 
-    def clean_email(self):
-        """
-        Validate the emaila adress it should contain @
-        """
+    def validate_email(self):
+        email = self.cleaned_data.get("email")
+        if email and User.objects.filter(email=email).exists():
+            self.add_error('email', "A user with this email already exists. Please use another email address")
+
+
+    def validate_username(self):
         
-        email=self.cleaned_data.get("email")
-        if not email:
-            raise ValidationError("Email is required")
-        if User.objects.filter(email=email).exists():
-            raise ValidationError("A user with the email already exist, Please give another email id")
-        return email
+        username = self.cleaned_data.get("username")
+        if username:
+            if len(username) < 8:
+                self.add_error('username', "Username should contain at least 8 characters")
+            else:
+                allowed_characters = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.@+-_')
+                if not all(char in allowed_characters for char in username):
+                    self.add_error('username', "Username can only contain letters, digits, and @,.,+,-,_ characters")
+                elif User.objects.filter(username=username).exists():
+                    self.add_error('username', "Username already exists, Please give another username")
 
-    def clean_username(self):
-        username=self.cleaned_data.get("username")
-        if not username:
-            raise ValidationError("Username field cannot be empty")
-        if len(username)<8:
-            raise ValidationError("Username should contain atleast 8 characters")
-      
-        allowed_characters = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.@+-_')
-        if not all(char in allowed_characters for char in username):
-            raise ValidationError("Username can only contain letters, digits, and @/./+/-/_ characters")
-        if User.objects.filter(username=username).exists():
-            raise ValidationError("A user with that username already exists")
-        return username
-
-    def clean_first_name(self):
-        """
-        Validate the firt name cannot be empty and digits
-        """
-        
+                               
+    def validate_first_name(self):
         first_name = self.cleaned_data.get("first_name")
-        if not first_name:
-            raise ValidationError("First name field cannot be empty")
-        if not first_name.isalpha():
-            raise ValidationError("First name can only contain letters")
-        return first_name
+        if first_name and not first_name.isalpha():
+            self.add_error('first_name', "First name can only contain letters")
 
-    def clean_last_name(self):
-        """
-        Validate last name cannot be empty and digits
-        """
-        
+
+    def validate_last_name(self):
         last_name = self.cleaned_data.get("last_name")
-        if not last_name:
-            raise ValidationError("Last name field cannot be empty")
-   
-        if not last_name.isalpha():
-            raise ValidationError("Last name can only contain letters")
-        return last_name
+        if last_name and not last_name.isalpha():
+            self.add_error('last_name', "Last name can only contain letters")
 
+    def clean(self):
+        """
+        Call the validation functions for each field.
+        """
+        cleaned_data = super().clean()
+
+        self.validate_first_name()
+        self.validate_last_name()
+        self.validate_email()
+        self.validate_username()
+        self.validate_passwords()
+
+        return cleaned_data
 
 class CustomerLoginForm(forms.Form):
     """

@@ -410,6 +410,8 @@ th{
     opacity: 0;
     /*transform:scale(1.15);*/
 }
+/*Error messages*/
+
 
 /*media query small devices( phones)*/
 
@@ -562,6 +564,10 @@ th{
         margin-left:5em;
     }
 
+    .text-danger {
+        margin-left:5em;
+    }
+
     .buttons{
        margin-left:-4rem;
     }
@@ -658,6 +664,9 @@ th{
     .my-bookings{
         margin-top:-1em;
     }
+    .text-danger {
+        margin-left:3em;
+    }
    
 }
 /* Media query for larger screens (1440px and above) */
@@ -702,6 +711,9 @@ th{
     }
     .signup-form{
         margin-left:-2em;
+    }
+    .text-danger {
+        margin-left:5em;
     }
 }
 

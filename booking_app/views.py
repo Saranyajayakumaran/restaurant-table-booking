@@ -34,7 +34,8 @@ def signup_view(request):
         if signup_form.is_valid():
             signup_form.save()
             messages.success(request, 'Registration successful! You can now log in.')
-            return redirect('login')
+            signup_form = CustomerSignUpForm()
+            #return redirect('login')
     else:
         signup_form = CustomerSignUpForm()
     return render(request, 'signup.html', {'signup_form': signup_form})
