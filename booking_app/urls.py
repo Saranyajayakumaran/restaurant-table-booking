@@ -1,5 +1,5 @@
 """
-Imports
+Standard and third party Imports
 """
 from django.contrib import admin
 from django.urls import path

@@ -31,48 +31,70 @@ class CustomerSignUpForm(UserCreationForm):
         fields = ('first_name', 'last_name', 'email', 'username', 'password1', 'password2')
 
     def validate_passwords(self):
+        """
+        Validate passwords for not same and too short
+        """
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2:
             if password1 != password2:
                 self.add_error('password2', "Passwords don't match")
             if len(password1) < 8:
-                self.add_error('password1', "Password is too short, it must be at least 8 characters long")
+                self.add_error('password1', "Password is too short,"
+                               " it must be at least 8 characters long")
 
     def validate_email(self):
+        """
+        Validate email id for alrady available in database
+        """
         email = self.cleaned_data.get("email")
         if email and User.objects.filter(email=email).exists():
-            self.add_error('email', "A user with this email already exists. Please use another email address")
+            self.add_error('email', "A user with this email already exists."
+                           "Please use another email address")
 
 
     def validate_username(self):
-        
+        """
+        Validate username for allowed characters,
+        alrady available in database,
+        atleast 8 char length
+        """
+
         username = self.cleaned_data.get("username")
         if username:
             if len(username) < 8:
                 self.add_error('username', "Username should contain at least 8 characters")
             else:
-                allowed_characters = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.@+-_')
+                allowed_characters = set('abcdefghijklmnopqrstuvwxyz'
+                                         'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                                         '0123456789.@+-_')
                 if not all(char in allowed_characters for char in username):
-                    self.add_error('username', "Username can only contain letters, digits, and @,.,+,-,_ characters")
+                    self.add_error('username', "Username can only contain letters,"
+                                   "digits, and @,.,+,-,_ characters")
                 elif User.objects.filter(username=username).exists():
-                    self.add_error('username', "Username already exists, Please give another username")
+                    self.add_error('username', "Username already exists,"
+                                   "Please give another username")
 
-                               
     def validate_first_name(self):
+        """
+        Validate first name for only letters
+        """
         first_name = self.cleaned_data.get("first_name")
         if first_name and not first_name.isalpha():
             self.add_error('first_name', "First name can only contain letters")
 
 
     def validate_last_name(self):
+        """
+        Validate last name for only letters
+        """
         last_name = self.cleaned_data.get("last_name")
         if last_name and not last_name.isalpha():
             self.add_error('last_name', "Last name can only contain letters")
 
     def clean(self):
         """
-        Call the validation functions for each field.
+        Call all the validation functions for each field.
         """
         cleaned_data = super().clean()
 
@@ -96,15 +118,28 @@ class TableBookingForm(forms.ModelForm):
     Get all the fields from tablebooking model
     """
     class Meta:
+        """
+        Get the fields of table booking form 
+        """
         model = TableBooking
-        fields = ['table', 'booking_date', 'booking_time', 'phone_number', 'number_of_guests', 'special_requests']
+        fields = ['table',
+                  'booking_date', 
+                  'booking_time', 
+                  'phone_number', 
+                  'number_of_guests', 
+                  'special_requests']
         widgets = {
             'table': forms.Select(attrs={'class': 'form-control small-input'}),
-            'booking_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control small-input'}),
-            'booking_time': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control small-input'}),
-            'phone_number': forms.TextInput(attrs={'class': 'form-control small-input'}),
+            'booking_date': forms.DateInput(
+                attrs={'type': 'date', 'class': 'form-control small-input'}),
+            'booking_time': forms.TimeInput(
+                attrs={'type': 'time', 'class': 'form-control small-input'}),
+            'phone_number': forms.TextInput(
+                attrs={'class': 'form-control small-input'}),
             'number_of_guests': forms.NumberInput(attrs={'class': 'form-control small-input'}),
-            'special_requests': forms.Textarea(attrs={'class': 'form-control small-input', 'rows': 3, 'placeholder':''}),
+            'special_requests': forms.Textarea(attrs={
+                'class': 'form-control small-input', 
+                'rows': 3, 'placeholder':''}),
         }
     def __init__(self, *args, **kwargs):
         self.is_update = kwargs.pop('is_update', False)
@@ -120,24 +155,30 @@ class TableBookingForm(forms.ModelForm):
         table_data = cleaned_data.get('table')
 
         if user_selected_booking_date and user_selected_booking_time and table_data:
-            booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
-            if not self.is_update:  # ensure it is not update 
+            booking_datetime = (
+                datetime.combine(user_selected_booking_date, user_selected_booking_time)
+                )
+            if not self.is_update:  # ensure it is not update
                 booking_exists = TableBooking.objects.filter(
                     table=table_data,
                     booking_date=user_selected_booking_date,
                     booking_time=user_selected_booking_time
                 ).exists()
-            
+
             if booking_exists:
-                raise ValidationError(f"The table {table_data} is already booked at {booking_datetime}. Please select another time.")
+                raise ValidationError(
+                    f"The table {table_data} is already booked at {booking_datetime}"
+                    "Please select another time.")
 
         if user_selected_booking_date<date.today():
-            raise ValidationError("Please select another date in future, you cannot book a table in past date")
-        
+            raise ValidationError(
+                "Please select another date in future,"
+                 "you cannot book a table in past date")
+
         if user_selected_booking_date.weekday()==1:
             raise ValidationError("Restaurant is closed on Tuesdays,please select another date")
         return user_selected_booking_date
-    
+
     def clean_booking_time(self):
         """
         Validate past time cannot be booked
@@ -147,29 +188,34 @@ class TableBookingForm(forms.ModelForm):
 
         user_selected_booking_date = self.cleaned_data.get('booking_date')
         user_selected_booking_time = self.cleaned_data.get('booking_time')
-
+        # Combine date and time and covert to CET timezone
         if user_selected_booking_date and user_selected_booking_time:
-            # Combine date and time and localize to CET timezone
-            booking_datetime_naive = datetime.combine(user_selected_booking_date, user_selected_booking_time)
-            booking_datetime_cet = cet.localize(booking_datetime_naive)
-            
-            #current time in CET timezone
-            current_time_cet = datetime.now(pytz.utc).astimezone(cet)
-            
-            # Validate booking is in the future
-            if booking_datetime_cet < current_time_cet:
-                raise ValidationError("Please select a future time, Booking date cannot be in the past.")
 
-            # Define restaurant operating hours in CET
+            booking_datetime_naive = datetime.combine(
+                user_selected_booking_date, user_selected_booking_time)
+            booking_datetime_cet = cet.localize(booking_datetime_naive)
+
+            #convert current time to cet
+            current_time_cet = datetime.now(pytz.utc).astimezone(cet)
+
+            # Validate booking is in the future time
+            if booking_datetime_cet < current_time_cet:
+                raise ValidationError(
+                    "Please select a future time,"
+                     "Booking date cannot be in the past.")
+
+            # Define restaurant operating hours
             restaurant_opening_time = time(11, 0)
             restaurant_closing_time = time(23, 0)
 
-            if not (restaurant_opening_time <= user_selected_booking_time <= restaurant_closing_time):
+            if not (restaurant_opening_time <= user_selected_booking_time <= restaurant_closing_time
+                    ):
                 # Table can be booked only during operating hours
                 raise ValidationError("Please select time within (11:00 AM to 9:00 PM) CET")
-            
+
             # Validate booking is at least 2 hours before closing
-            closing_datetime_naive = datetime.combine(user_selected_booking_date, restaurant_closing_time)
+            closing_datetime_naive = datetime.combine(
+                user_selected_booking_date, restaurant_closing_time)
             closing_datetime_cet = cet.localize(closing_datetime_naive)
 
             if booking_datetime_cet > closing_datetime_cet - timedelta(hours=2):
@@ -177,7 +223,6 @@ class TableBookingForm(forms.ModelForm):
 
         return user_selected_booking_time
 
-    
     def clean_phone_number(self):
         """
         Validate phone number field to ensure the phone numbers are digits
@@ -185,13 +230,15 @@ class TableBookingForm(forms.ModelForm):
         phone_number = self.cleaned_data.get('phone_number')
         if phone_number:
             if not phone_number.isdigit():
-                raise ValidationError("Phone number can only contain digits. Please enter a valid number.")
+                raise ValidationError("Phone number can only contain digits."
+                                      "Please enter a valid number.")
             # Convert phone_number to string to count digits
             phone_number = str(phone_number)
             if len(phone_number)<10:
-                raise ValidationError("Phone number cannot be less than 10 digits,please enter a valid number")
+                raise ValidationError("Phone number cannot be less than 10 digits,"
+                                      "Please enter a valid number")
         return phone_number
-    
+
     def clean_number_of_guests(self):
         """
         Validate number of guests, cannot be 0
@@ -221,16 +268,17 @@ class TableBookingForm(forms.ModelForm):
         Validate table capacity and number of guests
         if no.of.guests esceed table capacity 
         """
-        
         table_data=cleaned_data.get('table')
         number_of_guests=cleaned_data.get('number_of_guests')
 
         if table_data and number_of_guests:
             if number_of_guests>table_data.seats:
-                self.add_error('number_of_guests', f"The selected table can only accommodate {table_data.seats} persons. Please select another table.")
+                self.add_error('number_of_guests',
+                               f"The selected table can only accommodate {table_data.seats}"
+                                "persons. Please select another table.")
 
         return table_data
-    
+
     def validate_update(self):
         """
         Validate update form, Chack for current instance, 
@@ -241,11 +289,11 @@ class TableBookingForm(forms.ModelForm):
         user_selected_booking_date = cleaned_data.get('booking_date')
         user_selected_booking_time = cleaned_data.get('booking_time')
 
-        # Skip conflict booking validation during update
-        # Check if user_selected_booking_date and user_selected_booking_time are provided
+        # Check user_selected_booking_date and user_selected_booking_time are provided
         if user_selected_booking_date and user_selected_booking_time:
                 # Combine date and time
-            booking_datetime = datetime.combine(user_selected_booking_date, user_selected_booking_time)
+            booking_datetime = datetime.combine(
+                user_selected_booking_date, user_selected_booking_time)
             current_id = self.instance.id if self.instance else None
 
             print(f"Debug - Current instance ID: {current_id}")
@@ -260,8 +308,10 @@ class TableBookingForm(forms.ModelForm):
             if current_id:
                 booking_exists = booking_exists.exclude(id=current_id)
                 print(f"excluded id:{current_id}")
-            
+
             print(f"Debug - Query: {booking_exists.query}")
 
             if booking_exists.exists():
-                self.add_error('booking_date', f"The table {table_data} is already booked at {booking_datetime}. Please select another time")
+                self.add_error('booking_date',
+                               f"The table {table_data} is already booked at {booking_datetime}."
+                               "Please select another time")

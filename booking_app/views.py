@@ -58,9 +58,8 @@ def login_view(request):
                     return redirect('booking')
                 else:
                     error_message = "Account is disabled"
-            else:  
+            else:
                 error_message = "Invalid username or password"
-            
             form.fields['password'].widget.attrs['value'] = ''
 
             return render(request, 'login.html', {'form': form, 'error_message': error_message})
@@ -83,7 +82,6 @@ def table_booking_view(request):
     booking table allow user to book a table in restaurant 
     if form is valid it save all the data in database
     """
-    
     delete_user_old_bookings(request)
     if request.method == 'POST':
         booking_form = TableBookingForm(request.POST)
@@ -125,7 +123,7 @@ def user_booking_update(request,booking_id):
     """
     print("inside update")
     booking = get_object_or_404(TableBooking, id=booking_id, user=request.user)
- 
+
     if request.method == 'POST':
         form = TableBookingForm(request.POST, instance=booking)
         if form.is_valid():

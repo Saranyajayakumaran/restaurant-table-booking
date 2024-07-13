@@ -475,8 +475,8 @@ th{
         
     }
     .small-input {
-        width: 100%; /* Full width for mobile devices */
-        font-size: 12px; /* Slightly smaller font size for mobile */
+        width: 100%; /*width for mobile devices */
+        font-size: 12px; /*smaller font size for mobile */
     }
     .sp-form-control{
         width:100%;
@@ -561,10 +561,6 @@ th{
     .small-input {
         width: 70%; /* Full width for mobile devices */
         font-size: 10px; /* Slightly smaller font size for mobile */
-        margin-left:5em;
-    }
-
-    .text-danger {
         margin-left:5em;
     }
 
@@ -664,9 +660,6 @@ th{
     .my-bookings{
         margin-top:-1em;
     }
-    .text-danger {
-        margin-left:3em;
-    }
    
 }
 /* Media query for larger screens (1440px and above) */
@@ -711,9 +704,6 @@ th{
     }
     .signup-form{
         margin-left:-2em;
-    }
-    .text-danger {
-        margin-left:5em;
     }
 }
 
