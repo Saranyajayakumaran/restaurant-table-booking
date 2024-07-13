@@ -10,7 +10,6 @@
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    <!--<link rel="stylesheet" href="/static/fontawesome/css/all.min.css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -35,21 +34,8 @@
                                     </div>
                             {% endif %}
                         </div>
-
-                        <!--{% if booking_form.errors %}
-                            <div class="text-danger" role="alert">
-                                <ul>
-                                    {% for field, errors in booking_form.errors.items %}
-                                        {% for error in errors %}
-                                            <li>{{ error }}</li>
-                                        {% endfor %}
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        {% endif %}-->    
                         <form method="post" class="form-group" autocomplete="off">
                             {% csrf_token %}
-                            <!--{{ booking_form.as_p }}-->
                             <div class="form-group row">
                                 <label for="{{ booking_form.table.id_for_label }}" class="col-sm-3 col-form-label sm-label">
                                     Select a Table:<span class="text-orange">*</span>
