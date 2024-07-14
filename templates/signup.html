@@ -17,131 +17,130 @@
 </head>
 <body >
     <div class="signup-container container-fluid py-4 ">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="">
-                        <div class="card-header form-body-color">  
-                            <h2 class="text-center title">Register</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="">
+                     <div class="card-header form-body-color">  
+                        <h2 class="text-center title">Register</h2>
+                    </div>
+                    <div class="card-body form-body-color">
+                        <div id="messages" >
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-success alert-custom fade-out" role="alert">           
+                                        <p>{{ message }}</p>
+                                {% endfor %}
+                                    </div>
+                            {% endif %}
                         </div>
-                        <div class="card-body form-body-color">
-                            <div id="messages" >
-                                {% if messages %}
-                                    {% for message in messages %}
-                                        <div class="alert alert-success alert-custom fade-out" role="alert">           
-                                            <p>{{ message }}</p>
-                                    {% endfor %}
+                        <form method="post" class="form-group"  aria-hidden="true" autocomplete="off">
+                            {% csrf_token %}
+                            <div class="form-group row ">
+                                <label for="id_first_name" class="col-sm-3 col-form-label sm-label">
+                                    First Name:<span class="text-orange">*</span>
+                                </label>
+                                <div class="col-sm-9 ">
+                                    <input type="text" name="first_name" class="form-control small-input" value="{{ signup_form.first_name.value|default_if_none:'' }}"  id="id_first_name" required>
+                                    {% if signup_form.first_name.errors %}
+                                        <div class="text-danger">
+                                            {% for error in signup_form.first_name.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
                                         </div>
-                                {% endif %}
+                                    {% endif %}
+                                </div>
                             </div>
-                            <form method="post" class="form-group"  aria-hidden="true" autocomplete="off">
-                                {% csrf_token %}
-                                <div class="form-group row ">
-                                    <label for="id_first_name" class="col-sm-3 col-form-label sm-label">
-                                        First Name:<span class="text-orange">*</span>
-                                    </label>
-                                    <div class="col-sm-9 ">
-                                        <input type="text" name="first_name" class="form-control small-input" value="{{ signup_form.first_name.value|default_if_none:'' }}"  id="id_first_name" required>
-                                        {% if signup_form.first_name.errors %}
-                                            <div class="text-danger">
-                                                {% for error in signup_form.first_name.errors %}
-                                                    <p>{{ error }}</p>
-                                                {% endfor %}
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                </div>
                                 
-                                <div class="form-group row ">
-                                    <label for="id_last_name" class="col-sm-3 col-form-label sm-label">
-                                        Last Name:<span class="text-orange">*</span>
-                                    </label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="last_name" class="form-control  small-input" id="id_last_name"  value="{{ signup_form.last_name.value|default_if_none:'' }}" required>
-                                        {% if signup_form.last_name.errors %}
-                                            <div class="text-danger">
-                                                {% for error in signup_form.last_name.errors %}
-                                                    <p>{{ error }}</p>
-                                                {% endfor %}
-                                            </div>
-                                        {% endif %}
-                                    </div>
+                            <div class="form-group row ">
+                                <label for="id_last_name" class="col-sm-3 col-form-label sm-label">
+                                    Last Name:<span class="text-orange">*</span>
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="last_name" class="form-control  small-input" id="id_last_name"  value="{{ signup_form.last_name.value|default_if_none:'' }}" required>
+                                    {% if signup_form.last_name.errors %}
+                                        <div class="text-danger">
+                                            {% for error in signup_form.last_name.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
                                 </div>
-                                <div class="form-group row ">
-                                    <label for="id_email" class="col-sm-3 col-form-label sm-label">
-                                        Email:<span class="text-orange">*</span>
-                                    </label>
-                                    <div class="col-sm-9">
-                                        <input type="email" name="email" class="form-control  small-input"  id="id_email" value="{{ signup_form.email.value|default_if_none:'' }}" required>
-                                        {% if signup_form.email.errors %}
-                                            <div class="text-danger">
-                                                {% for error in signup_form.email.errors %}
-                                                    <p>{{ error }}</p>
-                                                {% endfor %}
-                                            </div>
-                                        {% endif %}
-                                    </div>
+                            </div>
+                            <div class="form-group row ">
+                                <label for="id_email" class="col-sm-3 col-form-label sm-label">
+                                    Email:<span class="text-orange">*</span>
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="email" name="email" class="form-control  small-input"  id="id_email" value="{{ signup_form.email.value|default_if_none:'' }}" required>
+                                    {% if signup_form.email.errors %}
+                                        <div class="text-danger">
+                                            {% for error in signup_form.email.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
                                 </div>
-                                <div class="form-group row ">
-                                    <label for="id_username" class="col-sm-3 col-form-label sm-label">
-                                        Username:<span class="text-orange">*</span>
-                                    </label>
-                                    <div class="col-sm-9 ">
-                                        <input type="text" name="username" class="form-control  small-input" id="id_username" value="{{ signup_form.username.value|default_if_none:'' }}" placeholder="'letters, digits, @/./+/-/_'" required>
-                                        {% if signup_form.username.placeholder %}
-                                            <small class=" text-small text-muted">{{ signup_form.username.placeholder }}</small>
-                                        {% endif %}
-                                        {% if signup_form.username.errors %}
-                                            <div class="text-danger">
-                                                {% for error in signup_form.username.errors %}
-                                                    <p>{{ error }}</p>
-                                                {% endfor %}
-                                            </div>
-                                        {% endif %}
-                                    </div>
+                            </div>
+                            <div class="form-group row ">
+                                <label for="id_username" class="col-sm-3 col-form-label sm-label">
+                                    Username:<span class="text-orange">*</span>
+                                </label>
+                                <div class="col-sm-9 ">
+                                    <input type="text" name="username" class="form-control  small-input" id="id_username" value="{{ signup_form.username.value|default_if_none:'' }}" placeholder="'letters, digits, @/./+/-/_'" required>
+                                    {% if signup_form.username.placeholder %}
+                                        <small class=" text-small text-muted">{{ signup_form.username.placeholder }}</small>
+                                    {% endif %}
+                                    {% if signup_form.username.errors %}
+                                        <div class="text-danger">
+                                            {% for error in signup_form.username.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
                                 </div>
+                            </div>
                                 
-                                <div class="form-group row ">
-                                    <label for="id_password1" class="col-sm-3 col-form-label sm-label">
-                                        Password:<span class="text-orange">*</span>
-                                    </label>
-                                    <div class="col-sm-9">
-                                        <input type="password" name="password1" class="form-control  small-input" id="id_password1" required>
-                                        {% if signup_form.password1.errors %}
-                                            <div class="text-danger">
-                                                {% for error in signup_form.password1.errors %}
-                                                    <p>{{ error }}</p>
-                                                {% endfor %}
-                                            </div>
-                                        {% endif %}
-                                    </div>
+                            <div class="form-group row ">
+                                <label for="id_password1" class="col-sm-3 col-form-label sm-label">
+                                    Password:<span class="text-orange">*</span>
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="password" name="password1" class="form-control  small-input" id="id_password1" required>
+                                    {% if signup_form.password1.errors %}
+                                        <div class="text-danger">
+                                            {% for error in signup_form.password1.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
                                 </div>
+                            </div>
                                 
-                                <div class="form-group row "> 
-                                    <label for="id_password2" class="col-sm-3 col-form-label sm-label">
-                                        Confirm Password:<span class="text-orange">*</span>
-                                    </label>
-                                    <div class="col-sm-9">
-                                        <input type="password" name="password2" class="form-control small-input" id="id_password2" placeholder="Enter same password" required>
-                                        {% if signup_form.password2.placeholder %}
-                                            <small class="text-small text-muted">{{ signup_form.password2.placeholder }}</small>
-                                        {% endif %}
-                                        {% if signup_form.password2.errors %}
-                                            <div class="text-danger">
-                                                {% for error in signup_form.password2.errors %}
-                                                    <p>{{ error }}</p>
-                                                {% endfor %}
-                                            </div>
-                                        {% endif %}
-                                    </div>
+                            <div class="form-group row "> 
+                                <label for="id_password2" class="col-sm-3 col-form-label sm-label">
+                                    Confirm Password:<span class="text-orange">*</span>
+                                </label>
+                                <div class="col-sm-9">
+                                    <input type="password" name="password2" class="form-control small-input" id="id_password2" placeholder="Enter same password" required>
+                                    {% if signup_form.password2.placeholder %}
+                                        <small class="text-small text-muted">{{ signup_form.password2.placeholder }}</small>
+                                    {% endif %}
+                                    {% if signup_form.password2.errors %}
+                                        <div class="text-danger">
+                                            {% for error in signup_form.password2.errors %}
+                                                <p>{{ error }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
                                 </div>
+                            </div>
                                 
-                                <div class="buttons text-center">
-                                    <button type="submit" class="btn btn-color ">Rgister now</button>
-                                    <a href="{% url 'login' %}" class="btn btn-color ml-2 manage-btn ">Login</a>
-                                    <a href="{% url 'home' %}" class="btn btn-color ml-2 manage-btn ">Cancel</a>
-                                </div>
-                            </form>
-                        </div>
+                            <div class="buttons text-center">
+                                <button type="submit" class="btn btn-color ">Rgister now</button>
+                                <a href="{% url 'login' %}" class="btn btn-color ml-2 manage-btn ">Login</a>
+                                <a href="{% url 'home' %}" class="btn btn-color ml-2 manage-btn ">Cancel</a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
