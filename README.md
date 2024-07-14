@@ -95,5 +95,31 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 #### Registration form
 
-- Give all the valid inputs and click register now
-- User will be registered and can login and book a table
+- Fill in all the required fields: First Name, Last Name, Email, Username, Password, and Confirm Password.
+- Ensure all inputs are valid.
+- Click on the Register Now button.
+- Upon successful registration, you will be able to log in and book a table.
+
+#### Booking a Table
+- Once logged in, navigate to the table booking section.
+- Select the table based on capacity and your convenience.
+- Choose the date and time for the reservation.
+- Select number of guests
+- Confirm the booking. The system will validate to prevent double booking for the same table, date, and time.
+
+#### Viewing and Managing Reservations
+- upon clicking manage booking, Navigate to the My Bookings page.
+- View all future reservations with detailed information.
+
+#### Update Reservations:
+- Select the booking you want to modify.
+- Change any of the fields as necessary.
+- The system will validate changes to ensure no double booking occurs when time or date is changed.
+
+#### Delete Reservations:
+- Choose the booking you wish to cancel.
+- Click on the Delete button.
+- A confirmation pop-up will appear to confirm the deletion.
+- Click ok to delete 
+- Cancel button will cancel the delete process
+
