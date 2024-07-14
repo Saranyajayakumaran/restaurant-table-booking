@@ -2,7 +2,7 @@
 Mystic Masala is a web-based application designed to streamline the process of booking tables at our Indian restaurant. The application provides an intuitive and user-friendly interface for customers to make table reservations, view their reservations, and manage their bookings. The project aims to enhance the dining experience by ensuring a smooth and efficient table booking process.
 
 
-### Technologies Used
+## Technologies Used
 #### Frontend
 - HTML, CSS, JavaScript, Bootstrap for responsive design.
 #### Backend
@@ -60,7 +60,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 #### User Management
 - Allows management of customer accounts and their reservation history.
 
-### Future implementations
+## Future implementations
 
 #### Real-time Table Availability:
 - Implement real-time updates for table availability to reflect bookings and cancellations immediately.
@@ -81,9 +81,9 @@ Mystic Masala is a web-based application designed to streamline the process of b
 - Enable customers to add their reservations to their Google Calendar, Apple Calendar, or other calendar apps with a single click.
 
 
-### How to Use 
+## How to Use 
 
-#### Login form
+### Login form
 ##### For Registered Users:
 - Enter a valid Username and Password.
 - Click on the Login button.
@@ -122,4 +122,45 @@ Mystic Masala is a web-based application designed to streamline the process of b
 - A confirmation pop-up will appear to confirm the deletion.
 - Click ok to delete 
 - Cancel button will cancel the delete process
+
+## Flow Chart : How the project works
+
+
+## Validation Rules and Limits
+
+### Login form
+- If the username or password is incorrect or not registered, an error message will display: "Invalid username or password".
+
+### Registration form
+#### First name:
+- Field cannot be empty
+- First name should be characters, if not error message will display: "First name can only contain letters"
+
+#### Last name:
+- Field cannot be empty
+- Last name should be characters, if not error message will display: "Last name can only contain letters"
+
+#### Email:
+- Email field cannot be empty.
+- Email should contain a '@' symbol
+- Email should be in proper format "eg: mysticmasala@gmail.com"
+- If the user enterd email already exsists , error message will display: "Email already exsist"
+
+#### Username:
+- Field cannot be empty
+- Username should contain atleast 8 characters
+- Username can be only allowed characters,numbers and special characters.
+- If the user enterd username already exsists , error message will display :" Username already exsists"
+
+#### Password:
+- Password should contain atleast 8 characters
+- Password should not be common one
+- A strong password should contain mix of letters,digits and special symbols.
+
+#### Confirm Password:
+- If the password doesn't match, Error message will display " Password dont match"
+
+
+### Book A Table Form :
+#### 
 
