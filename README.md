@@ -162,5 +162,24 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 
 ### Book A Table Form :
-#### 
+#### Booking date:
+- Field cannot be empty
+- User cannot book a table in past date
+
+#### Booking Time:
+- Field cannot be empty
+- User cannot book a table in past time
+
+#### Phone number:
+- Phone number field is optional
+- If user enters a phone number , if it is 0 , error message will display "password cannot be zero"
+- Phone number cannot be less than 10 digits
+- Phone number cannot be greater than 15 digits
+
+#### Number of guests:
+- Number of guests will only be postive numbers
+- Number of giests cannot be 0
+- If number of guest if greater than table capacity, errro messsage will display:" Table capacity is less han number of guests"
+
+#### Special characters
 
