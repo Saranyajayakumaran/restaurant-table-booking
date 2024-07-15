@@ -654,6 +654,10 @@ th{
        margin-top:-3em;
        margin-right:1em
    }
+   .booking-container{
+    width:100%;
+    margin-top:3rem;
+}
 }
 
 /* Media query for larger screens (1440px and above) */
