@@ -43,6 +43,48 @@ main{
     justify-content: space-between
 
 }
+
+header,
+footer {
+    flex-grow: 1;
+    height: fit-content;
+    height: min-content;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust as needed */
+    z-index: 100; /* Ensure header and footer are above other content */
+}
+
+header {
+    position: fixed;
+    top: 0;
+}
+footer {
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 0; /* Ensure footer is behind other content */
+    text-align: center; /* Optional: Center text inside the footer */
+    padding: 1rem 0; /* Optional: Add some padding */
+}
+
+
+/*header, footer {
+    position:fixed ; /* Ensure text content is above the background */
+    /*flex-grow:1;
+    height:fit-content;
+    height:min-content;
+    
+}
+
+footer{
+    margin-top:auto;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    z-index: 0;
+    background-color: #ffffff; 
+}*/
+
+
 .menu-content-box{
     max-width: 80%;
   
@@ -62,22 +104,18 @@ main{
     justify-content: center;
 }
 
-header, footer {
-    position:fixed ; /* Ensure text content is above the background */
-    flex-grow:1;
-    height:fit-content;
-    height:min-content;
-    
-}
+
 /* Footer styling */
-footer{
+/*footer{
     margin-top:auto;
-    position: fixed;
+    /*position: fixed;*/
+    /*position:relative;
     bottom: 0;
     width: 100%;
     z-index: 0;
     background-color: #ffffff; 
-}
+}*/
+
 
 /*Update page styling*/page
 th{

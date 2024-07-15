@@ -80,15 +80,6 @@ def login_view(request):
 
 
 @login_required
-def logout_view(request):
-    """
-    Logout view allow user to logout and render home page
-    """
-    logout(request)
-    return render(request, 'home.html')
-
-
-@login_required
 def table_booking_view(request):
     """
     booking table allow user to book a table in restaurant
@@ -111,7 +102,7 @@ def table_booking_view(request):
 
     return render(request, 'booking.html', {'booking_form': booking_form})
 
-
+@login_required
 def delete_user_old_bookings(request):
     """
     Delete old bookings for logged in user
@@ -165,3 +156,12 @@ def user_booking_delete(request, booking_id):
         booking.delete()
         messages.success(request, "Booking deleted successfully.")
     return redirect('user_booking_list')
+
+@login_required
+def logout_view(request):
+    """
+    Logout view allow user to logout and render home page
+    """
+    logout(request)
+    return render(request, 'home.html')
+
