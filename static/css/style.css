@@ -58,31 +58,6 @@ header {
     position: fixed;
     top: 0;
 }
-footer {
-    width: 100%;
-    background-color: #ffffff;
-    z-index: 0; /* Ensure footer is behind other content */
-    text-align: center; /* Optional: Center text inside the footer */
-    padding: 1rem 0; /* Optional: Add some padding */
-}
-
-
-/*header, footer {
-    position:fixed ; /* Ensure text content is above the background */
-    /*flex-grow:1;
-    height:fit-content;
-    height:min-content;
-    
-}
-
-footer{
-    margin-top:auto;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    z-index: 0;
-    background-color: #ffffff; 
-}*/
 
 
 .menu-content-box{
@@ -91,7 +66,7 @@ footer{
 }
 .login-container{
     max-width: 30%;
-    position:fixed;
+    position:relatve;
     margin:60px;
     margin-left: 0px;
     padding: 20px;
@@ -106,15 +81,15 @@ footer{
 
 
 /* Footer styling */
-/*footer{
+footer{
     margin-top:auto;
     /*position: fixed;*/
-    /*position:relative;
+    position:relative;
     bottom: 0;
     width: 100%;
     z-index: 0;
     background-color: #ffffff; 
-}*/
+}
 
 
 /*Update page styling*/page
