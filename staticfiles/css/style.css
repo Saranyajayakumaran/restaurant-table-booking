@@ -43,13 +43,28 @@ main{
     justify-content: space-between
 
 }
+
+header,
+footer {
+    flex-grow: 1;
+    height: fit-content;
+    height: min-content;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust as needed */
+    z-index: 100; /* Ensure header and footer are above other content */
+}
+
+header {
+    position: fixed;
+    top: 0;
+}
 .menu-content-box{
     max-width: 80%;
   
 }
 .login-container{
     max-width: 30%;
-    position:fixed;
+    position:relatve;
     margin:60px;
     margin-left: 0px;
     padding: 20px;
@@ -62,22 +77,18 @@ main{
     justify-content: center;
 }
 
-header, footer {
-    position:fixed ; /* Ensure text content is above the background */
-    flex-grow:1;
-    height:fit-content;
-    height:min-content;
-    
-}
+
 /* Footer styling */
 footer{
     margin-top:auto;
-    position: fixed;
+    /*position: fixed;*/
+    position:relative;
     bottom: 0;
     width: 100%;
     z-index: 0;
     background-color: #ffffff; 
 }
+
 
 /*Update page styling*/page
 th{
@@ -654,6 +665,10 @@ th{
        margin-top:-3em;
        margin-right:1em
    }
+   .booking-container{
+    width:100%;
+    margin-top:3rem;
+}
 }
 
 /* Media query for larger screens (1440px and above) */
