@@ -199,48 +199,45 @@ class TableBookingForm(forms.ModelForm):
         """
         Validate past time cannot be booked
         """
-
-        cet = pytz.timezone('CET')  # Central european time
-
         user_selected_booking_date = self.cleaned_data.get('booking_date')
         user_selected_booking_time = self.cleaned_data.get('booking_time')
-        # Combine date and time and covert to CET timezone
+        # Combine date and time and covert to utc timezone
         if user_selected_booking_date and user_selected_booking_time:
 
-            booking_datetime_naive = datetime.combine(
+            booking_datetime_basic = datetime.combine(
                 user_selected_booking_date, user_selected_booking_time)
-            booking_datetime_cet = cet.localize(booking_datetime_naive)
+            # convert user selected booking datetime to utc
+            booking_datetime_utc = pytz.utc.localize(booking_datetime_basic)
 
-            # convert current time to cet
-            current_time_cet = datetime.now(pytz.utc).astimezone(cet)
+            # get current time and convert current time to utc
+            current_time_utc = datetime.now(pytz.utc)
 
-            # Validate booking is in the future time
-            if booking_datetime_cet < current_time_cet:
+            # Validate bookingtime in the future
+            if booking_datetime_utc < current_time_utc:
                 raise ValidationError(
-                    "Please select a future time,"
-                    "Booking date cannot be in the past.")
+                    "Please select a future time")
 
-            # Define restaurant operating hours
-            restaurant_opening_time = time(11, 0)
-            restaurant_closing_time = time(23, 0)
+            # Defining restaurant operating hours in UTC
+            restaurant_opening_time_utc = time(10, 0) # 11.00am CET
+            restaurant_closing_time_utc = time(22, 0) # 23.00 CET
 
-            if not (restaurant_opening_time <= user_selected_booking_time <=
-                    restaurant_closing_time):
+            if not (restaurant_opening_time_utc <= user_selected_booking_time <=
+                    restaurant_closing_time_utc):
                 # Table can be booked only during operating hours
                 raise ValidationError("Please select time within"
-                                      "(11:00 AM to 9:00 PM) CET")
+                                      "(10:00 AM to 10:00 PM) UTC")
 
             # Validate booking is at least 2 hours before closing
-            closing_datetime_naive = datetime.combine(
-                user_selected_booking_date, restaurant_closing_time)
-            closing_datetime_cet = cet.localize(closing_datetime_naive)
+            closing_datetime_basic = datetime.combine(
+                user_selected_booking_date, restaurant_closing_time_utc)
+            closing_datetime_utc = pytz.utc.localize(closing_datetime_basic)
 
             if (
-                booking_datetime_cet >
-                closing_datetime_cet - timedelta(hours=2)
+                booking_datetime_utc >
+                closing_datetime_utc - timedelta(hours=2)
             ):
                 raise ValidationError("Please select time within"
-                                      "(11:00 AM to 9:00 PM) CET")
+                                      "(10:00 AM to 10:00 PM) UTC")
 
         return user_selected_booking_time
 
