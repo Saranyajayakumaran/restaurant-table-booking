@@ -7,14 +7,6 @@ from django.db.models.manager import Manager
 
 # Create your models here.
 
-
-class SignUpModel(models.Model):
-    """
-    Get user information form the registration form
-    """
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
-
 class HomePageContent(models.Model):
     """
     Model to store the description and special offers of the restaurant

@@ -63,7 +63,7 @@ header {
   
 }
 .login-container{
-    max-width: 30%;
+    max-width:;
     position:relatve;
     margin:60px;
     margin-left: 0px;
@@ -588,7 +588,8 @@ th{
 @media (min-width: 1024px){
 
     .login-container{
-        margin-top:9rem;
+        margin-top:rem;
+        width:80%;
     }
     
     .signup-container{

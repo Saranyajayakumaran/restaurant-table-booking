@@ -237,7 +237,7 @@ class TableBookingForm(forms.ModelForm):
                 closing_datetime_utc - timedelta(hours=2)
             ):
                 raise ValidationError("Please select time within"
-                                      "(10:00 AM to 10:00 PM) UTC")
+                                      "(10:00 AM to 8:00 PM) UTC")
 
         return user_selected_booking_time
 
