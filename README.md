@@ -239,20 +239,47 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 #### Login Page
 
-**Valid Input**
+**Valid Inputs**
 
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
 |---------|----------|------------------|-----------|
 |Case 1|Enter valid usename,password and click login|Render book a table form | Pass|
 |Case 2|Click Refister link to signup|Render signup form|Pass|
 
-**Invalid Input**
+**Invalid Inputs**
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
 |---------|----------|------------------|-----------|
 |Case 1|Enter invalid username password and click login| Display error message"Invalid username or password"| Pass|
 |Case 2|Enter valid username but leave password blank,click login|Display error message "Password is required"|Pass|
 |Case 3|Enter valid username but wrong password,click login| Display error message"Invalid username or password"|pass|
-|Case 4|Enter invalid username valid password,click login |  Display error message"Invalid username or password"|pass|                  
+|Case 4|Enter invalid username valid password,click login |  Display error message"Invalid username or password"|pass|
+
+#### Registration Form
+
+**Valid Inputs**
+|Test Case|User Input|Expected Behaviour|Pass / Fail|
+|---------|----------|------------------|-----------|
+|Case 1|First name:"mystic"|Validate input and accept the value |Pass |
+|Case 2|Last name:"masala"|Validate input and accept the value|Pass|
+|Case 3|Email: "test@example.com"|Validate email format and accept | Pass |
+|Case 4|Username:"Booking"|Validate usernama and accept|Pass|
+|Case 5|Password: "Password@123"|Validate password strength and accept|Pass|
+|Case 6|Confirm Password:"Password@123"|Match with password and accept|Pass|
+
+**Invalid Inputs**
+
+|Test Case|User Input|Expected Behaviour|Pass / Fail|
+|---------|----------|------------------|-----------|
+|Case 1 |First name:" "|Error message:**"Please fill the field"**|Pass|
+|Case 2 |First name:"123"/"mystic123"|Error message:**"Please provide only letters"**|Pass|
+|Case 3 |Last name:" "|Error message:**Please fill the field**|Pass|
+|Case 4|Last name:"1234"/"masala123"|Error message:**Please provide only letters**|Pass|
+|Case 5|Email:"testexample.com"|Error message:**Enter valid Email**|Pass|
+|Case 6|Email:"test@examplecom"|Error message:**Enter valid Email**|Pass|
+|Case 7|Email:" "|Error message:**"Please fill the field"**|Pass|
+|Case 8|username:"  "|Error message:**"Please fill the field"**|Pass|
+|Case 9|Enter existing username| Error message:**Username already exisist**| Pass|
+
 
 
 
