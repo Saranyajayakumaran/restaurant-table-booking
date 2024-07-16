@@ -369,6 +369,66 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 ### Lighthouse Validation
 
+### Django framework
+Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Here are the steps outlining how Django works:
+
+- **Project Setup**
+    - **Create a Project:** Use django-admin startproject projectname to create a new Django project.
+    - **Create an App:** Within the project, use **python manage.py startapp appname** to create a new application.
+
+- **Project Structure**
+    - **Manage.py:** A command-line utility that lets you interact with your Django project.
+    - **Settings.py:** Configuration for your Django project (database settings, installed apps, middleware, etc.)
+    - **Urls.py:** URL declarations for the Django project; maps URLs to views.
+    - **Wsgi.py:** Entry point for WSGI-compatible web servers to serve your project.
+
+- **Models**
+    - **Define Models:** Define your data models in models.py using Django’s ORM.
+    - **Migrations:** Create migrations using **python manage.py makemigrations** and apply them with **python manage.py migrate**.
+
+- **Views**
+    - **Define Views:** In views.py, define the functions or classes that handle requests and return responses.
+    - **Templates:** Use HTML templates to render views. Templates are stored in the templates directory.
+
+- **URLs**
+    - **URL Configuration:** In urls.py, map URL patterns to views. Include app-specific URLs using Django’s include() function.
+
+- **Forms**
+    - **Create Forms:** Use Django’s forms library to handle form rendering and validation.
+    - **Handle Forms:** Process forms in views, validate inputs, and handle errors.
+
+- **Static Files**
+    - **Static Files:** Store CSS, JavaScript, and images in the static directory and serve them using Django’s static file management.
+
+- **Admin Interface**
+    - **Admin Site:** Use Django’s built-in admin interface to manage site content. Register models in admin.py to make them accessible in the admin interface.
+
+- **User Authentication**
+    - **Authentication System:** Use Django’s built-in authentication system for user login, logout, password management, and user registration.
+
+- **Deployment**
+     - **Prepare for Deployment:** Configure settings for production (e.g., DEBUG=False), collect static files with python manage.py collectstatic, and use a WSGI server for deployment.
+
+
+### Using Bootstrap  
+
+Bootstrap is a powerful front-end framework for developing responsive and mobile-first websites. It includes HTML, CSS, and JavaScript components for creating common UI elements and layouts quickly and efficiently.
+
+Why Use Bootstrap?
+
+- **Responsive Design:** Bootstrap's grid system and responsive utilities ensure your website looks great on all devices.
+- **Pre-styled Components:** Provides a wide array of pre-styled components such as buttons, forms, navigation bars, and more, which can be easily customized.
+- **Cross-browser Compatibility:** Ensures your website works consistently across different browsers.
+- **Easy to Use:** Simple integration with existing projects and extensive documentation for reference.
+
+**How to Use**
+
+- **Use Bootstrap CDN**
+    - For quick integration and faster page loading, include Bootstrap via its CDN. This also ensures you always use the latest version of Bootstrap.
+
+- **Leverage Bootstrap Grid System**
+    - Utilize Bootstrap’s grid system to create responsive layouts. The grid system uses a series of containers, rows, and columns to layout and align content.
+
 
 ### Deployment
 
@@ -401,4 +461,12 @@ The app was deployed through Heroku. The steps are as follows:
     - Optionally, enable automatic deployment if you want your Heroku app to update automatically whenever changes are pushed to the connected GitHub repository.
     - Click the "Deploy Branch" button to manually deploy your application for the first time.
 
+### Credits
 
+- I would thank many sources and people who supported to complete my project.
+    - Thank my mentor Dick vlaanderen who guided me and his ideas and corrections were very helpful.
+    - W3schools and Stackoverflow plays a major role in learning the concepts.
+    - Authenication,signup and deployment metods are followed from blog project 
+    - CRUD functinality are learned from the youtube channel Software and webtechnology [Software and webtechnology](https://www.youtube.com/watch?v=Anux5G3cKXw&t=2s&ab_channel=Software%26WebTechnology)
+    - Custom form designs are reffered from youtube channel [codemy.com](https://www.youtube.com/watch?v=0Z_3APyKwQ4&t=409s&ab_channel=Codemy.com)
+    - Bootstrap classes Utilized from the [Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
