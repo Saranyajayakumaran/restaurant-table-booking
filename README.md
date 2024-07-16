@@ -249,10 +249,10 @@ Mystic Masala is a web-based application designed to streamline the process of b
 **Invalid Inputs**
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
 |---------|----------|------------------|-----------|
-|Case 1|Enter invalid username password and click login| Display error message"Invalid username or password"| Pass|
-|Case 2|Enter valid username but leave password blank,click login|Display error message "Password is required"|Pass|
-|Case 3|Enter valid username but wrong password,click login| Display error message"Invalid username or password"|pass|
-|Case 4|Enter invalid username valid password,click login |  Display error message"Invalid username or password"|pass|
+|Case 1|Enter invalid username password and click login|Error message:"Invalid username or password"| Pass|
+|Case 2|Enter valid username but leave password blank,click login|Error message:"Password is required"|Pass|
+|Case 3|Enter valid username but wrong password,click login|Error message:"Invalid username or password"|pass|
+|Case 4|Enter invalid username valid password,click login |Error message:"Invalid username or password"|pass|
 
 #### Registration Form
 
@@ -270,17 +270,48 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
 |---------|----------|------------------|-----------|
-|Case 1 |First name:" "|Error message:**"Please fill the field"**|Pass|
-|Case 2 |First name:"123"/"mystic123"|Error message:**"Please provide only letters"**|Pass|
-|Case 3 |Last name:" "|Error message:**Please fill the field**|Pass|
-|Case 4|Last name:"1234"/"masala123"|Error message:**Please provide only letters**|Pass|
-|Case 5|Email:"testexample.com"|Error message:**Enter valid Email**|Pass|
-|Case 6|Email:"test@examplecom"|Error message:**Enter valid Email**|Pass|
-|Case 7|Email:" "|Error message:**"Please fill the field"**|Pass|
-|Case 8|username:"  "|Error message:**"Please fill the field"**|Pass|
-|Case 9|Enter existing username| Error message:**Username already exisist**| Pass|
+|Case 1 |First name:" "|Error message:"Please fill the field"|Pass|
+|Case 2 |First name:"123"/"mystic123"|Error message:"Please provide only letters"|Pass|
+|Case 3 |Last name:" "|Error message:"Please fill the field"|Pass|
+|Case 4|Last name:"1234"/"masala123"|Error message:"Please provide only letters"|Pass|
+|Case 5|Email:"testexample.com"|Error message:"Enter valid Email"|Pass|
+|Case 6|Email:"test@examplecom"|Error message:"Enter valid Email"|Pass|
+|Case 7|Email:" "|Error message:"Please fill the field"|Pass|
+|Case 8|username:"  "|Error message:"Please fill the field"|Pass|
+|Case 9|Enter existing username| Error message:"Username already exisist"| Pass|
+|Case 10|Username:"user"| Error message:"Username should contain atleast 8 characters"|Pass|
+|Case 11|Enter username without specified characters|Error message:"Username should contain only letters,digits,@,+-_"|Pass|
+|Case 12|password:"short"|Error message:"Password too short(atleast 8 char), Password too common"| Pass|
+|Case 13|password:" "|Error message:"Please fill the field"|Pass|
+|Case 14|Enter password1 and leave password 2 empty|Error message:"Please fill the field"|Pass|
+|Case 15|password:"Different"|Error message:"Password dont match"|Pass|
+
+####  Table Booking Form
+
+**Valid Inputs**
+|Test Case|User Input|Expected Behaviour|Pass / Fail|
+|---------|----------|------------------|-----------|
+|Case 1|Table:"Select a table"|save to database|Pass|
+|Case 2|Bookingdate:"Future date"|validate future date and save|Pass|
+|Case 3|Booking Time: "Future time"|validate future time and save|Pass|
+|case 4|Phone_number: "  "/ "1234567890"|validate digit and save|Pass|
+|Case 5|Number of guests:"Same as table cpacity of less than table|validtae and save|Pass|
+|Case 6|Special request:"  "/"within 200 char"| validate  and save|pass|
 
 
+**Invalid Inputs**
+|Test Case|User Input|Expected Behaviour|Pass / Fail|
+|---------|----------|------------------|-----------|
+|Case 1|Table:" "|Error message:"Please select a table"|Pass|
+|Case 2|Booking date:"Past date"|Error message:"Please selet a future date"|Pass|
+|Case 3|Booking date:"Select tuesdays"|Error message:"Restaurant closed on tuesdays"|Pass|
+|Case 4|Booking date:" "|Error message:"Please fill the field"|Pass|
+|Case 5|Booking Time:"Past time"|Error message:"Please select future time"|Pass|
+|Case 6|Booking Time:"not between (10am to 8 pm):|Error mesage:"please select time between 10am to 8.pm"|Pass|
+|Case 7|Booking Time:"  "|Error message:"Please fill the field"|Pass|
+|Case 8|if Phone number present, Validate for atleast 10 digits|Error message:"Phone number cannot be less than 10 digits"|Pass|
+|Case 9|if Phone number present, Validate for more than 15 digits| Error message:"Phone number cannot be more than 15 digits"|Pass|
+|Case 10|Number of guests:"more than table capacity"|Error message:"guests is more than table capacity choose another table"|Pass|
 
 
 
