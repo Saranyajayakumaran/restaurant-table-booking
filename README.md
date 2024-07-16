@@ -181,5 +181,28 @@ Mystic Masala is a web-based application designed to streamline the process of b
 - Number of giests cannot be 0
 - If number of guest if greater than table capacity, errro messsage will display:" Table capacity is less han number of guests"
 
-#### Special characters
+#### Special Requests:
+- Special request is an optional field
+- Special request cannot be more than 200 characters.
 
+
+### Update Form 
+
+- If the date or time has changed, validate the new date and time against existing bookings.
+- If no change in date or time, update other details directly.
+- If a booking conflict is detected, return an appropriate error message.
+
+#### Phone number:
+- Phone number field is optional
+- If user enters a phone number , if it is 0 , error message will display "password cannot be zero"
+- Phone number cannot be less than 10 digits
+- Phone number cannot be greater than 15 digits
+
+#### Number of guests:
+- Number of guests will only be postive numbers
+- Number of giests cannot be 0
+- If number of guest if greater than table capacity, errro messsage will display:" Table capacity is less han number of guests"
+
+#### Special Requests:
+- Special request is an optional field
+- Special request cannot be more than 200 characters.
