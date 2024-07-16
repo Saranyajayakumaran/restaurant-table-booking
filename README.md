@@ -167,6 +167,17 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 
 ### Book A Table Form :
+
+#### What is UTC?
+
+**UTC (Coordinated Universal Time)** 
+- UTC is the primary time standard by which the world regulates clocks and time. It is used as a reference for timekeeping globally, ensuring synchronization across different regions and systems.
+
+**UTC Validation:**
+- Bookings cannot be made for past times.
+- Bookings must be within restaurant operating hours (10:00 AM to 10:00 PM UTC).
+- Bookings must be made at least 2 hours before closing time (by 8:00 PM UTC).
+
 #### Booking date:
 - Field cannot be empty
 - User cannot book a table in past date
@@ -198,16 +209,6 @@ Mystic Masala is a web-based application designed to streamline the process of b
   - If no change in date or time, update other details directly.
   - If a booking conflict is detected, return an appropriate error message.
     
-    #### What is UTC?
-
-    **UTC (Coordinated Universal Time)** 
-    - UTCis the primary time standard by which the world regulates clocks and time. It is used as a reference for timekeeping globally, ensuring synchronization across different regions and systems.
-
-    **UTC Validation:**
-    - Bookings cannot be made for past times.
-    - Bookings must be within restaurant operating hours (10:00 AM to 10:00 PM UTC).
-    - Bookings must be made at least 2 hours before closing time (by 8:00 PM UTC).
-
 **Phone number:**
 - Phone number field is optional
 - If user enters a phone number , if it is 0 , error message will display "password cannot be zero"
@@ -234,5 +235,25 @@ Mystic Masala is a web-based application designed to streamline the process of b
 ### Pep8 Validation
 
 
-## Functional Testing
+### Functional Testing
+
+#### Login Page
+
+**Valid Input**
+
+|Test Case|User Input|Expected Behaviour|Pass / Fail|
+|---------|----------|------------------|-----------|
+|Case 1|Enter valid usename,password and click login|Render book a table form | Pass|
+|Case 2|Click Refister link to signup|Render signup form|Pass|
+
+**Invalid Input**
+|Test Case|User Input|Expected Behaviour|Pass / Fail|
+|---------|----------|------------------|-----------|
+|Case 1|Enter invalid username password and click login| Display error message"Invalid username or password"| Pass|
+|Case 2|Enter valid username but leave password blank,click login|Display error message "Password is required"|Pass|
+|Case 3|Enter valid username but wrong password,click login| Display error message"Invalid username or password"|pass|
+|Case 4|Enter invalid username valid password,click login |  Display error message"Invalid username or password"|pass|                  
+
+
+
 
