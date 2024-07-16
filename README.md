@@ -317,6 +317,12 @@ Mystic Masala is a web-based application designed to streamline the process of b
 |Case 9|if Phone number present, Validate for more than 15 digits| Error message:"Phone number cannot be more than 15 digits"|Pass|
 |Case 10|Number of guests:"more than table capacity"|Error message:"Guests is more than table capacity choose another table"|Pass|
 
+**Double Booking Validation**(table booking)
+|Test Case|User Input|Expected Behaviour|Pass / Fail|
+|---------|----------|------------------|-----------|
+|Case 1|select table, booking date and time |Validate weather table already booked in same date and table and Error message:"Table is already booked , please select another table"| Pass|
+
+
 #### My booking list
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
 |---------|----------|------------------|-----------|
@@ -328,6 +334,15 @@ Mystic Masala is a web-based application designed to streamline the process of b
 #### Update Booking
 
 **Valid Input**
+
+|Test Case|User Input|Expected Behaviour|Pass / Fail|
+|---------|----------|------------------|-----------|
+|Case 1|Select a table:" "|Error message:"Please select a table"|Pass|
+|Case 2|Update only phone number,if Phone number present, Validate for atleast 10 digits|Error message:"Phone number cannot be less than 10 digits"|Error message:"Phone number cannot be less than 10 digits"|Pass|
+|Case 3|Update only number of guests, if "more than table capacity"|Error message:"Guests is more than table capacity choose another table"|Pass|
+|Case 4|Update only Special requests:if "more than 200 char"|Error message:"cannot be more than 200 character"|Pass|
+
+**Double Booking Validation**(Update Booking)
 
 
 
