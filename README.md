@@ -236,6 +236,15 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 
 ### Functional Testing
+### Home page
+|Test Case|Expected Behaviour|Pass / Fail|
+|---------|------------------|-----------|
+|Click Home page navigation link|Successfully render home page|Pass|
+|Click book a table button in home page|Successfully render login page|Pass|
+|Click menu page navigation link|Successfully render menu page|Pass|
+|Click book a table navigation link|Successfully render login page|Pass|
+|Click logout|Successfully logged out and render home page|Pass|
+
 
 #### Login Page
 
@@ -342,10 +351,54 @@ Mystic Masala is a web-based application designed to streamline the process of b
 |Case 3|Update only number of guests, if "more than table capacity"|Error message:"Guests is more than table capacity choose another table"|Pass|
 |Case 4|Update only Special requests:if "more than 200 char"|Error message:"cannot be more than 200 character"|Pass|
 
+
 **Double Booking Validation**(Update Booking)
 
+|Test Case|User Input|Expected Behaviour|Pass / Fail|
+|---------|----------|------------------|-----------|
+|Case 1|if user update other firelds like phone number,number of guests and special request|skip the validation for current id and save updated details to database|Pass|
+|Case 2|If user update booking date,booking time or table|Exclude current record and validate with other records in database and display error:"Table is already booked for this date and time" if already booked|Pass|
+
+#### Fixed Bugs
+|Bugs Found|Problem|How i solved it|
+|----------|-----------|---------------|
+|Handling sucess message|Messages were being displayed and remained even after the next session started.|Used javascript to fade out meassages after 3 seconds|
+|Handling past time booking validation|The past time booking validation was not properly done in deployed version|Getting time from current locationa dn convert it to UTC and validate the past date|
+|Handling Delete operation|Records were not being deleted when clicking the delete button.|Debugged with print statements and discovered it was sending a GET request instead of a POST request. Changed the method to POST|
+|Handling Error messages|All the error messages was displaying at the top of the form|Changed the code to display all the error messaes for each field|
+
+### Lighthouse Validation
 
 
+### Deployment
 
+The app was deployed through Heroku. The steps are as follows:
+
+- **Log into Github and locate Github Repository.**
+    - If you haven't already, sign up for a Heroku account at Heroku's website.
+
+- **Create a Heroku Account:**
+    - If you haven't already, sign up for a Heroku account at Heroku's website.
+
+- **Create a New Heroku App:**
+    - Log into your Heroku account.
+    - From the Heroku dashboard, click on the "New" button to create a new app.
+    - Choose a unique name for your app.
+    - Select the region closest to your location.
+    - Click "Create app" to finalize the creation.
+
+- **Configure App Settings:**
+    - Go to your newly created app's settings.
+    - Navigate to the "Config Vars" section.
+    - Add any necessary environment variables that your application requires.
+    - Postgres database link and secret kes as same as in the django app
+    - Ensure that you have configured the necessary build packs for your application.
+
+- **Deploy Your Application:**
+    - Scroll down to the "Deployment Method" section on your app's dashboard.
+    - Select GitHub as the deployment method.
+    - Connect your Heroku app to your GitHub repository by searching for and selecting the repository name.
+    - Optionally, enable automatic deployment if you want your Heroku app to update automatically whenever changes are pushed to the connected GitHub repository.
+    - Click the "Deploy Branch" button to manually deploy your application for the first time.
 
 
