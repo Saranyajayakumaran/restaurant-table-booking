@@ -3,17 +3,22 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 
 ## Technologies Used
-#### Frontend
+**Frontend**
 - HTML, CSS, JavaScript, Bootstrap for responsive design.
-#### Backend
+
+**Backend**
 - Django framework for server-side logic and database management.
-#### Database
+
+**Database**
 - PostgreSQL for storing user and reservation data.
-#### Deployment 
+
+**Deployment** 
 - Deployed on a cloud platform Heroku for accessibility.
-#### GitHub
+
+**GitHub**
 - Web-based platform providing hosting services for Git repositories and collaboration tools.
-#### Git
+
+**Git**
 - A distributed version control system for tracking changes in source code
 
 ## Features
@@ -132,32 +137,32 @@ Mystic Masala is a web-based application designed to streamline the process of b
 - If the username or password is incorrect or not registered, an error message will display: "Invalid username or password".
 
 ### Registration form
-#### First name:
+**First name:**
 - Field cannot be empty
 - First name should be characters, if not error message will display: "First name can only contain letters"
 
-#### Last name:
+**Last name:**
 - Field cannot be empty
 - Last name should be characters, if not error message will display: "Last name can only contain letters"
 
-#### Email:
+**Email:**
 - Email field cannot be empty.
 - Email should contain a '@' symbol
 - Email should be in proper format "eg: mysticmasala@gmail.com"
 - If the user enterd email already exsists , error message will display: "Email already exsist"
 
-#### Username:
+**Username:**
 - Field cannot be empty
 - Username should contain atleast 8 characters
 - Username can be only allowed characters,numbers and special characters.
 - If the user enterd username already exsists , error message will display :" Username already exsists"
 
-#### Password:
+**Password:**
 - Password should contain atleast 8 characters
 - Password should not be common one
 - A strong password should contain mix of letters,digits and special symbols.
 
-#### Confirm Password:
+**Confirm Password:**
 - If the password doesn't match, Error message will display " Password dont match"
 
 
@@ -170,39 +175,64 @@ Mystic Masala is a web-based application designed to streamline the process of b
 - Field cannot be empty
 - User cannot book a table in past time
 
-#### Phone number:
+**Phone number:**
 - Phone number field is optional
 - If user enters a phone number , if it is 0 , error message will display "password cannot be zero"
 - Phone number cannot be less than 10 digits
 - Phone number cannot be greater than 15 digits
 
-#### Number of guests:
+**Number of guests:**
 - Number of guests will only be postive numbers
 - Number of giests cannot be 0
 - If number of guest if greater than table capacity, errro messsage will display:" Table capacity is less han number of guests"
 
-#### Special Requests:
+**Special Requests:**
 - Special request is an optional field
 - Special request cannot be more than 200 characters.
 
 
 ### Update Form 
 
-- If the date or time has changed, validate the new date and time against existing bookings.
-- If no change in date or time, update other details directly.
-- If a booking conflict is detected, return an appropriate error message.
+ **Booking Date and Time:**
+  - If the date or time has changed, validate the new date and time against existing bookings.
+  - If no change in date or time, update other details directly.
+  - If a booking conflict is detected, return an appropriate error message.
+    
+    #### What is UTC?
 
-#### Phone number:
+    **UTC (Coordinated Universal Time)** 
+    - UTCis the primary time standard by which the world regulates clocks and time. It is used as a reference for timekeeping globally, ensuring synchronization across different regions and systems.
+
+    **UTC Validation:**
+    - Bookings cannot be made for past times.
+    - Bookings must be within restaurant operating hours (10:00 AM to 10:00 PM UTC).
+    - Bookings must be made at least 2 hours before closing time (by 8:00 PM UTC).
+
+**Phone number:**
 - Phone number field is optional
 - If user enters a phone number , if it is 0 , error message will display "password cannot be zero"
 - Phone number cannot be less than 10 digits
 - Phone number cannot be greater than 15 digits
 
-#### Number of guests:
+**Number of guests:**
 - Number of guests will only be postive numbers
 - Number of giests cannot be 0
 - If number of guest if greater than table capacity, errro messsage will display:" Table capacity is less han number of guests"
 
-#### Special Requests:
+**Special Requests:**
 - Special request is an optional field
 - Special request cannot be more than 200 characters.
+
+**Delete Button:**
+- Get a confirmation from user to delete
+- If user clicks ok, then delete the particular record
+- If user clicks cancel, record will not be deleted
+
+
+## Testing
+
+### Pep8 Validation
+
+
+## Functional Testing
+
