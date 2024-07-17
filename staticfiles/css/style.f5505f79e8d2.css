@@ -16,7 +16,7 @@ body{
     flex-direction:column;
     min-width: 100%;
     min-height:100vh;
-    background-image: url("../images/pexels-karolina-grabowska-4963817.jpg");
+    background-image: url("../images/pexels-karolina-grabowska-4963817.41a1aa04b489.jpg");
     background-size: cover;
     background-position: right center;
     background-attachment: fixed;
@@ -33,7 +33,7 @@ main{
 }
 
 .home-content-box,.menu-content-box,
-.login-container{
+.login-container,.booking-content-box{
     background: rgba(0, 0, 0, 0.7); 
     padding: 1.25rem;
     margin: 7.5rem ;
@@ -268,7 +268,7 @@ th{
     color:#000000;
 }
 
-/*.booking-content-box{
+.booking-content-box{
     background: rgba(0, 0, 0, 0.8); 
     padding: 20px;
     margin: 200px ;
@@ -277,7 +277,7 @@ th{
     max-width: 70%; 
     color: #ffffff;
     justify-content: space-between;
-}*
+}
 
 /*booking table form styling*/
 
@@ -379,7 +379,6 @@ th{
 
 .signup-container{
     margin-top:5em;
-    
 }
 /*signup input field*/
 
@@ -416,7 +415,7 @@ th{
 
 @media(max-width:576px){
     .home-content-box, .menu-content-box,
-    .login-container{
+    .login-container,.booking-content-box {
         margin:  1rem;
         margin-top:5rem;
         padding: 0.5rem;
@@ -427,6 +426,9 @@ th{
     }
     .signup-container{
         margin-top:-6rem;
+    }
+    .booking-content-box{
+        width:170%;
     }
     .navbar-brand h1{
         font-size: 1rem;
@@ -543,7 +545,7 @@ th{
         margin-left: 2rem;
     }
     .signup-container{
-        width:%;
+        width:150%;
         margin-left:-5em;
         margin-top:-4em;
     }

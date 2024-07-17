@@ -163,5 +163,4 @@ def logout_view(request):
     Logout view allow user to logout and render home page
     """
     logout(request)
-    messages.success(request, "You have successfully logged out.")
     return redirect('home')

@@ -80,14 +80,13 @@ header {
 
 /* Footer styling */
 footer{
-    height:0px;
     margin-top:auto;
     /*position: fixed;*/
     position:relative;
     bottom: 0;
     width: 100%;
     z-index: 0;
-    background-color: #000000;
+    /*background-color: #000000;*/
 }
 
 
@@ -663,6 +662,9 @@ th{
 }
 /* Media query for larger screens (1440px and above) */
 @media (min-width:1280px){
+    .login-container{
+        margin-top:12rem;
+    }
     .signup-container{
        width:80%;
        margin-top:-3em;
