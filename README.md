@@ -477,3 +477,4 @@ The app was deployed through Heroku. The steps are as follows:
     - CRUD functinality are learned from the youtube channel Software and webtechnology [Software and webtechnology](https://www.youtube.com/watch?v=Anux5G3cKXw&t=2s&ab_channel=Software%26WebTechnology)
     - Custom form designs are reffered from youtube channel [codemy.com](https://www.youtube.com/watch?v=0Z_3APyKwQ4&t=409s&ab_channel=Codemy.com)
     - Bootstrap classes Utilized from the [Bootstrap documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+    - Some more youtube channels too get idea of restaurant table booking project
