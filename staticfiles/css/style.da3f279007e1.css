@@ -16,7 +16,7 @@ body{
     flex-direction:column;
     min-width: 100%;
     min-height:100vh;
-    background-image: url("../images/pexels-karolina-grabowska-4963817.jpg");
+    background-image: url("../images/pexels-karolina-grabowska-4963817.41a1aa04b489.jpg");
     background-size: cover;
     background-position: right center;
     background-attachment: fixed;
@@ -80,10 +80,10 @@ header {
 
 /* Footer styling */
 footer{
-    height:0px;
+    height:fit-content;
     margin-top:auto;
-    /*position: fixed;*/
-    position:relative;
+    position: fixed;
+    /*position:relative;*/
     bottom: 0;
     width: 100%;
     z-index: 0;
@@ -671,13 +671,15 @@ th{
    }
    .booking-container{
     width:100%;
-    margin-top:10rem;
+    margin-top:3rem;
 }
 }
 
 /* Media query for larger screens (1440px and above) */
-@media (min-width: 1440px) {
-   
+/*@media (min-width: 1440px) {
+    footer{
+        margin-top:10rem;
+    }
     .login-container{
         margin-top:10rem;
     }
@@ -696,7 +698,7 @@ th{
         align-items: center;
         margin-left:-60px;
         gap: 10px; /*buttons space */
-    }
+    /*}
     .buttons .btn {
         min-width: 50px; 
         height: 40px; 
@@ -710,7 +712,7 @@ th{
     .signup-form{
         margin-left:-2em;
     }
-}
+}*/
 
 
 
