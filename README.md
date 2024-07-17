@@ -245,6 +245,13 @@ Mystic Masala is a web-based application designed to streamline the process of b
 |Click book a table navigation link|Successfully render login page|Pass|
 |Click logout|Successfully logged out and render home page|Pass|
 
+### Footer
+|Test Case|Expected Behaviour|Pass / Fail|
+|---------|------------------|-----------|
+|Click facebook icon | Redirect facebook home page in new page|Pass|
+|Click twitter icon| Redirect Twitter home page in new page|Pass|
+|Click youtube icon| Redirect youtube home page in new page|Pass|
+|Click instagram icon|Redirect to instagram home page in new page|Pass|
 
 #### Login Page
 

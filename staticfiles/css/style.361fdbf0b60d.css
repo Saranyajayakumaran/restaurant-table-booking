@@ -16,7 +16,7 @@ body{
     flex-direction:column;
     min-width: 100%;
     min-height:100vh;
-    background-image: url("../images/pexels-karolina-grabowska-4963817.jpg");
+    background-image: url("../images/pexels-karolina-grabowska-4963817.41a1aa04b489.jpg");
     background-size: cover;
     background-position: right center;
     background-attachment: fixed;
@@ -87,7 +87,7 @@ footer{
     bottom: 0;
     width: 100%;
     z-index: 0;
-    background-color: #000000;
+    background-color: #ffffff;
 }
 
 
