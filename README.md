@@ -27,26 +27,43 @@ Mystic Masala is a web-based application designed to streamline the process of b
 - Home page contains basic detailed description about restaurant ,special offers and contact details.
 - Users can book a table by clicking the "Book a Table with Us" button or navigating to the "Book a Table" link.
 
+![Home page screenshot](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/home%20page.jpg)
+
+
 #### Menu Page
 - Menu page contais all the menu available in restaurant with price and detailed description.
+
+![Menu page screenshot](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/menu%20page.jpg)
 
 #### User Registration and Login: 
 - Secure user accounts for managing reservations and personal details.
 - Authenticates users based on valid username and password and redirects to the booking page.
 - New users can register their details on the registration page.
 
+![Login page screenshot](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/login%20page.jpg)
+
+![Registration form](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/sign%20up%20page.jpg )
+
+
 #### Table Reservation
 - Allows customers to view table capacity and select based on their convenience.
 - Customers can book tables for specific dates and times.
 - Validates to prevent double booking if the table is already booked for the same date and time.
 
+![Booking page screenshot](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/booking%20page.jpg)
+
+
 #### My bookings
 - Customers can view their booking details for both past and future reservations.
 - Double booking validation occurs when booking time or date is changed.
 
+![My booking page screenshot](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/my%20bookings%20page.jpg)
+
 #### Update Reservations
 - Customer can modify their booking in all the fields.
 - Double booking validation occurs when booking time or date is changed.
+
+![Update page screenshot](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/update%20page.jpg)
 
 #### Delete Reservations
 - Customers can cancel bookings by deleting specific reservations.
@@ -130,6 +147,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 ## Flow Chart : How the project works
 
+![Flow chart how project works](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/activitiyDiagrams.jpg)
 
 ## Validation Rules and Limits
 
