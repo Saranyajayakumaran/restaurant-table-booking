@@ -127,6 +127,7 @@ th{
 .navbar-nav .nav-link:focus,
 .navbar-nav .nav-link:active{
     color: #FF4500 !important; /*hover effect*/
+    text-decoration: underline;
 }
 
 .navbar-custom{
@@ -544,7 +545,6 @@ th{
         margin-left: 2rem;
     }
     .signup-container{
-        width:;
         margin-left:-5em;
         margin-top:-4em;
     }
@@ -640,7 +640,7 @@ th{
     }
     .booking-container{
         width:70%;
-        margin-top:6rem;
+        margin-top:4rem;
     }
     .sp-form-control{
         width:60%;
