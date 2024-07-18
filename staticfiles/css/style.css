@@ -528,14 +528,14 @@ th{
         margin-left: 2rem;
     }
     .signup-container{
+        width:100%;
         margin-left:-5em;
-        margin-top:-4em;
+        margin-top:0.5em;
     }
     .login-button-center{
         margin-left:5em;
     }
     .sm-label{
-        margin-left:-3rem;
         font-size: 12px;
     }  
     .small-input {
@@ -544,7 +544,7 @@ th{
         margin-left:5em;
     }
     .buttons{
-       margin-left:-4rem;
+       margin-left:-3rem;
     }
 
     /*Booking page*/
