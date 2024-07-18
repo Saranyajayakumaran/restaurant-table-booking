@@ -67,6 +67,8 @@ header {
     margin:60px;
     margin-left: 0px;
     padding: 20px;
+    margin-top:8rem;
+    margin-bottom:12rem;
 }
 
 .content {
@@ -178,10 +180,6 @@ th{
     margin-bottom:px;
 }
 
-.login-container{
-    margin-left:30px;
-    margin-top:7em;
-}
 
 .login-input {
     height:2.5em;
@@ -425,6 +423,7 @@ th{
     .login-container {
         max-width: 90%;
         margin-top:12rem;
+        margin-bottom:8rem;
     }
     .button-center {
         margin-left: 10%;
@@ -523,7 +522,8 @@ th{
     }
     .login-container{
         max-width: 100%;
-        margin-top:20rem;
+        margin-top:12rem;
+        margin-bottom:8rem;
     }
     .signup-container{
         width:100%;
