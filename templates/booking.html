@@ -10,7 +10,7 @@
                         <h2 class="text-center title ">Book a Table</h2>
                     </div>
                     <div class="card-body form-body-color ">
-                        <h5 class="text-center welcome-message text-color">Welcome {{ request.user.username }}</h5>
+                        <p class="text-center welcome-message text-color">Welcome {{ request.user.username }}</p>
                         <div id="messages" >
                             {% if messages %}
                                 {% for message in messages %}
@@ -98,7 +98,7 @@
                             <div class="form-group row">
                                 <label  for="{{ booking_form.special_requests.id_for_label }}" class="col-sm-3 col-form-label sm-label">Special Requests:</label>
                                 <div class="col-sm-9">
-                                    <textarea  class="sp-form-control" name="special_requests" autocomplete="off">{{ booking_form.special_requests.value }}</textarea>
+                                    <textarea id="{{ booking_form.special_requests.id_for_label }}" class="sp-form-control" name="special_requests" autocomplete="off">{{ booking_form.special_requests.value }}</textarea>
                                     {% if booking_form.special_requests.errors %}
                                         <div class="text-danger">
                                             {% for error in booking_form.special_requests.errors %}

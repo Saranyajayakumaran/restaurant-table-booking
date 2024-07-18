@@ -393,7 +393,12 @@ th{
 .my-bookings{
     margin-top:-5rem;
 }
-/*meaages*/
+.update-btn-color{
+    width:100%;
+    background-color: #fc7e51;;
+    color:#000000;
+}
+/*messages*/
 .fade-out {
     opacity: 1;
     transition: opacity 1s ease-in-out;
@@ -473,6 +478,7 @@ th{
         margin: 5px;
         width: 60%; /* button width for mobile devices */
     }
+    
     .buttons{
         display: flex;
         flex-direction: column;

@@ -16,7 +16,7 @@ body{
     flex-direction:column;
     min-width: 100%;
     min-height:100vh;
-    background-image: url("../images/pexels-karolina-grabowska-4963817.jpg");
+    background-image: url("../images/pexels-karolina-grabowska-4963817.41a1aa04b489.jpg");
     background-size: cover;
     background-position: right center;
     background-attachment: fixed;
@@ -395,8 +395,7 @@ th{
 }
 .update-btn-color{
     width:100%;
-    background-color: #fc7e51;;
-    color:#000000;
+    color:#fc7e51;
 }
 /*messages*/
 .fade-out {
