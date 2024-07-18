@@ -63,7 +63,7 @@ header {
   
 }
 .login-container{
-    position:relatve;
+    position:;
     margin:60px;
     margin-left: 0px;
     padding: 20px;
@@ -515,7 +515,6 @@ th{
 
 /* media query for ipad and tablets*/
 @media (min-width: 768px) and (max-width: 1024px) {
-    booking-content-box,
     .menu-content-box,
     .home-content-box,
     .login-container {
@@ -566,10 +565,10 @@ th{
     }
 }
 /* Media query for laptop screens (1024px to 1440px) */
-@media (min-width: 1024px){
+@media (min-width: 1024px) and (max-width: 1440px) {
 
     .login-container{
-        margin-top:10rem;
+        margin-top:5rem;
         width:80%;
     }
     
@@ -659,7 +658,7 @@ th{
 @media (min-width: 1440px) {
    
     .login-container{
-        margin-top:20rem;
+        margin-top:rem;
     }
     .booking-container{
         width:70%;
@@ -668,7 +667,6 @@ th{
     .signup-container{
         width:70%;
         margin-right:1em;
-        margin-top:-em;
     }
     .buttons {
         display: flex;

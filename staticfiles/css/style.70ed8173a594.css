@@ -16,7 +16,7 @@ body{
     flex-direction:column;
     min-width: 100%;
     min-height:100vh;
-    background-image: url("../images/pexels-karolina-grabowska-4963817.webp");
+    background-image: url("../images/pexels-karolina-grabowska-4963817.722e99f55d0f.webp");
     background-size: cover;
     background-position: right center;
     background-attachment: fixed;
@@ -63,7 +63,7 @@ header {
   
 }
 .login-container{
-    position:;
+    position:relatve;
     margin:60px;
     margin-left: 0px;
     padding: 20px;
@@ -658,7 +658,7 @@ th{
 @media (min-width: 1440px) {
    
     .login-container{
-        margin-top:rem;
+        margin-top:5rem;
     }
     .booking-container{
         width:70%;
