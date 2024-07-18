@@ -541,6 +541,10 @@ th{
         margin-left:-5em;
         margin-top:0.5em;
     }
+    .booking-container{
+        width:100%;
+        margin-top:4rem;
+    }
     .login-button-center{
         margin-left:5em;
     }
@@ -549,8 +553,8 @@ th{
     }  
     .small-input {
         width: 70%; /* Full width for mobile devices */
-        font-size: 10px; /*smaller font size for mobile */
-        margin-left:5em;
+        font-size: 10px; 
+        margin-left:2em;
     }
     .buttons{
        margin-left:-3rem;
@@ -559,7 +563,7 @@ th{
     /*Booking page*/
     .sp-form-control{
         width:70%;
-        margin-left:3rem;
+        margin-left:1.5rem;
     }
     .welcome-message {
         margin-left: -4em;
