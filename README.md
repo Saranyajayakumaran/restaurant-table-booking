@@ -260,7 +260,6 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 ![pylint validation](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/forms%20screenshot.png)
 
-
 ### Functional Testing
 ### Home page
 |Test Case|Expected Behaviour|Pass / Fail|

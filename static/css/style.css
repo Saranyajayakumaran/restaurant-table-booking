@@ -33,7 +33,7 @@ main{
 }
 
 .home-content-box,.menu-content-box,
-.login-container{
+.login-container,.booking-list-content-box{
     background: rgba(0, 0, 0, 0.7); 
     padding: 1.25rem;
     margin: 7.5rem ;
@@ -43,7 +43,12 @@ main{
     justify-content: space-between
 
 }
-
+.booking-list-content-box{
+    padding-top: 2rem;;
+    display: flex;
+    flex-direction: column;
+    margin-bottom:26rem; 
+}
 header,
 footer {
     flex-grow: 1;
@@ -63,7 +68,6 @@ header {
   
 }
 .login-container{
-    position:;
     margin:60px;
     margin-left: 0px;
     padding: 20px;
@@ -384,6 +388,9 @@ th{
     background-color: #fc7e51;;
     color:#000000;
 }
+.update-btn-color:hover{
+    background-color:#ffffff;
+}
 /*messages*/
 .fade-out {
     opacity: 1;
@@ -403,6 +410,9 @@ th{
         margin-top:5rem;
         padding: 0.5rem;
         height:fit-content;/*content boxes in all pages*/
+    }
+    .booking-list-content-box{
+        margin-bottom:50rem;
     }
     .login-button-center{
         margin-left:3em;
@@ -494,7 +504,8 @@ th{
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         border: 0; 
-        margin-bottom: 1rem; 
+        margin-bottom: 1rem;
+       
     }
     .table {
         font-size: 0.5rem; 
@@ -571,6 +582,9 @@ th{
         margin-top:5rem;
         width:80%;
     }
+    .booking-list-content-box{
+        margin-bottom:45rem;
+    }
     
     .signup-container{
         width:100%;
@@ -642,6 +656,9 @@ th{
 @media (min-width:1280px){
     .login-container{
         margin-top:12rem;
+    }
+    .booking-list-content-box{
+        margin-bottom:42rem;
     }
     .signup-container{
        width:80%;

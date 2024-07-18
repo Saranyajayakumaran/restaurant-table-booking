@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
 from .models import HomePageContent, MenuPageContent, TableBooking
 from .forms import CustomerSignUpForm, CustomerLoginForm, TableBookingForm
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -161,5 +162,7 @@ def logout_view(request):
     """
     Logout view allow user to logout and render home page
     """
-    logout(request)
-    return redirect('home')
+    if request.user.is_authenticated:
+        logout(request)
+        return redirect('home')
+   
