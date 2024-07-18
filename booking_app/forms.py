@@ -192,7 +192,7 @@ class TableBookingForm(forms.ModelForm):
 
         if user_selected_booking_date.weekday() == 1:
             raise ValidationError("Restaurant is closed on Tuesdays,"
-                                  "please select another date")
+                                  "Please select another date")
         return user_selected_booking_date
 
     def clean_booking_time(self):
@@ -322,9 +322,6 @@ class TableBookingForm(forms.ModelForm):
                 user_selected_booking_date, user_selected_booking_time)
             current_id = self.instance.id if self.instance else None
 
-            print(f"Debug - Current instance ID: {current_id}")
-            print(f"Debug - Booking datetime: {booking_datetime}")
-
             # Check for existing bookings at the same date and time
             booking_exists = TableBooking.objects.filter(
                 table=table_data,
@@ -333,12 +330,9 @@ class TableBookingForm(forms.ModelForm):
             )
             if current_id:
                 booking_exists = booking_exists.exclude(id=current_id)
-                print(f"excluded id:{current_id}")
-
-            print(f"Debug - Query: {booking_exists.query}")
 
             if booking_exists.exists():
                 self.add_error('booking_date',
                                f"The table {table_data} is already booked"
-                               f"at {booking_datetime}."
+                               f" at {booking_datetime}."
                                "Please select another time")

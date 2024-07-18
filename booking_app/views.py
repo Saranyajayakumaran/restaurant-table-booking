@@ -130,7 +130,6 @@ def user_booking_update(request, booking_id):
     """
     Update an existing booking.
     """
-    print("inside update")
     booking = get_object_or_404(TableBooking, id=booking_id, user=request.user)
 
     if request.method == 'POST':

@@ -16,7 +16,7 @@ body{
     flex-direction:column;
     min-width: 100%;
     min-height:100vh;
-    background-image: url("../images/pexels-karolina-grabowska-4963817.jpg");
+    background-image: url("../images/pexels-karolina-grabowska-4963817.webp");
     background-size: cover;
     background-position: right center;
     background-attachment: fixed;
@@ -149,7 +149,7 @@ th{
 }
 .sub-title{
     text-align: center;
-    color:#fc7e51;
+    color:#ffffff;
     font-family: 'Dancing Script', cursive;
     font-size: 20px;
 }
