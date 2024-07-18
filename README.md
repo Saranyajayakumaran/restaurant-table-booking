@@ -75,6 +75,8 @@ Mystic Masala is a web-based application designed to streamline the process of b
 - Customers can cancel bookings by deleting specific reservations.
 - A deletion confirmation pop-up appears when the user tries to delete a record.
 
+![delete page screenshot](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/delete%20.jpg)
+
 ### Admin Features
 #### Admin Dashboard
 - Provides an overview of all reservations, table capacity, and customer details.
