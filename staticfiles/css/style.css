@@ -524,7 +524,7 @@ th{
     }
     .login-container{
         max-width: 100%;
-        margin-top:15rem;
+        margin-top:20rem;
     }
     .signup-container{
         width:100%;
@@ -659,7 +659,7 @@ th{
 @media (min-width: 1440px) {
    
     .login-container{
-        margin-top:10rem;
+        margin-top:20rem;
     }
     .booking-container{
         width:70%;
