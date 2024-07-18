@@ -84,10 +84,9 @@ footer{
     bottom: 0;
     width: 100%;
     z-index: 0;
-    /*background-color: #000000;*/
 }
 
-/*Update page styling*/page
+/*Update page styling*/
 th{
     text-align:center;
 }
@@ -264,17 +263,6 @@ th{
 .booking-text-color{
     color:#000000;
 }
-
-/*.booking-content-box{
-    background: rgba(0, 0, 0, 0.8); 
-    padding: 20px;
-    margin: 200px ;
-    margin-top:70px;
-    border-radius: 10px;
-    max-width: 70%; 
-    color: #ffffff;
-    justify-content: space-between;
-}*
 
 /*booking table form styling*/
 
