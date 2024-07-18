@@ -1,6 +1,7 @@
 # MYSTIC MASALA
 Mystic Masala is a web-based application designed to streamline the process of booking tables at our Indian restaurant. The application provides an intuitive and user-friendly interface for customers to make table reservations, view their reservations, and manage their bookings. The project aims to enhance the dining experience by ensuring a smooth and efficient table booking process.
 
+![Rsponsive](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/responsive%20all%20page.png)
 
 ## Technologies Used
 **Frontend**
@@ -20,6 +21,11 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 **Git**
 - A distributed version control system for tracking changes in source code
+## Wireframes
+
+![wireframe](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/wireframe%201_page-0001.jpg)
+
+![wireframe](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/wireframe%202_page-0001.jpg)
 
 ## Features
 ### Customer Features
@@ -31,7 +37,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 
 #### Menu Page
-- Menu page contais all the menu available in restaurant with price and detailed description.
+- Menu page contains all the menu available in restaurant with price and detailed description.
 
 ![Menu page screenshot](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/menu%20page.jpg)
 
@@ -252,6 +258,8 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 ### Pep8 Validation
 
+![pylint validation](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/forms%20screenshot.png)
+
 
 ### Functional Testing
 ### Home page
@@ -356,6 +364,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 |---------|----------|------------------|-----------|
 |Case 1|select table, booking date and time |Validate weather table already booked in same date and table and Error message:"Table is already booked , please select another table"| Pass|
 
+![Double booking validation](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/double%20booking%20validation.jpg)
 
 #### My booking list
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
@@ -393,6 +402,8 @@ Mystic Masala is a web-based application designed to streamline the process of b
 |Handling Error messages|All the error messages was displaying at the top of the form|Changed the code to display all the error messaes for each field|
 
 ### Lighthouse Validation
+
+![lighthouse validation](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/lighthouse%20validation.png)
 
 ### Django framework
 Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Here are the steps outlining how Django works:
