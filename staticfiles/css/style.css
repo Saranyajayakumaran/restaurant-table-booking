@@ -641,9 +641,6 @@ th{
     .my-bookings{
         margin-top:-1em;
     }
-    footer{
-        position: relative;
-    }
    
 }
 /* Media query for larger screens (1440px and above) */
@@ -686,7 +683,7 @@ th{
     }
     .booking-container{
         width:70%;
-        margin-top:15rem;
+        margin-top:8rem;
     }
     .signup-container{
         width:70%;
