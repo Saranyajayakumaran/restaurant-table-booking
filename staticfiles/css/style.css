@@ -586,7 +586,7 @@ th{
     .signup-container{
         width:100%;
         margin-left:-2em;
-        margin-top:-6rem;
+        margin-top:rem;
     }
     .signup-sm-label{
         font-size:15px;
@@ -653,7 +653,7 @@ th{
     }
     .signup-container{
        width:90%;
-       margin-top:-3em;
+       margin-top:5em;
        margin-right:1em
    }
    .small-input {
@@ -688,6 +688,7 @@ th{
     .signup-container{
         width:70%;
         margin-right:1em;
+        margin-top:5rem;
     }
     .sm-label{
         margin-left:-0.1rem;
