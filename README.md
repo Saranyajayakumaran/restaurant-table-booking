@@ -41,7 +41,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 ![Menu page screenshot](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/menu%20page.jpg)
 
-#### User Registration and Login: 
+#### User Registration and Login
 - Secure user accounts for managing reservations and personal details.
 - Authenticates users based on valid username and password and redirects to the booking page.
 - New users can register their details on the registration page.
@@ -141,12 +141,12 @@ Mystic Masala is a web-based application designed to streamline the process of b
 - upon clicking manage booking, Navigate to the My Bookings page.
 - View all future reservations with detailed information.
 
-#### Update Reservations:
+#### Update Reservations
 - Select the booking you want to modify.
 - Change any of the fields as necessary.
 - The system will validate changes to ensure no double booking occurs when time or date is changed.
 
-#### Delete Reservations:
+#### Delete Reservations
 - Choose the booking you wish to cancel.
 - Click on the Delete button.
 - A confirmation pop-up will appear to confirm the deletion.
@@ -192,7 +192,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 - If the password doesn't match, Error message will display " Password dont match"
 
 
-### Book A Table Form :
+### Book A Table Form 
 
 #### What is UTC?
 
@@ -204,11 +204,11 @@ Mystic Masala is a web-based application designed to streamline the process of b
 - Bookings must be within restaurant operating hours (10:00 AM to 10:00 PM UTC).
 - Bookings must be made at least 2 hours before closing time (by 8:00 PM UTC).
 
-#### Booking date:
+**Booking date:**
 - Field cannot be empty
 - User cannot book a table in past date
 
-#### Booking Time:
+**Booking Time:**
 - Field cannot be empty
 - User cannot book a table in past time
 
