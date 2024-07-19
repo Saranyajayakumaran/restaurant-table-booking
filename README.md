@@ -1,7 +1,8 @@
 # MYSTIC MASALA
 Mystic Masala is a web-based application designed to streamline the process of booking tables at our Indian restaurant. The application provides an intuitive and user-friendly interface for customers to make table reservations, view their reservations, and manage their bookings. The project aims to enhance the dining experience by ensuring a smooth and efficient table booking process.
 
-The website is responsive on all screens
+The website is responsive on all screens [project link](https://table-booking-841c98d19b8c.herokuapp.com/)
+
 ![Rsponsive](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/responsive%20all%20page.png)
 
 ## Technologies Used
