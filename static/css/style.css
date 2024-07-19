@@ -54,8 +54,8 @@ footer {
     height: fit-content;
     height: min-content;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.8); /* Adjust as needed */
-    z-index: 100; /* Ensure header and footer are above other content */
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 100; /* header and footer above other content */
 }
 
 header {
@@ -76,7 +76,6 @@ header {
 
 .content {
     flex: 1; /* Takes up remaining space to push the footer down */
-    /*display: flex;*/
     align-items: center;
     justify-content: center;
 }
@@ -85,7 +84,6 @@ header {
 footer{
     margin-top:120px;
     position: fixed;
-    /*position:relative;*/
     bottom: 0;
     width: 100%;
     z-index: 0;
@@ -112,6 +110,7 @@ th{
 }
 .navbar-toggler{
     border-color:#ffffff;
+    color:#FF4500;
 }
 .nav-link {
     color: #fff !important; 
@@ -169,7 +168,7 @@ th{
     text-align: center;
 }
 .table tbody tr:nth-child(even) {
-    background-color: rgba(252, 181, 99, 0.1); /* Alternate row background color */
+    background-color: rgba(252, 181, 99, 0.1); /* row backgroundcolor*/
 }
 
 .table tbody td {
@@ -183,7 +182,7 @@ th{
     height:2.5em;
     width: 100%; /* Full width input fields */
     padding-left: 20px; /* Padding for input fields */
-    font-size: 16px; /* Example font size */
+    font-size: 16px;
     border-radius: 10px;
    
 }
@@ -460,7 +459,7 @@ th{
     }
     .small-input {
         width: 100%; /*width for mobile devices */
-        font-size: 12px; /*smaller font size for mobile */
+        font-size: 12px;
     }
     .sp-form-control{
         width:100%;
@@ -518,6 +517,7 @@ th{
 }
 
 /* media query for ipad and tablets*/
+
 @media (min-width: 768px) and (max-width: 1024px) {
     .menu-content-box,
     .home-content-box,
@@ -548,7 +548,7 @@ th{
         font-size: 12px;
     }  
     .small-input {
-        width: 70%; /* Full width for mobile devices */
+        width: 70%; 
         font-size: 10px; 
         margin-left:2em;
     }
@@ -572,10 +572,11 @@ th{
     }
     .btn-color {
         margin: 5px;
-        width: 40%; /* button size for mobile devices */
+        width: 40%; 
     }
 }
 /* Media query for laptop screens (1024px to 1440px) */
+
 @media (min-width: 1024px) and (max-width: 1440px) {
 
     .login-container{
@@ -595,7 +596,7 @@ th{
     }
     .small-input {
         width: 70%; /* input field width */
-        font-size: 10px; /*font size for mobile */
+        font-size: 10px; /*font size for laptop*/
         margin-left:4em;
         font-weight: bold;
     }
@@ -645,6 +646,7 @@ th{
    
 }
 /* Media query for larger screens (1440px and above) */
+
 @media (min-width:1280px){
     .login-container{
         margin-top:10rem;

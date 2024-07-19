@@ -228,7 +228,7 @@ class TableBookingForm(forms.ModelForm):
                 raise ValidationError("Please select time within"
                                       "(10:00 AM to 10:00 PM) UTC")
 
-            # Validate booking is at least 2 hours before closing
+            # Validate booking is at 2 hours before closing
             closing_datetime_basic = datetime.combine(
                 user_selected_booking_date, restaurant_closing_time_utc)
             closing_datetime_utc = pytz.utc.localize(closing_datetime_basic)

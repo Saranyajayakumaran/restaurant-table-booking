@@ -16,7 +16,7 @@ body{
     flex-direction:column;
     min-width: 100%;
     min-height:100vh;
-    background-image: url("../images/pexels-karolina-grabowska-4963817.webp");
+    background-image: url("../images/pexels-karolina-grabowska-4963817.722e99f55d0f.webp");
     background-size: cover;
     background-position: right center;
     background-attachment: fixed;
@@ -112,7 +112,6 @@ th{
 }
 .navbar-toggler{
     border-color:#ffffff;
-    color:#FF4500;
 }
 .navbar-toggler .fas {
     color: #ffffff;
