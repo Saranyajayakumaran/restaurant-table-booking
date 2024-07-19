@@ -230,10 +230,10 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 ### Update Form 
 
- **Booking Date and Time:**
-  - If the date or time has changed, validate the new date and time against existing bookings.
-  - If no change in date or time, update other details directly.
-  - If a booking conflict is detected, return an appropriate error message.
+**Booking Date and Time:**
+- If the date or time has changed, validate the new date and time against existing bookings.
+- If no change in date or time, update other details directly.
+- If a booking conflict is detected, return an appropriate error message.
     
 **Phone number:**
 - Phone number field is optional
