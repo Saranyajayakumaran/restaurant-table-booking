@@ -332,5 +332,5 @@ class TableBookingForm(forms.ModelForm):
             if booking_exists.exists():
                 self.add_error('booking_date',
                                f"The table {table_data} is already booked"
-                               f" at {booking_datetime}."
+                               f" on {booking_datetime}."
                                " Please select another time")
