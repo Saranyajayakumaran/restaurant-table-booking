@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             messagesDiv.classList.add('hide');
             setTimeout(() => {
                 messagesDiv.style.display = 'none';
-            }, 1000);  // Match this timeout with the CSS transition duration
-        }, 4000);  // Start fading out after 3 seconds
+            }, 1000); 
+        }, 4000);  // Start fading out after 4 seconds
     }
 });
