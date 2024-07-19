@@ -584,7 +584,7 @@ th{
 @media (min-width: 1024px) and (max-width: 1440px) {
 
     .login-container{
-        margin-top:12rem;
+        margin-top:2.5rem;
         margin-bottom:8rem;
     }
     .booking-list-content-box{
@@ -594,20 +594,20 @@ th{
     .signup-container{
         width:100%;
         margin-left:-2em;
-        margin-top:-2em;
+        margin-top:-6rem;
     }
     .signup-sm-label{
         font-size:15px;
-        margin-left:-2em;
+        margin-left:-6em;
     }
     .small-input {
         width: 70%; /* input field width */
-        font-size: 15px; /*font size for mobile */
+        font-size: 10px; /*font size for mobile */
         margin-left:4em;
         font-weight: bold;
     }
     .sm-label{
-        margin-left:rem;
+        margin-left:2rem;
         font-size: 15px;   
     }  
 
@@ -638,16 +638,11 @@ th{
     }
     .booking-container{
         width:100%;
-        margin-top:16rem;
+        margin-top:5rem;
     }
     .sp-form-control{
-        width:60%;
-        margin-left:2em;
-    }
-    .small-input{
-        width:60%;
-        font-size:10px;
-        margin-left:3em;
+        width:70%;
+        margin-left:2.5em;
     }
     .form-group{
         margin-top:2px;
@@ -660,20 +655,33 @@ th{
 /* Media query for larger screens (1440px and above) */
 @media (min-width:1280px){
     .login-container{
-        margin-top:22rem;
-        margin-bottom:8rem;
+        margin-top:10rem;
     }
     .booking-list-content-box{
         margin-bottom:42rem;
     }
     .signup-container{
-       width:80%;
+       width:90%;
        margin-top:-3em;
        margin-right:1em
    }
-   .booking-container{
-    width:100%;
-    margin-top:6rem;
+   .small-input {
+        width: 60%; /* input field width */
+        font-size: 10px; /*font size for mobile */
+        margin-left:-2em;
+        font-weight: bold;
+    }
+    .sm-label{
+        margin-left:4rem;
+        font-size: 15px;   
+    } 
+    .sp-form-control{
+        width:60%;
+        margin-left:-1em;
+    }
+    .booking-container{
+        width:100%;
+        margin-top:6rem;
     }
 }
 

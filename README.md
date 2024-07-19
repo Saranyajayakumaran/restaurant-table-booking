@@ -90,6 +90,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 #### User Management
 - Allows management of customer accounts and their reservation history.
 
+
 ## Future implementations
 
 #### Real-time Table Availability:
@@ -124,7 +125,6 @@ Mystic Masala is a web-based application designed to streamline the process of b
 - You will be redirected to the registration form.
 
 #### Registration form
-
 - Fill in all the required fields: First Name, Last Name, Email, Username, Password, and Confirm Password.
 - Ensure all inputs are valid.
 - Click on the Register Now button.
@@ -264,6 +264,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 ### Functional Testing
 ### Home page
+
 |Test Case|Expected Behaviour|Pass / Fail|
 |---------|------------------|-----------|
 |Click Home page navigation link|Successfully render home page|Pass|
@@ -273,6 +274,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 |Click logout|Successfully logged out and render home page|Pass|
 
 ### Footer
+
 |Test Case|Expected Behaviour|Pass / Fail|
 |---------|------------------|-----------|
 |Click facebook icon | Redirect facebook home page in new page|Pass|
@@ -290,6 +292,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 |Case 2|Click Refister link to signup|Render signup form|Pass|
 
 **Invalid Inputs**
+
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
 |---------|----------|------------------|-----------|
 |Case 1|Enter invalid username password and click login|Error message:"Invalid username or password"| Pass|
@@ -300,6 +303,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 #### Registration Form
 
 **Valid Inputs**
+
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
 |---------|----------|------------------|-----------|
 |Case 1|First name:"mystic"|Validate input and accept the value |Pass |
@@ -332,6 +336,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 ####  Table Booking Form
 
 **Valid Inputs**
+
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
 |---------|----------|------------------|-----------|
 |Case 1|Table:"Select a table"|save to database|Pass|
@@ -347,6 +352,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 
 
 **Invalid Inputs**
+
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
 |---------|----------|------------------|-----------|
 |Case 1|Table:" "|Error message:"Please select a table"|Pass|
@@ -361,11 +367,13 @@ Mystic Masala is a web-based application designed to streamline the process of b
 |Case 10|Number of guests:"more than table capacity"|Error message:"Guests is more than table capacity choose another table"|Pass|
 
 **Double Booking Validation**(table booking)
+
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
 |---------|----------|------------------|-----------|
 |Case 1|select table, booking date and time |Validate weather table already booked in same date and table and Error message:"Table is already booked , please select another table"| Pass|
 
 ![Double booking validation](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/double%20booking%20validation.jpg)
+
 
 #### My booking list
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
@@ -374,6 +382,7 @@ Mystic Masala is a web-based application designed to streamline the process of b
 |Case 2|Click delete|Ask confirmation|Pass|
 |Case 3|Delete confirmation click ok|Delete the record|Pass|
 |Case 4|Delete confirmation cancel|Not deleting the record|Pass|
+
 
 #### Update Booking
 

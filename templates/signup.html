@@ -57,7 +57,7 @@
                                     Last Name:<span class="text-orange">*</span>
                                 </label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="last_name" class="form-control  small-input" id="id_last_name"  value="{{ signup_form.last_name.value|default_if_none:'' }}" required>
+                                    <input type="text" name="last_name" class="form-control small-input" id="id_last_name"  value="{{ signup_form.last_name.value|default_if_none:'' }}" required>
                                     {% if signup_form.last_name.errors %}
                                         <div class="text-danger">
                                             {% for error in signup_form.last_name.errors %}
@@ -72,7 +72,7 @@
                                     Email:<span class="text-orange">*</span>
                                 </label>
                                 <div class="col-sm-9">
-                                    <input type="email" name="email" class="form-control  small-input"  id="id_email" value="{{ signup_form.email.value|default_if_none:'' }}" required>
+                                    <input type="email" name="email" class="form-control small-input"  id="id_email" value="{{ signup_form.email.value|default_if_none:'' }}" required>
                                     {% if signup_form.email.errors %}
                                         <div class="text-danger">
                                             {% for error in signup_form.email.errors %}
