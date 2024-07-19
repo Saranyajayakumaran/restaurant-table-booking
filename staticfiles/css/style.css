@@ -584,7 +584,7 @@ th{
 @media (min-width: 1024px) and (max-width: 1440px) {
 
     .login-container{
-        margin-top:22rem;
+        margin-top:12rem;
         margin-bottom:8rem;
     }
     .booking-list-content-box{
@@ -594,7 +594,7 @@ th{
     .signup-container{
         width:100%;
         margin-left:-2em;
-        margin-top:-7em;
+        margin-top:-2em;
     }
     .signup-sm-label{
         font-size:15px;
@@ -607,7 +607,7 @@ th{
         font-weight: bold;
     }
     .sm-label{
-        margin-left:0.8rem;
+        margin-left:rem;
         font-size: 15px;   
     }  
 
@@ -637,8 +637,8 @@ th{
         margin-top:0.5px;
     }
     .booking-container{
-        width:70%;
-        margin-top:4rem;
+        width:100%;
+        margin-top:16rem;
     }
     .sp-form-control{
         width:60%;
