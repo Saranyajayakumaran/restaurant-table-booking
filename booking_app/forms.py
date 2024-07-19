@@ -54,7 +54,7 @@ class CustomerSignUpForm(UserCreationForm):
         email = self.cleaned_data.get("email")
         if email and User.objects.filter(email=email).exists():
             self.add_error('email', "A user with this email already exists."
-                           "Please use another email address")
+                           " Please use another email address")
 
     def validate_username(self):
         """
@@ -78,7 +78,7 @@ class CustomerSignUpForm(UserCreationForm):
                                    "digits, and @,.,+,-,_ characters")
                 elif User.objects.filter(username=username).exists():
                     self.add_error('username', "Username already exists,"
-                                   "Please give another username")
+                                   " Please give another username")
 
     def validate_first_name(self):
         """
@@ -181,18 +181,17 @@ class TableBookingForm(forms.ModelForm):
 
             if booking_exists:
                 raise ValidationError(
-                    f"The table {table_data} is already booked at"
+                    f"The table {table_data} is already booked at "
                     f"{booking_datetime}"
-                    "Please select another time.")
+                    " Please select another time.")
 
         if user_selected_booking_date < date.today():
             raise ValidationError(
-                "Please select another date in future,"
-                "you cannot book a table in past date")
+                "Please select a future date")
 
         if user_selected_booking_date.weekday() == 1:
             raise ValidationError("Restaurant is closed on Tuesdays,"
-                                  "Please select another date")
+                                  " Please select another date")
         return user_selected_booking_date
 
     def clean_booking_time(self):
@@ -249,14 +248,12 @@ class TableBookingForm(forms.ModelForm):
         phone_number = self.cleaned_data.get('phone_number')
         if phone_number:
             if not phone_number.isdigit():
-                raise ValidationError("Phone number can only contain digits."
-                                      "Please enter a valid number.")
+                raise ValidationError("Phone number can only contain digits")
             # Convert phone_number to string to count digits
             phone_number = str(phone_number)
             if len(phone_number) < 10:
                 raise ValidationError("Phone number cannot be"
-                                      "less than 10 digits,"
-                                      "Please enter a valid number")
+                                      " less than 10 digits")
         return phone_number
 
     def clean_number_of_guests(self):
@@ -266,7 +263,7 @@ class TableBookingForm(forms.ModelForm):
         number_of_guests = self.cleaned_data.get('number_of_guests')
         if number_of_guests <= 0:
             raise ValidationError("Number of guests must"
-                                  "be greater than zero.")
+                                  " be greater than zero")
         return number_of_guests
 
     def clean_special_requests(self):
@@ -276,7 +273,7 @@ class TableBookingForm(forms.ModelForm):
         special_requests = self.cleaned_data.get('special_requests')
         if special_requests and len(special_requests) > 200:
             raise ValidationError("Special requests must be"
-                                  "less than 200 characters.")
+                                  " less than 200 characters")
         return special_requests
 
     def clean(self):
@@ -300,7 +297,7 @@ class TableBookingForm(forms.ModelForm):
                     (
                         f"The selected table can only"
                         f"accommodate {table_data.seats} "
-                        "persons. Please select another table."
+                        "persons. Please select another table"
                     )
                 )
         return table_data
@@ -336,4 +333,4 @@ class TableBookingForm(forms.ModelForm):
                 self.add_error('booking_date',
                                f"The table {table_data} is already booked"
                                f" at {booking_datetime}."
-                               "Please select another time")
+                               " Please select another time")

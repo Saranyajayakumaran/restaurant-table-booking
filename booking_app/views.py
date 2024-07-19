@@ -37,7 +37,7 @@ def signup_view(request):
         if signup_form.is_valid():
             signup_form.save()
             messages.success(request, 'Registration successful!'
-                                      'You can now log in.')
+                                      'You can now log in')
             signup_form = CustomerSignUpForm()
     else:
         signup_form = CustomerSignUpForm()
@@ -95,7 +95,7 @@ def table_booking_view(request):
             messages.success(
                 request,
                 "Booking successfull."
-                "Thank you for booking with us!")
+                " Thank you for booking with us!")
             booking_form = TableBookingForm()
     else:
         booking_form = TableBookingForm()
@@ -154,7 +154,7 @@ def user_booking_delete(request, booking_id):
     booking = get_object_or_404(TableBooking, id=booking_id, user=request.user)
     if request.method == 'POST':
         booking.delete()
-        messages.success(request, "Booking deleted successfully.")
+        messages.success(request, "Booking deleted successfully")
     return redirect('user_booking_list')
 
 
