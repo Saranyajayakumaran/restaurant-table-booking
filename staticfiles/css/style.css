@@ -180,11 +180,6 @@ th{
 
 /* Login form styling */
 
-.form-center{
-    margin-bottom:px;
-}
-
-
 .login-input {
     height:2.5em;
     width: 100%; /* Full width input fields */
@@ -314,7 +309,6 @@ th{
 }
 .form-group input {
     flex: 1;
-    margin-left:rem;
 }
 .form-control {
     width: 200px; /* Full width input fields */
@@ -629,7 +623,6 @@ th{
         font-size:12px;
         margin-left:-7em;
         margin-top:-20px;
-        padding-top:-3em;
     }
     .booking-form label{
         margin-left:1em;
