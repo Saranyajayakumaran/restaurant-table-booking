@@ -264,7 +264,12 @@ The website is responsive on all screens
 ![pylint validation](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/forms%20screenshot.png)
 
 ### HTML validation
-![htnl validation screenshot]()
+
+![html validation screenshot](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/html.png)
+
+### CSS validation
+
+![Css validation](https://github.com/Saranyajayakumaran/restaurant-table-booking/blob/main/static/images/project-screenshots/css.png)
 
 ### Functional Testing
 ### Home page
