@@ -99,7 +99,7 @@
                             <div class="form-group  row">
                                 <label  for="{{ form.special_requests.id_for_label }}" class="col-sm-3 col-form-label sm-label">Special Requests:</label>
                                 <div class="col-sm-9">
-                                    <textarea id="{{ form.special_requests.id_for_label }}" class="sp-form-control" name="special_requests">{{ booking_form.special_requests.value }}</textarea>
+                                    <textarea id="{{ form.special_requests.id_for_label }}" class="sp-form-control" name="special_requests">{{ form.special_requests.value }}</textarea>
                                     {% if form.special_requests.errors %}
                                         <div class="text-danger">
                                             {% for error in form.special_requests.errors %}

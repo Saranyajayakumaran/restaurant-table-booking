@@ -10,7 +10,7 @@
                         <h2 class="text-center title ">Book a Table</h2>
                     </div>
                     <div class="card-body form-body-color ">
-                        <p class="text-center welcome-message text-color">Welcome {{ request.user.first_name }}</p>
+                        <p class="text-center welcome-message text-color">Welcome {{ request.user.username }}</p>
                         <div id="messages" >
                             {% if messages %}
                                 {% for message in messages %}
