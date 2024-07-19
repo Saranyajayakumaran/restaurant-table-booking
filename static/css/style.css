@@ -29,7 +29,6 @@ body{
 main{
     flex-grow: 1;
     padding: 1rem;
-    padding-bottom: -5rem;
 }
 
 .home-content-box,.menu-content-box,
@@ -589,7 +588,6 @@ th{
     .signup-container{
         width:100%;
         margin-left:-2em;
-        margin-top:rem;
     }
     .signup-sm-label{
         font-size:15px;

@@ -218,10 +218,11 @@ class TableBookingForm(forms.ModelForm):
                     "Please select a future time")
 
             # Defining restaurant operating hours in UTC
-            restaurant_opening_time_utc = time(10, 0) # 11.00am CET
-            restaurant_closing_time_utc = time(22, 0) # 23.00 CET
+            restaurant_opening_time_utc = time(10, 0)  # 11.00am CET
+            restaurant_closing_time_utc = time(22, 0)  # 23.00 CET
 
-            if not (restaurant_opening_time_utc <= user_selected_booking_time <=
+            if not (restaurant_opening_time_utc
+                    <= user_selected_booking_time <=
                     restaurant_closing_time_utc):
                 # Table can be booked only during operating hours
                 raise ValidationError("Please select time within"

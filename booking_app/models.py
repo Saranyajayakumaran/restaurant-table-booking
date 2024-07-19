@@ -7,6 +7,7 @@ from django.db.models.manager import Manager
 
 # Create your models here.
 
+
 class HomePageContent(models.Model):
     """
     Model to store the description and special offers of the restaurant

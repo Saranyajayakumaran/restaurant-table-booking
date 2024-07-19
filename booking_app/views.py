@@ -8,7 +8,6 @@ from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
 from .models import HomePageContent, MenuPageContent, TableBooking
 from .forms import CustomerSignUpForm, CustomerLoginForm, TableBookingForm
-from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -103,6 +102,7 @@ def table_booking_view(request):
 
     return render(request, 'booking.html', {'booking_form': booking_form})
 
+
 @login_required
 def delete_user_old_bookings(request):
     """
@@ -157,6 +157,7 @@ def user_booking_delete(request, booking_id):
         messages.success(request, "Booking deleted successfully.")
     return redirect('user_booking_list')
 
+
 @login_required
 def logout_view(request):
     """
@@ -165,4 +166,3 @@ def logout_view(request):
     if request.user.is_authenticated:
         logout(request)
         return redirect('home')
-   
