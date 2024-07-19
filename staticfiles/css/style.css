@@ -528,7 +528,6 @@ th{
     }
     .login-container{
         max-width: 100%;
-        margin-top:18rem;
         margin-bottom:8rem;
     }
     .signup-container{
@@ -578,8 +577,7 @@ th{
 @media (min-width: 1024px) and (max-width: 1440px) {
 
     .login-container{
-        margin-top:2.5rem;
-        margin-bottom:8rem;
+        margin-top:5rem;
     }
     .booking-list-content-box{
         margin-bottom:45rem;
@@ -643,6 +641,9 @@ th{
     .my-bookings{
         margin-top:-1em;
     }
+    footer{
+        position: relative;
+    }
    
 }
 /* Media query for larger screens (1440px and above) */
@@ -681,12 +682,8 @@ th{
 /* Media query for larger screens (1440px and above) */
 @media (min-width: 1440px) {
    
-    .login-container{
-        margin-top:12rem;
-     }
     .booking-container{
         width:70%;
-        margin-top:10rem;
     }
     .signup-container{
         width:70%;
@@ -726,12 +723,7 @@ th{
         margin-left:-2em;
     }
     footer{
-        margin-top:120px;
         position: relative;
-        /*position:relative;*/
-        bottom: 0;
-        width: 100%;
-        z-index: 0;
     }
 }
 
