@@ -681,9 +681,12 @@ th{
 
 /* Media query for larger screens (1440px and above) */
 @media (min-width: 1440px) {
-   
+    .login-container{
+        margin-top:15rem;
+    }
     .booking-container{
         width:70%;
+        margin-top:15rem;
     }
     .signup-container{
         width:70%;
@@ -721,9 +724,6 @@ th{
     }
     .signup-form{
         margin-left:-2em;
-    }
-    footer{
-        position: relative;
     }
 }
 
