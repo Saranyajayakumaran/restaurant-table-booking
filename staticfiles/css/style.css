@@ -682,12 +682,11 @@ th{
 @media (min-width: 1440px) {
    
     .login-container{
-        margin-top:5rem;
-        margin-bottom:8rem;
+        margin-top:12rem;
      }
     .booking-container{
         width:70%;
-        margin-top:3rem;
+        margin-top:10rem;
     }
     .signup-container{
         width:70%;
@@ -725,6 +724,14 @@ th{
     }
     .signup-form{
         margin-left:-2em;
+    }
+    footer{
+        margin-top:120px;
+        position: relative;
+        /*position:relative;*/
+        bottom: 0;
+        width: 100%;
+        z-index: 0;
     }
 }
 
