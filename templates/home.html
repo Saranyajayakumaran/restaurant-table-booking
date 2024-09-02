@@ -18,9 +18,13 @@
                         ensuring every bite bursts with flavors that transport you to the bustling streets and serene landscapes of South India.</p>
                 </div>
             </div>
-            <div class="container mt-4 "> 
+            <div class="container mt-4"> 
                 <div class="row justify-content-center mt-4">       
-                    <a href="{% url 'login' %}" class="btn btn-color text-center sm-button">Book A Table With Us</a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'booking' %}" class="btn btn-color text-center sm-button">Book A Table With Us</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-color text-center sm-button">Book A Table With Us</a>
+                    {% endif %}
                 </div> 
             </div>
             <div class="row mt-4">
