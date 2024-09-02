@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bookings</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    {% load static %}
-    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
-    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    <!--Css style sheet-->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">   
-</head>
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
 <body>
     <main class="booking-list-content-box my-bookings">
         <h4 class="title">My Bookings</h4>
@@ -70,4 +62,4 @@
         <script src="{% static 'js/delete-confirm.js' %}"></script>   
     </main>
 </body>
-</html> 
+{% endblock %}
