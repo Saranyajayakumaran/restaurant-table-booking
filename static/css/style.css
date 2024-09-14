@@ -112,11 +112,20 @@ th{
     border-color:#ffffff;
     color:#FF4500;
 }
-.nav-link {
+.navbar-nav {
+    display: flex;
+    align-items: center; /* Vertically center items */
+}
+.nav-link{
     color: #fff !important; 
     font-size: 1rem;
     margin-right: 1rem;
     transition: color 0.3s ease-in-out;
+}
+.nav-info{
+    color: #fff;
+    text-decoration: none;
+    padding:0;
 }
 .navbar-nav .nav-item:last-child .nav-link {
     margin-right: 0;
