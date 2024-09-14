@@ -1,65 +1,58 @@
 {% extends "base.html" %}
-
 {% load static %}
 
 {% block content %}
-<body>
-    <main class="booking-list-content-box my-bookings">
-        <h4 class="title">My Bookings</h4>
-        <div id="messages" >
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-success alert-custom fade-out" role="alert">           
-                        <p>{{ message }}</p>
-                {% endfor %}
-                    </div>
-            {% endif %}
-        </div>
-        <div class="table-responsive">
-            <table class="table table-bordered ">
-                <thead>
+<main class="booking-list-content-box my-bookings">
+    <h4 class="title">My Bookings</h4>
+    <div id="messages" >
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-custom fade-out" role="alert">           
+                    <p>{{ message }}</p>
+            {% endfor %}
+                </div>
+        {% endif %}
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered ">
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Table Number</th>
+                    <th scope="col">Number_of_guests</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Special request</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
                     <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Table Number</th>
-                        <th scope="col">Number_of_guests</th>
-                        <th scope="col">Phone Number</th>
-                        <th scope="col">Special request</th>
-                        <th scope="col">Actions</th>
+                        <td>{{ booking.booking_date }}</td>
+                        <td>{{ booking.booking_time }}</td>
+                        <td>{{ booking.table }}</td>
+                        <td>{{ booking.number_of_guests }}</td>
+                        <td>{{ booking.phone_number }}</td>
+                        <td>{{ booking.special_requests }}</td>
+                        <td class="center button-container">
+                            <a href="{% url 'user_booking_update' booking.id %}" class="btn btn-sm update-btn-color">Update</a>
+                            <form id="delete-form-{{ booking.id }}" action="{% url 'user_booking_delete' booking.id %}" method="POST" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="button" class="btn btn-sm update-btn-color delete-booking" data-booking-id="{{ booking.id }}">Delete</button>
+                            </form>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    {% for booking in bookings %}
-                        <tr>
-                            <td>{{ booking.booking_date }}</td>
-                            <td>{{ booking.booking_time }}</td>
-                            <td>{{ booking.table }}</td>
-                            <td>{{ booking.number_of_guests }}</td>
-                            <td>{{ booking.phone_number }}</td>
-                            <td>{{ booking.special_requests }}</td>
-                            <td class="center button-container">
-                                <a href="{% url 'user_booking_update' booking.id %}" class="btn btn-sm update-btn-color">Update</a>
-                                <form id="delete-form-{{ booking.id }}" action="{% url 'user_booking_delete' booking.id %}" method="POST" style="display: inline;">
-                                    {% csrf_token %}
-                                    <button type="button" class="btn btn-sm update-btn-color delete-booking" data-booking-id="{{ booking.id }}">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    {% empty %}
-                        <tr>
-                            <td colspan="7">No bookings found.</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <div class="text-center">
-                <a href="{% url 'booking' %}" class=" btn btn-color ml-2 btn-color ">Cancel</a>
-            </div>
-        </div> 
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-        <script src="{% static 'js/messages.js' %}"></script> 
-        <script src="{% static 'js/delete-confirm.js' %}"></script>   
-    </main>
-</body>
+                {% empty %}
+                    <tr>
+                        <td colspan="7">No bookings found.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center">
+            <a href="{% url 'booking' %}" class=" btn btn-color ml-2 btn-color ">Cancel</a>
+        </div>
+    </div>   
+</main>
 {% endblock %}
