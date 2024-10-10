@@ -416,6 +416,7 @@ The website is responsive on all screens [project link](https://table-booking-84
 #### Fixed Bugs
 |Bugs Found|Problem|How i solved it|
 |----------|-----------|---------------|
+|Handling login and authentication|Login was trigerred each tim ei click book a table button even the user is already logged in|Add authentication steps in login html form|
 |Handling sucess message|Messages were being displayed and remained even after the next session started.|Used javascript to fade out meassages after 3 seconds|
 |Handling past time booking validation|The past time booking validation was not properly done in deployed version|Getting time from current locationa dn convert it to UTC and validate the past date|
 |Handling Delete operation|Records were not being deleted when clicking the delete button.|Debugged with print statements and discovered it was sending a GET request instead of a POST request. Changed the method to POST|
