@@ -46,6 +46,7 @@ main{
     padding-top: 2rem;;
     display: flex;
     flex-direction: column;
+    margin-top:10rem;
     margin-bottom:26rem; 
 }
 header,
@@ -112,11 +113,20 @@ th{
     border-color:#ffffff;
     color:#FF4500;
 }
-.nav-link {
+.navbar-nav {
+    display: flex;
+    align-items: center; /* Vertically center items */
+}
+.nav-link{
     color: #fff !important; 
     font-size: 1rem;
     margin-right: 1rem;
     transition: color 0.3s ease-in-out;
+}
+.nav-info{
+    color: #fff;
+    text-decoration: none;
+    padding:0;
 }
 .navbar-nav .nav-item:last-child .nav-link {
     margin-right: 0;
@@ -373,7 +383,7 @@ th{
 /* Booking list page styling*/
 
 .my-bookings{
-    margin-top:-5rem;
+    margin-top:rem;
 }
 .update-btn-color{
     width:100%;
@@ -511,7 +521,7 @@ th{
         padding: 0.5rem;
     }
     .my-bookings{
-        margin-top:-2em;
+        margin-top:em;
     }
 }
 
@@ -529,7 +539,7 @@ th{
         margin-bottom:15rem;
     }
     .booking-list-content-box{
-        margin-bottom:45rem;
+        margin-bottom:50rem;  
     } 
     .signup-container{
         width:100%;
@@ -566,12 +576,12 @@ th{
     .booking-form label{
         margin-left:-0.8em;
     }
-    .my-bookings{
-        margin-top:2em;
-    }
     .btn-color {
         margin: 5px;
         width: 40%; 
+    }
+    .my-bookings{
+        margin-top:5em;
     }
 }
 /* Media query for laptop screens (1024px to 1440px) */
@@ -582,7 +592,7 @@ th{
         margin-top:15rem;
     }
     .booking-list-content-box{
-        margin-bottom:45rem;
+        margin-bottom:75rem;
     }
     
     .signup-container{
@@ -640,7 +650,7 @@ th{
         margin-top:2px;
     }
     .my-bookings{
-        margin-top:-1em;
+        margin-top:5em;
     }
    
 }
@@ -720,7 +730,7 @@ th{
         margin-top:8px
     }
     .my-bookings{
-        margin-top:2em;
+        margin-top:5em;
     }
     .signup-form{
         margin-left:-2em;
