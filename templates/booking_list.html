@@ -37,7 +37,7 @@
                         <td>{{ booking.special_requests }}</td>
                         <td class="center button-container">
                             <a href="{% url 'user_booking_update' booking.id %}" class="btn btn-sm update-btn-color">Update</a>
-                            <a href="{% url 'user_booking_delete' booking.id %}" class="btn btn-sm update-btn-color" onclick="return confirmDelete('{{ booking.id }}');">Delete</a>
+                            <a href="{% url 'user_booking_delete' booking.id %}" class="btn btn-sm update-btn-color delete-booking">Delete</a>
                         </td>
                     </tr>
                 {% empty %}
@@ -53,3 +53,4 @@
     </div>   
 </main>
 {% endblock %}
+<script src="{% static 'js/delete-confirm.js' %}"></script>

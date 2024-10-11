@@ -389,9 +389,7 @@ The website is responsive on all screens [project link](https://table-booking-84
 |Test Case|User Input|Expected Behaviour|Pass / Fail|
 |---------|----------|------------------|-----------|
 |Case 1|Click update |Go to update form|Pass|
-|Case 2|Click delete|Ask confirmation|Pass|
-|Case 3|Delete confirmation click ok|Delete the record|Pass|
-|Case 4|Delete confirmation cancel|Not deleting the record|Pass|
+|Case 2|Click delete|Delete the record and promt message booking deleted successfully|Pass|
 
 
 #### Update Booking
